@@ -1,12 +1,15 @@
 const movies =  document.getElementById('movie')
 const btn = document.getElementById('btn')
-let dMovies = document.querySelector('input[type="text"]').value
-console.log()
-btn.addEventListener("click", async ()=>{
-  
-const response =  await fetch(`https://www.omdbapi.com/?t=${dMovies}&apikey=4c9cae68`)
-const data = await response.json()
+const inputText = document.getElementById('search-site')
+
+btn.addEventListener("click", function (){
+let inputValue = inputText.value
+fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
+.then(response=>response.json())
+.then(data=>{
 console.log(data)
-movies.innerHTML =  data
+movies.innerHTML =  `<img src="data.poster">`
+})
+
 })
 
