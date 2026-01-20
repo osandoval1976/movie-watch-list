@@ -1,14 +1,13 @@
 const movies =  document.getElementById('movie')
 const btn = document.getElementById('btn')
-const searchMovies = document.getElementById('search-site')
-btn.addEventListener("submit", ()=>{
-fetch('http://www.omdbapi.com/?s=tt3896198&apikey=4c9cae68')
-.then(response=>response.json())
-.then(data=>{
-    console.log(data)
-  const dMovies = searchMovies.value = data.search
-  movies.innerHTML = dMovies
-  console.log(dMovies)
-}
-)
+const dMovies = document.getElementById('search-site').value
+console.log(dMovies)
+btn.addEventListener("click", async ()=>{
+const response = await fetch(`http://www.omdbapi.com/?t="batman"&apikey=4c9cae68`)
+const data = await response.json()
+  console.log(data)
+  movies.textContent = dMovies
+  
+
+
 })
