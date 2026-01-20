@@ -1,5 +1,5 @@
 const movies =  document.getElementById('movie')
-cosnt btn = document.getElementById('btn')
+const btn = document.getElementById('btn')
 const searchMovies = document.querySelector('input')
 btn.addEventListener("submit", {
 fetch("https://www.omdbapi.com/?s=tt3896198&apikey=4c9cae68")
