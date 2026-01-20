@@ -1,10 +1,13 @@
 const movies =  document.getElementById('movie')
+cosnt btn = document.getElementById('btn')
+
 const searchMovies = document.querySelector('input')
-movies.addEventListener("submit", {
+btn.addEventListener("submit", {
 fetch("https://www.omdbapi.com/?s=tt3896198&apikey=4c9cae68")
 .then(response=>response.json())
 .then(data=>{
-  searchMovies.value = data.search
+  const dMovies = searchMovies.value = data.search
+  movies.HTML = dMovies
 }
 )
                       })
