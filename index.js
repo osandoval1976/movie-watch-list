@@ -1,6 +1,6 @@
 const movies =  document.getElementById('movie')
 const btn = document.getElementById('btn')
-const searchMovies = document.querySelector('input')
+const searchMovies = document.getElementById('search-site')
 btn.addEventListener("submit", {
 fetch("http://www.omdbapi.com/?s=tt3896198&apikey=4c9cae68")
 .then(response=>response.json())
