@@ -1,21 +1,27 @@
-html, body {
+html {
     margin: 0;
     padding: 0;
     border: 1px solid blue;
 }
+body{
+    margin: 5px;
+    padding: 5px;
+}
 header{
     display: flex;
     background-image: url(images/header-bg.png);
-    background-repeat: no-repeat;
+    margin-top: 195px;
+    /* position: relative; */
 }
 .container{
     display: flex;
-    margin-top: 125px;
+    position: relative;
+    margin-top: 135px;
     margin-left: 150px;
 }
 .image {
     display:flex;
-   margin: 230px 50%;
+   margin: 220px 50%;
    
 }
 img,p{
