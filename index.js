@@ -11,9 +11,10 @@ fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
 .then(data=>{
 console.log(data)
 movies.innerHTML = `<div class="list">
-<h3>${data.Title}</h3
-<p>${data.Year}</p>
-
+<h3>${data.Title}</h3>
+<span>${data.Year}</span>
+<span>${data.Ratings[0].Value}</span>
+<span>${data.Plot}</span>
 </div>`
 })
 

@@ -12,7 +12,6 @@ header{
     background-image: url(images/header-bg.png);
     background-size: contain;
     margin-top: 195px;
-    position: relative; 
     border:1px solid red;
 }
 .container{
@@ -38,7 +37,12 @@ p{
     margin-left: 18px;
 }
 
-
+.list{
+    display: block;
+    margin:5px auto;
+    line-height: 1;
+    margin-bottom: 250px;
+}
 
 
 
