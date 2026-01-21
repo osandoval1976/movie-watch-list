@@ -10,14 +10,16 @@ body{
 header{
     display: flex;
     background-image: url(images/header-bg.png);
+    background-size: contain;
     margin-top: 195px;
-    /* position: relative; */
+    position: relative; 
+    border:1px solid red;
 }
 .container{
     display: flex;
-    position: relative;
-    margin-top: 135px;
-    margin-left: 150px;
+    position: absolute;
+    margin-top: -12px;
+    margin-left: 160px;
 }
 .image {
     display:flex;
