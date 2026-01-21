@@ -11,17 +11,18 @@ header{
     display: flex;
     height: 100%;
     width: auto;
-    justify-content: space-evenly;
-    background-color: black;
-    border:1px solid black;
+    justify-content: center;
+    background-color: rgb(68, 67, 67);
+    border:1px solid red;
 }
 .text{
     display: flex;
     position: absolute;
-    height: 100%;
+    height: auto;
     width: auto;
     margin-top: 70px;
     color: whitesmoke;
+    
 }
 
 h1{
@@ -30,7 +31,7 @@ margin-right: 205px;
 
 .text2{
     margin-left: 15px;
-    margin-top: 28px;
+    margin-top: 30px;
   
 }
 
