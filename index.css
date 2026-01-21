@@ -3,7 +3,16 @@ html, body {
     padding: 0;
     border: 1px solid blue;
 }
-
+header{
+    display: flex;
+    background-image: url(images/header-bg.png);
+    background-repeat: no-repeat;
+}
+.container{
+    display: flex;
+    margin-top: 125px;
+    margin-left: 150px;
+}
 .image {
     display:flex;
    margin: 230px 50%;
