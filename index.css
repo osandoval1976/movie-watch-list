@@ -9,16 +9,37 @@ body{
 }
 header{
     display: flex;
-    background-image: url(images/header-bg.png);
-    background-size: contain;
-    margin-top: 195px;
-    border:1px solid red;
+    height: 100%;
+    width: auto;
+    justify-content: space-evenly;
+    background-color: black;
+    border:1px solid black;
 }
+.text{
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: auto;
+    margin-top: 70px;
+    color: whitesmoke;
+}
+
+h1{
+margin-right: 205px;
+}
+
+.text2{
+    margin-left: 15px;
+    margin-top: 28px;
+  
+}
+
+
 .container{
     display: flex;
     position: absolute;
     margin-top: -12px;
-    margin-left: 160px;
+    margin-left: 280px;
 }
 .image {
     display:flex;
