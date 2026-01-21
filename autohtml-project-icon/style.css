@@ -1,0 +1,29 @@
+.no-data-initial,
+.no-data-initial * {
+  box-sizing: border-box;
+}
+.no-data-initial {
+  position: relative;
+}
+.start-exploring {
+  color: #dfdddd;
+  text-align: center;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 700;
+  position: absolute;
+  left: 0px;
+  top: 70px;
+  width: 148px;
+}
+.icon {
+  width: 47.3%;
+  height: 68.06%;
+  position: absolute;
+  right: 26.35%;
+  left: 26.35%;
+  bottom: 31.94%;
+  top: 0%;
+  overflow: visible;
+}
