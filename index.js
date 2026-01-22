@@ -14,7 +14,7 @@ movies.innerHTML = `<div class="list">
 <h3>${data.Title}</h3>
 <span>${data.imdbRating}</span>
 <span>${data.Genre}</span>
-<p><img src="images/icon-10.svg">
+<p><img src="images/icon-10.svg">Watchlist</p>
 <div>
 <span>${data.Runtime}
 
