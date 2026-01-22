@@ -4,8 +4,8 @@ html {
     border: 1px solid blue;
 }
 body{
-    margin: 5px;
-    padding: 5px;
+    margin: 5px 100px;
+     padding: auto;
 }
 header{
     display: flex;
