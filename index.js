@@ -12,7 +12,7 @@ fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
 console.log(data)
 movies.innerHTML = `<div class="list">
 <h3>${data.Title}</h3>
-<span>#fad905${data.imdbRating}</span>
+<span>${data.imdbRating}</span>
 <div>
 <span>${data.Runtime}
 <span>${data.Genre}</span>
