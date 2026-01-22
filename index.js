@@ -13,9 +13,11 @@ console.log(data)
 movies.innerHTML = `<div class="list">
 <h3>${data.Title}</h3>
 <span>${data.imdbRating}</span>
+<span>${data.Genre}</span>
+<p><img src="images/icon-10.svg">
 <div>
 <span>${data.Runtime}
-<span>${data.Genre}</span>
+
 </div>
 <span>${data.Plot}</span>
 
