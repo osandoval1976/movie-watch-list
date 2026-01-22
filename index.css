@@ -4,9 +4,7 @@ html {
     border: 1px solid blue;
 }
 body{
-    margin: 5px 100px;
-     padding: auto;
-}
+    margin: 8px 95px;}
 header{
     display: flex;
     height: 100%;
