@@ -25,7 +25,8 @@ movies.innerHTML = `
 </div>`
 }else if(data ){
 
-html.innerHTML=`<div class="poster"><img src=${data.Poster}></div>
+html.innerHTML=`
+<div class="poster"><img src='${data.Poster}' width='25px' height='25px'></div>
 <div class="list">
 <h3>${data.Title}</h3>
 <span>${data.imdbRating}</span>
