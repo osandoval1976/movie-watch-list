@@ -1,6 +1,8 @@
 const movies =  document.getElementById('movie')
 const btn = document.getElementById('btn')
 const inputText = document.getElementById('search-site')
+const html = document.getElementById('html')
+
 
 
 btn.addEventListener("click", function (){
@@ -10,19 +12,30 @@ fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
 .then(response=>response.json())
 .then(data=>{
 console.log(data)
-movies.innerHTML = `<div class="list">
+if(data){
+movies.innerHTML = `
+<div class="poster"><img src=${data.Poster}></div>
+<div class="list">
 <h3>${data.Title}</h3>
 <span>${data.imdbRating}</span>
+<span>${data.Runtime}</span>
 <span>${data.Genre}</span>
-<p><a href="watchlist.html">+</a>Watchlist</p>
-<div>
-<span>${data.Runtime}
-
-</div>
+<span id="add"><a href="watchlist.html">+</a>Watchlist</span>
 <span>${data.Plot}</span>
-
 </div>`
+}else if(data ){
+
+html.innerHTML=`<div class="poster"><img src=${data.Poster}></div>
+<div class="list">
+<h3>${data.Title}</h3>
+<span>${data.imdbRating}</span>
+<span>${data.Runtime}</span>
+<span>${data.Genre}</span>
+<span>${data.Plot}</span>
+</div>`
+}
 })
 
-})
 
+
+})
