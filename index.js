@@ -5,15 +5,15 @@ const html = document.getElementById('html')
 
 
 
-btn.addEventListener("click", renderHTML)
-function renderHTML(){
+btn.addEventListener("click", function(){
+
     let inputValue = inputText.value
 
 fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
 .then(response=>response.json())
 .then(data=>{
 console.log(data)
-if(data){
+
 movies.innerHTML = `
 <div class="poster"><img src=${data.Poster}></div>
 <div class="list">
@@ -24,7 +24,7 @@ movies.innerHTML = `
 <span id="add"><a href="watchlist.html">+</a>Watchlist</span>
 <span>${data.Plot}</span>
 </div>`
-function renderNewHTML(){
+
 html.innerHTML=`
 <div class="poster"><img src='${data.Poster}' width='25px' height='25px'></div>
 <div class="list">
@@ -34,6 +34,7 @@ html.innerHTML=`
 <span>${data.Genre}</span>
 <span>${data.Plot}</span>
 </div>`
-}
+
 })
-}
+
+})
