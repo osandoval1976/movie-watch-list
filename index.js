@@ -5,7 +5,8 @@ const html = document.getElementById('html')
 
 
 
-btn.addEventListener("click", function (){
+btn.addEventListener("click", renderHTML)
+function renderHTML(){
     let inputValue = inputText.value
 
 fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
@@ -23,8 +24,7 @@ movies.innerHTML = `
 <span id="add"><a href="watchlist.html">+</a>Watchlist</span>
 <span>${data.Plot}</span>
 </div>`
-}else if(data ){
-
+function renderNewHTML(){
 html.innerHTML=`
 <div class="poster"><img src='${data.Poster}' width='25px' height='25px'></div>
 <div class="list">
@@ -36,7 +36,4 @@ html.innerHTML=`
 </div>`
 }
 })
-
-
-
-})
+}
