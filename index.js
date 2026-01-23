@@ -13,7 +13,6 @@ fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
 .then(response=>response.json())
 .then(data=>{
 console.log(data)
-
 movies.innerHTML = `
 <div class="poster"><img src=${data.Poster}></div>
 <div class="list">
@@ -25,16 +24,7 @@ movies.innerHTML = `
 <span>${data.Plot}</span>
 </div>`
 
-html.innerHTML=`
-<div class="poster"><img src='${data.Poster}' width='25px' height='25px'></div>
-<div class="list">
-<h3>${data.Title}</h3>
-<span>${data.imdbRating}</span>
-<span>${data.Runtime}</span>
-<span>${data.Genre}</span>
-<span>${data.Plot}</span>
-</div>`
-
 })
 
 })
+
