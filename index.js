@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const btn = document.getElementById('btn');
     const inputText = document.getElementById('search-site');
     const html = document.getElementById('html')
-    const anchorHTML = `<a href="watchlist.html" ><img id='icon' class="icon" src=${"images/icon-10.svg"}></a>`;
+    const anchorHTML = `<img id="icon" class="icon" src=${"images/icon-10.svg"}>`;
+    const postList = document.querySelectorAll('anchorHTML[id="icon]')
     let poster = '';
     let post=''
     if (btn) { // Add a check to ensure btn is not null
@@ -54,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }if(anchorHTML){
     
-    poster.anTag.addEventListener('click',function(){
+    postList.addEventListener('click',function(){
         let inputValue = inputText.value;
         fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
                 .then(response => response.json())
