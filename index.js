@@ -2,7 +2,7 @@
         const movies = document.getElementById('movie');
         const btn = document.getElementById('btn');
         const inputText = document.getElementById('search-site');
-
+        const html =document.getElementById('html')
         const anchorHTML = `<a href=${"watchlist.html"}><img id='icon' class="icon" src=${"images/icon-10.svg"}></a>`;
         let render = '';
 
@@ -41,32 +41,28 @@
                                         <span>${render.poster}</span>
                                     </div>
                                 </div>`;
-                        }
-                    });
-            });
-        } else {
-            console.error("Error: Element with ID 'btn' not found.");
-        }
-    
-
-
-const html =document.getElementsByClassName('movies')
-   console.log(html) 
-    if (typeof(Storage) !== "undefined") {
+                        }if (typeof(Storage) !== "undefined") {
 /*-Saving the data-*/
     localStorage.setItem('title', render.title)
     localStorage.setItem('rating', render.rating)
     localStorage.setItem('time', render.time)
     localStorage.setItem('genre', render.genre)
     localStorage.setItem('plot', render.plot)
+    localStorage.setItem('poster', render.poster)
     /*-retriving data to watchlist-*/
     html.innerHTML =localStorage.getItem('title')
-    
-  
-} else {
+                         } else {
   html.innerHTML = "Sorry, no Web storage support!";
-}
-    
+                         }    
+ });
+ });
+                         }if(btn){
+            console.error("Error: Element with ID 'btn' not found.");
+                                  }
+
+
+   
+  
 
 
 
