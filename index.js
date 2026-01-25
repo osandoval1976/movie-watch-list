@@ -2,34 +2,50 @@
 const movies =  document.getElementById('movie')
 const btn = document.getElementById('btn')
 const inputText = document.getElementById('search-site')
-const html = document.getElementById('html')
 
-btn.addEventListener("click", function(){
- let inputValue = inputText.value
+
+
+const anchorHTML = `<a href=${"watchlist.html"}><img  id='icon' class="icon" src=${"images/icon-10.svg"}></a>`
+
+btn.addEventListener('click',function(){
+let inputValue = inputText.value
+
 fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
 .then(response=>response.json())
 .then(data=>{
-    
- movies.innerHTML = `
- <div class="list">
-
+ const render = {
+    title: data.Title,
+    rating:data.imdbRating,
+    time:data.Runtime,
+    genre: data.Genre,
+    anchor: anchorHTML,
+    plot:data.Plot,
+    poster:data.Poster
+ }
+ 
+movies.innerHTML = `
+<div id="list" class="list">
 <div class="text-1">
-<h3>${data.Title}</h3>
-<span>${data.imdbRating}</span>
+<h3>${render.title}</h3>
+<span>${render.rating}</span>
 </div>
 <div class="text-2">
-<span>${data.Runtime}</span>
-<span>${data.Genre}</span>
-<span id="add"><a href="watchlist.html" >+</a>Watchlist</span>
+<span>${render.time}</span>
+<span>${render.genre}</span>
+<span>${render.anchor} </span>
+<span>Watchlist </span>
 </div>
 <div class="text-3">
-<span>${data.Plot}</span>
+<span>${render.plot}</span>
 </div>
-<img  class="poster" src=${data.Poster}>
-</div>`
+<img  class="poster" src=${render.poster}>
+</div>
+`
+
+
+ 
 })
 })
-const add = document.getElementsByTagName('a')
 
 
 
