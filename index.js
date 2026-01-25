@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const html = document.getElementById('html')
     const anchorHTML = `<a href=${"watchlist.html"}><img id='icon' class="icon" src=${"images/icon-10.svg"}></a>`;
     let poster = '';
-
+    let post=''
     if (btn) { // Add a check to ensure btn is not null
         btn.addEventListener('click', function () {
             let inputValue = inputText.value;
@@ -49,13 +49,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
         });
         
-       
+
+/*-icon is clicked*/
+
+    }if(icon){
+    const clickedIcon = poster.anTag
+    clickedIcon.addEventListener('click',myFunction)
      function myFunction(){
        let inputValue = inputText.value;
-       
-            fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
+        fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
                 .then(response => response.json())
                 .then(data => {
+                 
                     post = {
                         title: data.Title,
                         rating: data.imdbRating,
@@ -85,9 +90,9 @@ document.addEventListener('DOMContentLoaded', function () {
        
             }
 
-
-
-    } if (btn) {
+    }
+    
+    if (btn) {
         console.error("Error: Element with ID btn not found.");
     }
 
