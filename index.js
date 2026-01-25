@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const btn = document.getElementById('btn');
     const inputText = document.getElementById('search-site');
     const html = document.getElementById('html')
-    const anchorHTML = `<a href=${"watchlist.html"}><img id='icon' class="icon" src=${"images/icon-10.svg"}></a>`;
+    const anchorHTML = `<a href="watchlist.html" ><img id='icon' class="icon" src=${"images/icon-10.svg"}></a>`;
     let poster = '';
     let post=''
     if (btn) { // Add a check to ensure btn is not null
@@ -52,11 +52,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /*-icon is clicked*/
 
-    }if(icon){
-    const clickedIcon = poster.anTag
-    clickedIcon.addEventListener('click',myFunction)
-     function myFunction(){
-       let inputValue = inputText.value;
+    }if(anchorHTML){
+    const addList = poster.anTag
+    addList.addEventListener('click',function(){
+        let inputValue = inputText.value;
         fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
                 .then(response => response.json())
                 .then(data => {
@@ -88,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 })
        
-            }
+            })
 
     }
     
