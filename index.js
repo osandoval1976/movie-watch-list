@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', function () {
 /*-icon is clicked*/
 
     }if(anchorHTML){
-    const addList = poster.anTag
-    addList.addEventListener('click',function(){
+    
+    poster.anTag.addEventListener('click',function(){
         let inputValue = inputText.value;
         fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
                 .then(response => response.json())
