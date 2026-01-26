@@ -1,7 +1,5 @@
  
-   
-
-   document.addEventListener('DOMContentLoaded', function () {
+ document.addEventListener('DOMContentLoaded', function () {
     const movies = document.getElementById('movie');
     const btn = document.getElementById('btn');
     const inputText = document.getElementById('search-site');
@@ -47,7 +45,7 @@
                       
  document.getElementById('btn-1').addEventListener('click', function(event) {
  const clickedBTN = event.target.span;
-listItems=''
+
  let post=''
  const addData = []
  const html = document.getElementById('movies')
@@ -72,10 +70,11 @@ fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                                         
                         /*-retriving data to watchlist-*/
                         let movieCard =JSON.parse(localStorage.getItem('mobieCard'))
-                        alert(movieCard)  
+                        
                        const newMovies = addData.push(movieCard)
-                       
-                         listItems =''
+                       alert(newMovies)  
+                       let listItems=''
+                         
                         for(let i=0; i < newMovies.lenght;i++){
                            listItems +=`
                            <div>
