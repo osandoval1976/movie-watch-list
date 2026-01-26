@@ -47,8 +47,8 @@
  const clickedBTN = event.target.span;
 
  let post=''
- const addData = []
- const html = document.getElementById('movies')
+ let addData = []
+ const html = document.getElementById('ulLi')
 if(clickedBTN !== false){  
     let inputValue1 = inputText.value;
 fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
@@ -70,19 +70,20 @@ fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                                         
                         /*-retriving data to watchlist-*/
                         let movieCard =JSON.parse(localStorage.getItem('mobieCard'))
-                        
+                       
                        const newMovies = addData.push(movieCard)
-                       alert(newMovies)  
+                        
                        let listItems=''
                          
                         for(let i=0; i < newMovies.lenght;i++){
                            listItems +=`
-                           <div>
-                        <a target='_blank' href='${newMovies[i]}'>
+                           <li>
+                        <a target='_blank' href='${watchlist.html}'>
                           ${newMovies[i]}
                         </a>
-                        </div> `   
+                        </li> `   
                        }
+                        html.innerHTML=listItems
                         alert(listItems)
                     } else {
                         html.innerHTML = "Sorry, no Web storage support!";
