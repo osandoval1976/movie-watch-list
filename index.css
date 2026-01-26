@@ -82,10 +82,32 @@ footer{
 
 .text-1, .text-2, .text-3{
     display: block;
-    
+}  
+.mainPage{
+    display: flex;
+    margin: 120px 5px;
+    justify-content: center;
+}    
+.banner{
+    font-size: 25px;
+}
+.icon-1{
+    height: 18px;
+    width: 18px;
+    margin-top:26px;
+    margin-left:-25px;
+    border-radius: 100%;
     
 }
-
+.icon-2{
+    color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-top:25px;
+    margin-left:-200px;
+    border-radius: 100%;
+    font-size:15px;
+    
+}
 
 .icon{
     height: 12px;

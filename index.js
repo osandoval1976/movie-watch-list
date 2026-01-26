@@ -1,30 +1,32 @@
-document.addEventListener('DOMContentLoaded', function () {
+ 
+   
+
+   document.addEventListener('DOMContentLoaded', function () {
     const movies = document.getElementById('movie');
     const btn = document.getElementById('btn');
     const inputText = document.getElementById('search-site');
-    const html = document.getElementById('html')
-    const anchorHTML = `<img id="icon" class="icon" src=${"images/icon-10.svg"}>`;
-    const postList = document.querySelectorAll('anchorHTML[id="icon]')
-    let poster = '';
-    let post=''
-    if (btn) { // Add a check to ensure btn is not null
+    
+     if (btn) { // Add a check to ensure btn is not null
         btn.addEventListener('click', function () {
             let inputValue = inputText.value;
-
+            let poster =''
             fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
                 .then(response => response.json())
-                .then(data => {
+                .then(post => {
+
                     poster = {
-                        title: data.Title,
-                        rating: data.imdbRating,
-                        time: data.Runtime,
-                        genre: data.Genre,
-                        anTag: anchorHTML,
-                        plot: data.Plot,
-                        poster: `<img class="poster" src=${data.Poster}>`
+                        title: post.Title,
+                        rating: post.imdbRating,
+                        time: post.Runtime,
+                        genre: post.Genre,
+                        anTag: `<img id="icon" class="icon" src=${"images/icon-10.svg"}>`,
+                        plot: post.Plot,
+                        poster: `<img class="poster" src=${post.Poster}>`
                     };
 
-                    if (movies) { // Add a check for movies element as well
+                
+                
+                if (movies) { // Add a check for movies element as well
                         movies.innerHTML = `
                                 <div id="list" class="list">
                                     <div class="text-1">
@@ -34,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     <div class="text-2">
                                         <span>${poster.time}</span>
                                         <span>${poster.genre}</span>
-                                        <span>${poster.anTag} </span>
+                                        <span id="btn-1">${poster.anTag} </span>
                                         <span>Watchlist </span>
                                     </div>
                                     <div class="text-3">
@@ -42,26 +44,20 @@ document.addEventListener('DOMContentLoaded', function () {
                                         <span>${poster.poster}</span>
                                     </div>
                                 </div>`;
-                                
-                    }
-                    
-                   
-                
-                });
-        });
-        
-
-/*-icon is clicked*/
-
-    }if(anchorHTML){
-    
-    postList.addEventListener('click',function(){
-        let inputValue = inputText.value;
-        fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
+                      
+ document.getElementById('btn-1').addEventListener('click', function(event) {
+ const clickedBTN = event.target.span;
+listItems=''
+ let post=''
+ const addData = []
+ const html = document.getElementById('movies')
+if(clickedBTN !== false){  
+    let inputValue1 = inputText.value;
+fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                 .then(response => response.json())
                 .then(data => {
-                 
-                    post = {
+                  
+                 post = {
                         title: data.Title,
                         rating: data.imdbRating,
                         time: data.Runtime,
@@ -69,26 +65,47 @@ document.addEventListener('DOMContentLoaded', function () {
                         plot: data.Plot,
                         poster: `<img class="poster" src=${data.Poster}>`
                     };
-
-
-       if (typeof (Storage) !== "undefined") {
+       
+                    if (typeof (Storage) !== "undefined") {
                         /*-Saving the data-*/
-                        localStorage.setItem('title', post.title)
-                        localStorage.setItem('rating', post.rating)
-                        localStorage.setItem('time', post.time)
-                        localStorage.setItem('genre', poster.genre)
-                        localStorage.setItem('plot', post.plot)
-                        localStorage.setItem('poster', post.poster)
+                        localStorage.setItem('mobieCard', JSON.stringify(post))
+                                        
                         /*-retriving data to watchlist-*/
-                        const newTitle = localStorage.getItem('title')
-                        html.innerHTML = newTitle
+                        let movieCard =JSON.parse(localStorage.getItem('mobieCard'))
+                        alert(movieCard)  
+                       const newMovies = addData.push(movieCard)
+                       
+                         listItems =''
+                        for(let i=0; i < newMovies.lenght;i++){
+                           listItems +=`
+                           <div>
+                        <a target='_blank' href='${newMovies[i]}'>
+                          ${newMovies[i]}
+                        </a>
+                        </div> `   
+                       }
+                        alert(listItems)
                     } else {
                         html.innerHTML = "Sorry, no Web storage support!";
                     }
 
-                })
+                
        
-            })
+
+                })
+
+}  
+
+});
+  
+                    }
+                    
+                
+                });
+        });
+        
+
+/*-icon is clicked*/
 
     }
     
@@ -105,3 +122,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 });
+
+document.getElementById('addList').addEventListener('click', function(e){
+    const add =  e.target.span
+    alert(add)
+   })
