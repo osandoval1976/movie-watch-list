@@ -72,10 +72,10 @@ fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                        let listItems=''
                        for(let i=0; i < newMovies.length;i++){
                            listItems +=`<li>
-                        <a target='_blank' href='${newMovies[i]}'>${newMovies[i]}</a>
+                        <a target='_blank' href='${watchlist.html}'>${newMovies[i]}</a>
                                       </li> `   
                        }
-                        html.innerHTML='hello worl'
+                        html.innerHTML=listItems'
                         console.log(listItems)
                     } else {
                         html.innerHTML = "Sorry, no Web storage support!";
