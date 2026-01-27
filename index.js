@@ -54,8 +54,7 @@ if(clickedBTN !== false){
 fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                 .then(response => response.json())
                 .then(data => {
-                  if(data !=="undefined"){
-                 post = {
+                post = {
                         title: data.Title,
                         rating: data.imdbRating,
                         time: data.Runtime,
@@ -64,27 +63,20 @@ fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                         poster: `<img class="poster" src=${data.Poster}>`
                     };
        
-                  }if (typeof (Storage) !== "undefined") {
+                  if (typeof (Storage) !== "undefined") {
                         /*-Saving the data-*/
                         localStorage.setItem('mobieCard', JSON.stringify(post))
-                                        
                         /*-retriving data to watchlist-*/
-                        let movieCard =JSON.parse(localStorage.getItem('mobieCard'))
-                       
+                       let movieCard =JSON.parse(localStorage.getItem('mobieCard'))
                        const newMovies = addData.push(movieCard)
-                        
                        let listItems=''
-                         
-                        for(let i=0; i < newMovies.length;i++){
-                           listItems +=`
-                           <li>
-                        <a target='_blank' href='${newMovies[i]}'>
-                         ${newMovies[i]}
-                        </a>
-                        </li> `   
+                       for(let i=0; i < newMovies.length;i++){
+                           listItems +=`<li>
+                        <a target='_blank' href='${newMovies[i]}'>${newMovies[i]}</a>
+                                      </li> `   
                        }
                         html.innerHTML=listItems
-                        alert(listItems)
+                        console.log(listItems)
                     } else {
                         html.innerHTML = "Sorry, no Web storage support!";
                     }
