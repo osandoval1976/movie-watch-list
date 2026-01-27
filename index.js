@@ -54,7 +54,7 @@ if(clickedBTN !== false){
 fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                 .then(response => response.json())
                 .then(data => {
-                  if(data !=="undefine"){
+                  if(data !=="undefined"){
                  post = {
                         title: data.Title,
                         rating: data.imdbRating,
