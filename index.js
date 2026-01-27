@@ -75,7 +75,7 @@ fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                         <a target='_blank' href='${newMovies[i]}'>${newMovies[i]}</a>
                                       </li> `   
                        }
-                        html.innerHTML=listItems
+                        html.innerHTML='hello worl'
                         console.log(listItems)
                     } else {
                         html.innerHTML = "Sorry, no Web storage support!";
