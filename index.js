@@ -11,7 +11,7 @@
             fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
                 .then(response => response.json())
                 .then(post => {
-
+                  
                     poster = {
                         title: post.Title,
                         rating: post.imdbRating,
@@ -54,7 +54,7 @@ if(clickedBTN !== false){
 fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                 .then(response => response.json())
                 .then(data => {
-                  
+                  if(data !=="undefine"){
                  post = {
                         title: data.Title,
                         rating: data.imdbRating,
@@ -64,7 +64,7 @@ fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                         poster: `<img class="poster" src=${data.Poster}>`
                     };
        
-                    if (typeof (Storage) !== "undefined") {
+                  }if (typeof (Storage) !== "undefined") {
                         /*-Saving the data-*/
                         localStorage.setItem('mobieCard', JSON.stringify(post))
                                         
