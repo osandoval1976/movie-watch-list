@@ -47,7 +47,6 @@
  const clickedBTN = event.target.span;
 
  let post=''
- let addData = []
  
 if(clickedBTN !== false){  
     let inputValue1 = inputText.value;
@@ -62,7 +61,20 @@ fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                         plot: data.Plot,
                         poster: `<img class="poster" src=${data.Poster}>`
                     };
+        
        
+
+                })
+
+}  
+newHTML()
+});
+  
+                    }
+                    
+                function newHTML(){
+                    let addData = []
+ const html =document.getElementById('ulLi')
                   if (typeof (Storage) !== "undefined") {
                         /*-Saving the data-*/
                         localStorage.setItem('mobieCard', JSON.stringify(post))
@@ -72,7 +84,7 @@ fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                        const newMovies = addData.push(movieCard)
                         
                        let listItems=''
-                         /*
+                         
                         for(let i=0; i < newMovies.lenght;i++){
                            listItems +=`
                            <li>
@@ -80,26 +92,15 @@ fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                           ${newMovies[i]}
                         </a>
                         </li> `   
-                       }*/
+                       }
                        alert(listItems)
-                        html.innerHTML=movieCard
+                        html.innerHTML=listItems
                         
                     } else {
                         html.innerHTML = "Sorry, no Web storage support!";
                     }
-
-        
+                }
        
-
-                })
-
-}  
-
-});
-  
-                    }
-                    
-                
                 });
         });
         
