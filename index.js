@@ -72,7 +72,7 @@ fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                        const newMovies = addData.push(movieCard)
                         
                        let listItems=''
-                         
+                         /*
                         for(let i=0; i < newMovies.lenght;i++){
                            listItems +=`
                            <li>
@@ -80,9 +80,10 @@ fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                           ${newMovies[i]}
                         </a>
                         </li> `   
-                       }
-                        html.innerHTML=listItems
-                        alert(listItems)
+                       }*/
+                       alert(listItems)
+                        html.innerHTML=movieCard
+                        
                     } else {
                         html.innerHTML = "Sorry, no Web storage support!";
                     }
