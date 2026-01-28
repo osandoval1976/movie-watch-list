@@ -11,7 +11,7 @@
             fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
                 .then(response => response.json())
                 .then(post => {
-
+                  
                     poster = {
                         title: post.Title,
                         rating: post.imdbRating,
@@ -54,8 +54,7 @@ if(clickedBTN !== false){
 fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                 .then(response => response.json())
                 .then(data => {
-                  
-                 post = {
+                post = {
                         title: data.Title,
                         rating: data.imdbRating,
                         time: data.Runtime,
@@ -64,24 +63,26 @@ fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                         poster: `<img class="poster" src=${data.Poster}>`
                     };
        
-                    if (typeof (Storage) !== "undefined") {
+                  if (typeof (Storage) !== "undefined") {
                         /*-Saving the data-*/
                         localStorage.setItem('mobieCard', JSON.stringify(post))
                         /*-retriving data to watchlist-*/
                         let movieCard =JSON.parse(localStorage.getItem('mobieCard'))
-                        const newMovies = addData.push(movieCard)
-                        console.log(newMovies)
+                       
+                       const newMovies = addData.push(movieCard)
+                        
                        let listItems=''
-                       const html = document.getElementById('ulLi')
-                       for(let i=0; i < newMovies.length;i++){
-                            listItems =`
+                         
+                        for(let i=0; i < newMovies.lenght;i++){
+                           listItems +=`
                            <li>
-                        <a id='newHTML' target='_blank' href='${watchlist.html}'>${newMovies[i]}</a>
+                        <a target='_blank' href='${watchlist.html}'>
+                          ${newMovies[i]}
+                        </a>
                         </li> `   
                        }
-                       alert(listItems)
-                        html.innerHTML+=listItems
-                    
+                        html.innerHTML=listItems
+                        alert(listItems)
                     } else {
                         html.innerHTML = "Sorry, no Web storage support!";
                     }
