@@ -5,7 +5,8 @@
     const inputText = document.getElementById('search-site');
     
      if (btn) { // Add a check to ensure btn is not null
-        btn.addEventListener('click', function () {
+        btn.addEventListener('click', newPost)
+            function newPost() {
             let inputValue = inputText.value;
             let poster =''
             fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
@@ -42,7 +43,7 @@
                                         <span>${poster.poster}</span>
                                     </div>
                                 </div>`;
-                      
+                })                 
  document.getElementById('btn-1').addEventListener('click', function(event) {
  const clickedBTN = event.target.span;
 
@@ -99,8 +100,19 @@ newHTML()
                     } else {
                         html.innerHTML = "Sorry, no Web storage support!";
                     }
-                }
+
+        
        
+
+                })
+
+}  
+
+});
+  
+                    }
+                    
+                
                 });
         });
         
