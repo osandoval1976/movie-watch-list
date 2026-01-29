@@ -4,16 +4,13 @@
     const btn = document.getElementById('btn');
     const inputText = document.getElementById('search-site');
     
-     if (btn) { // Add a check to ensure btn is not null
-        btn.addEventListener('click', newPost)
-            function newPost() {
+    btn.addEventListener('click', function() {
             let inputValue = inputText.value;
             let poster =''
             fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
                 .then(response => response.json())
                 .then(post => {
-                  
-                    poster = {
+                 poster = {
                         title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
@@ -22,8 +19,7 @@
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
                     };
-
-                
+          
                 
                 if (movies) { // Add a check for movies element as well
                         movies.innerHTML = `
@@ -43,14 +39,21 @@
                                         <span>${poster.poster}</span>
                                     </div>
                                 </div>`;
-                })                 
+                }
+                    
+            
+                
+             
+ /*adding movies to watchlist.html*/
+ let clickedBTN ='' 
  document.getElementById('btn-1').addEventListener('click', function(event) {
- const clickedBTN = event.target.span;
-
+ clickedBTN = event.target.span; 
+  /*function to save localstorage data and retrieve*/
  let post=''
- 
-if(clickedBTN !== false){  
-    let inputValue1 = inputText.value;
+ let addData = []
+const html =document.getElementById('movies')
+let listItems=''
+ let inputValue1 = inputText.value;
 fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                 .then(response => response.json())
                 .then(data => {
@@ -61,80 +64,41 @@ fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                         genre: data.Genre,
                         plot: data.Plot,
                         poster: `<img class="poster" src=${data.Poster}>`
-                    };
-        
-       
-
-                })
-
-}  
-newHTML()
-});
-  
-                    }
+                    };   
                     
-                function newHTML(){
-                    let addData = []
- const html =document.getElementById('ulLi')
+                 
+                 
                   if (typeof (Storage) !== "undefined") {
+                    
                         /*-Saving the data-*/
                         localStorage.setItem('mobieCard', JSON.stringify(post))
                         /*-retriving data to watchlist-*/
-                        let movieCard =JSON.parse(localStorage.getItem('mobieCard'))
+                        let newMovies = addData.push(JSON.parse(localStorage.getItem('mobieCard')))
+                        for(let i=0; i < newMovies.length;i++){
+                        listItems +=`<li><a target='_blank' href='${watchlist.html}'></a>
+                        ${newMovies[i]} </li> `   
                        
-                       const newMovies = addData.push(movieCard)
-                        
-                       let listItems=''
-                         
-                        for(let i=0; i < newMovies.lenght;i++){
-                           listItems +=`
-                           <li>
-                        <a target='_blank' href='${watchlist.html}'>
-                          ${newMovies[i]}
-                        </a>
-                        </li> `   
-                       }
-                       alert(listItems)
-                        html.innerHTML=listItems
-                        
-                    } else {
-                        html.innerHTML = "Sorry, no Web storage support!";
+                        }
+                       
                     }
-
+                    })
+                    if(listItems !==null){
+                  html.innerHTML=listItems
+                    }else{
+                        html.innerHTML='Error nothing posted'
+                    }
+                })  
+            
+     })     
+ })
+    }) 
         
-       
-
-                })
-
-}  
-
-});
-  
-                    }
-                    
-                
-                });
-        });
+            
+          
         
 
-/*-icon is clicked*/
-
-    }
-    
-    if (btn) {
-        console.error("Error: Element with ID btn not found.");
-    }
-
-
-
-
-
-
-
-
-
-});
-
+/*-HTML Content*/
+   
 document.getElementById('addList').addEventListener('click', function(e){
     const add =  e.target.span
     alert(add)
