@@ -74,19 +74,16 @@ fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                         localStorage.setItem('mobieCard', JSON.stringify(post))
                         /*-retriving data to watchlist-*/
                         let newMovies = addData.push(JSON.parse(localStorage.getItem('mobieCard')))
-                        for(let i=0; i < newMovies.length;i++){
-                        listItems +=`<li><a target='_blank' href='${watchlist.html}'></a>
-                        ${newMovies[i]} </li> `   
+                        listItems =`<li><a target='_blank' href='${watchlist.html}'></a>${newMovies[i]} </li> `   
+                                             
                        
-                        }
-                       
-                    }
-                    })
-                    if(listItems !==null){
-                  html.innerHTML=listItems.title
+                    } if(listItems !==null){
+                  html.innerHTML+=listItems
                     }else{
                         html.innerHTML='Error nothing posted'
                     }
+                    })
+                   
                 })  
             
      })     
