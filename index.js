@@ -83,7 +83,7 @@ fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                     }
                     })
                     if(listItems !==null){
-                  html.innerHTML=listItems
+                  html.innerHTML=listItems.title
                     }else{
                         html.innerHTML='Error nothing posted'
                     }
