@@ -78,35 +78,21 @@ fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                         /*-Saving the data-*/
                         localStorage.setItem('mobieCard', JSON.stringify(post))
                         /*-retriving data to watchlist-*/
-                        addData.push(JSON.parse(localStorage.getItem('mobieCard')))
-                        for(let i of  addData){
-                         let poster= i
-                         listItems +=`<li>
-                           <div id="list" class="list">
-                                    <div class="text-1">
-                                        <h3>${poster.title}</h3>
-                                        <span>${poster.rating}</span>
-                                    </div>
-                                    <div class="text-2">
-                                        <span>${poster.time}</span>
-                                        <span>${poster.genre}</span>
-                                        <span id="btn-1">${poster.anTag} </span>
-                                        <span>Watchlist </span>
-                                    </div>
-                                    <div class="text-3">
-                                        <span>${poster.plot}</span>
-                                        <span>${poster.poster}</span>
-                                    </div>
-                                </div>;
-                         
-                         </li> `   
+                        let newMovies = addData.push(JSON.parse(localStorage.getItem('mobieCard')))
+                        for(let i=0; i < newMovies.length;i++){
+                        listItems +=`<li><a target='_blank' href='${watchlist.html}'></a>
+                        ${newMovies[i]} </li> `   
                        
-                         html.innerHTML =poster
-                    }
+                        }
+                       
                     }
                     })
-                    
-                }       
+                    if(listItems !==null){
+                  html.innerHTML=listItems
+                    }else{
+                        html.innerHTML='Error nothing posted'
+                    }
+                })  
             
      })     
  })
