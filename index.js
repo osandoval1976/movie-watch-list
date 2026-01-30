@@ -101,7 +101,7 @@ fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                          
                          </li> `   
                        
-                         html.innerHTML =poster
+                         html.innerHTML =listItems
                     }
                     }
                     })
