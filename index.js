@@ -15,7 +15,7 @@
                         rating: post.imdbRating,
                         time: post.Runtime,
                         genre: post.Genre,
-                        anTag: `<img id="icon" class="icon" src=${"images/icon-10.svg"}>`,
+                        anTag: `<a target="_blank"  href="watchlist.html"><img id="icon" class="icon" src=${"images/icon-10.svg"}></a>`,
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
                     };
