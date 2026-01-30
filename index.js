@@ -53,7 +53,7 @@ renderHTML()
 
   /*function to save localstorage data and retrieve*/
 
- const html =document.getElementById('html')
+
   function renderHTML(){
  let post=''
  let addData = []
@@ -95,7 +95,7 @@ fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
                                     </div>
                                     <div class="text-3">
                                         <span>${poster.plot}</span>
-                                        <span>${poster.poster}</span>
+                                        <span><img src=${poster.poster}></span>
                                     </div>
                                 </div>;
                          
