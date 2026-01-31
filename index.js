@@ -4,6 +4,9 @@ const btn = document.getElementById('btn');
 const inputText = document.getElementById('search-site');
 const html = document.getElementById('movies') 
 console.log(html)
+   
+        
+
 btn.addEventListener('click', newFetch)
         
 function newFetch() {
@@ -41,20 +44,18 @@ function newFetch() {
                                         <span>${poster.poster}</span>
                                     </div>
                                 </div>`;
+
                 }
+                
+            
+        
   /*adding movies to watchlist.html*/
  let clickedBTN ='' 
 document.getElementById('btn-1').addEventListener('click', function(event) {
 clickedBTN = event.target.span; 
-renderHTML() 
-})                    
-   })            
-}              
-             
- 
-  /*function to save localstorage data and retrieve*/
-
-
+renderHTML()
+})
+ })
 async function renderHTML(){
 let post=''
 let addData = []
@@ -63,6 +64,7 @@ let listItems = ''
 
 const response = await fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
 const data = await response.json()
+
 post = {
         title: data.Title,
         rating: data.imdbRating,
@@ -71,24 +73,33 @@ post = {
         image: `<img  class="icon" src=${"images/icon-20.svg"}>`,
         plot: data.Plot,
         poster: `<img class="poster" src=${data.Poster}>`
-        };   
- 
+        };  
+ addData.push(post)
    if (typeof (Storage) !== "undefined") {
-            /*-Saving the data-*/
-            localStorage.setItem('mobieCard', JSON.stringify(post))
-            /*-retriving data to watchlist-*/
-             addData.push(JSON.parse(localStorage.getItem(' movieCard'))) 
-             html.innerHTML = addData
-        }
-   
- }
-
-
-        
-        
+    /*-Saving the data-*/        
+ localStorage.setItem('mobieCard', JSON.stringify(addData))
+     /*-retriving data to watchlist-*/
+     const items =( JSON.parse(localStorage.getItem(' movieCard')) )
+     console.log(items)   
             
-          
+            
         
+           
+             
+        
+       
+  
+    }
+   
+ }                 
+    
+  
+}
+                 
+             
+ 
+  /*function to save localstorage data and retrieve*/
+
 
 /*-HTML Content
    
