@@ -44,14 +44,16 @@ function newFetch() {
                 }
              
             
-   
+  
              
  /*adding movies to watchlist.html*/
  
 document.getElementById('btn-1').addEventListener('click', function(event) {
 clickedBTN = event.target.span; 
+ 
 renderHTML()
 }) 
+
 }) 
 
 inputValue =''
