@@ -3,6 +3,7 @@ const movies = document.getElementById('movie');
 const btn = document.getElementById('btn');
 const inputText = document.getElementById('search-site');
 const html = document.getElementById('movies') 
+console.log(html)
 btn.addEventListener('click', newFetch)
         
 function newFetch() {
@@ -16,7 +17,7 @@ function newFetch() {
                         rating: post.imdbRating,
                         time: post.Runtime,
                         genre: post.Genre,
-                        anTag: `<a id="icon" target=${'_blank'} href=${'watchlist.html'}><img  class="icon" src=${"images/icon-10.svg"}></a>`,
+                        anTag: `<img  class="icon" src=${"images/icon-10.svg"}>`,
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
                     };
@@ -41,17 +42,16 @@ function newFetch() {
                                     </div>
                                 </div>`;
                 }
-                    
-            
-                
-             
- /*adding movies to watchlist.html*/
+  /*adding movies to watchlist.html*/
  let clickedBTN ='' 
 document.getElementById('btn-1').addEventListener('click', function(event) {
 clickedBTN = event.target.span; 
-renderHTML()
-})
-
+renderHTML() 
+})                    
+   })            
+}              
+             
+ 
   /*function to save localstorage data and retrieve*/
 
 
@@ -72,49 +72,27 @@ post = {
         plot: data.Plot,
         poster: `<img class="poster" src=${data.Poster}>`
         };   
-        
-        if (typeof (Storage) !== "undefined") {
+ 
+   if (typeof (Storage) !== "undefined") {
             /*-Saving the data-*/
             localStorage.setItem('mobieCard', JSON.stringify(post))
             /*-retriving data to watchlist-*/
-            addData.push(JSON.parse(localStorage.getItem(' movieCard'))) 
-            for(let i of addData){
-                listItems = `
-                                <div id="list" class="list">
-                                    <div class="text-1">
-                                        <h3>${i.title}</h3>
-                                        <span>${i.rating}</span>
-                                    </div>
-                                    <div class="text-2">
-                                        <span>${i.time}</span>
-                                        <span>${i.genre}</span>
-                                        <span id="btn-1">${i.image} </span>
-                                        <span>Watchlist </span>
-                                    </div>
-                                    <div class="text-3">
-                                        <span>${i.plot}</span>
-                                        <span>${i.poster}</span>
-                                    </div>
-                                </div>`;
-            }
-            
-
-
-            }
-            
-    }   console.log(listItems)    
-      html.innerHTML =listItems      
-     })     
+             addData.push(JSON.parse(localStorage.getItem(' movieCard'))) 
+             html.innerHTML = addData
+        }
+   
  }
-    
+
+
+        
         
             
           
         
 
-/*-HTML Content*/
+/*-HTML Content
    
 document.getElementById('addList').addEventListener('click', function(e){
     const add =  e.target.span
     alert(add)
-   })
+   })*/
