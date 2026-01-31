@@ -56,6 +56,7 @@ clickedBTN = event.target.span;
 renderHTML()
 })
  })
+}
 async function renderHTML(){
 let post=''
 let addData = []
@@ -74,27 +75,21 @@ post = {
         plot: data.Plot,
         poster: `<img class="poster" src=${data.Poster}>`
         };  
+ 
  addData.push(post)
-   if (typeof (Storage) !== "undefined") {
-    /*-Saving the data-*/        
- localStorage.setItem('mobieCard', JSON.stringify(addData))
-     /*-retriving data to watchlist-*/
-     const items =( JSON.parse(localStorage.getItem(' movieCard')) )
-     console.log(items)   
-            
-            
-        
-           
-             
-        
-       
-  
-    }
    
+    /*-Saving the data-*/        
+     const passLocal = localStorage.setItem('mobieCard', JSON.stringify(addData))
+     /*-retriving data to watchlist-*/
+    listItems =localStorage.getItem(passLocal) 
+     
+  
+   console.log(listItems)
+    
  }                 
     
   
-}
+
                  
              
  
