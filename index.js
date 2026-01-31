@@ -102,8 +102,8 @@ post = {
 
             }
             
-    }   console.log(addData)    
-      html.innerHTML =addData      
+    }   console.log(listItems)    
+      html.innerHTML =listItems      
      })     
  }
     
