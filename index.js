@@ -1,10 +1,9 @@
  
- document.addEventListener('DOMContentLoaded', function () {
-    const movies = document.getElementById('movie');
-    const btn = document.getElementById('btn');
-    const inputText = document.getElementById('search-site');
-    
-    btn.addEventListener('click', newFetch)
+const movies = document.getElementById('movie');
+const btn = document.getElementById('btn');
+const inputText = document.getElementById('search-site');
+const html = document.getElementById('movies') 
+btn.addEventListener('click', newFetch)
         
 function newFetch() {
             let inputValue = inputText.value;
@@ -60,7 +59,8 @@ async function renderHTML(){
 let post=''
 let addData = []
 let inputValue1 = inputText.value;
-const html = document.getElementById('html') 
+let listItems = ''
+
 const response = await fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
 const data = await response.json()
 post = {
@@ -68,7 +68,7 @@ post = {
         rating: data.imdbRating,
         time: data.Runtime,
         genre: data.Genre,
-        lessTag: `<a id="icon" target=${'_blank'} href=${'watchlist.html'}><img  class="icon" src=${"images/icon-20.svg"}></a>`,
+        image: `<img  class="icon" src=${"images/icon-20.svg"}>`,
         plot: data.Plot,
         poster: `<img class="poster" src=${data.Poster}>`
         };   
@@ -78,14 +78,35 @@ post = {
             localStorage.setItem('mobieCard', JSON.stringify(post))
             /*-retriving data to watchlist-*/
             addData.push(JSON.parse(localStorage.getItem(' movieCard'))) 
-            console.log(addData)
+            for(let i of addData){
+                listItems = `
+                                <div id="list" class="list">
+                                    <div class="text-1">
+                                        <h3>${i.title}</h3>
+                                        <span>${i.rating}</span>
+                                    </div>
+                                    <div class="text-2">
+                                        <span>${i.time}</span>
+                                        <span>${i.genre}</span>
+                                        <span id="btn-1">${i.image} </span>
+                                        <span>Watchlist </span>
+                                    </div>
+                                    <div class="text-3">
+                                        <span>${i.plot}</span>
+                                        <span>${i.poster}</span>
+                                    </div>
+                                </div>`;
+            }
+            
+
+
             }
             
     }   console.log(addData)    
       html.innerHTML =addData      
      })     
  }
-    }) 
+    
         
             
           
