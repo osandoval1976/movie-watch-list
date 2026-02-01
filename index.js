@@ -2,11 +2,7 @@
 const movies = document.getElementById('movie');
 const btn = document.getElementById('btn');
 const inputText = document.getElementById('search-site');
-
-
-   
-        
-
+const html = document.getElementById('movies')
 btn.addEventListener('click',async  function() {
             let inputValue = inputText.value;
             let poster =''
@@ -60,8 +56,8 @@ let post=''
 let addData = []
 let inputValue1 = inputText.value;
 let listItems = ''
-const html = document.getElementById('movies') 
-console.log(html)
+
+
 const response = await fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
 const data = await response.json()
 
@@ -76,14 +72,31 @@ post = {
         };  
  
  addData.push(post)
-  if(typeof (Storage) !== 'undefined'){ 
-    /*-Saving the data-*/        
-     localStorage.setItem('mobieCard', JSON.stringify(addData))
-     /*-retriving data to watchlist-*/
-    listItems =JSON.parse(localStorage.getItem('mobieCard') )
-    console.log(listItems)
-  }if(html !== null){
-    html.innerHTML += `
+     /*-Saving the data-*/  
+ localStorage.setItem('mobieCard', JSON.stringify(addData))
+ /*-retriving data to watchlist-*/
+ listItems =JSON.parse(localStorage.getItem('mobieCard') )
+ console.log(listItems)
+    if(typeof (Storage) !== 'undefined'){
+    
+    html.innerHTML = ` 
+       <div class="image">
+           <p class="banner">"Your Watchlist looks a little empty.... </p> 
+           <div class="mainPage">
+         <a id="addList" href="index.html"> 
+         <img  class="icon-1" src="images/icon-10.svg" alt="homepage-add-movies-icon"/> 
+         </a>
+         <p class="icon-2">  Let's add Some Movies!</p>
+         
+       </div>
+       </div>` 
+     
+    
+    
+    
+    
+    } if(typeof (Storage) !== 'undefined'){
+        html.innerHTML = `
     <div id="list" class="list">
                                     <div class="text-1">
                                         <h3>${listItems.title}</h3>
@@ -101,8 +114,8 @@ post = {
                                     </div>
                                 </div>    `
   }
- 
- }                 
+}
+                 
     
   
 
@@ -112,9 +125,9 @@ post = {
   /*function to save localstorage data and retrieve*/
 
 
-/*-HTML Content
+
    
 document.getElementById('addList').addEventListener('click', function(e){
     const add =  e.target.span
     alert(add)
-   })*/
+   })
