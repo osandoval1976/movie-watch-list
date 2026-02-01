@@ -2,8 +2,8 @@
 const movies = document.getElementById('movie');
 const btn = document.getElementById('btn');
 const inputText = document.getElementById('search-site');
-const html = document.getElementById('movies') 
-console.log(html)
+
+
    
         
 
@@ -60,7 +60,8 @@ let post=''
 let addData = []
 let inputValue1 = inputText.value;
 let listItems = ''
-
+const html = document.getElementById('movies') 
+console.log(html)
 const response = await fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
 const data = await response.json()
 
@@ -81,7 +82,7 @@ post = {
      /*-retriving data to watchlist-*/
     listItems =JSON.parse(localStorage.getItem('mobieCard') )
     console.log(listItems)
-  }if(Storage !==null){
+  }if(html !== null){
     html.innerHTML += `
     <div id="list" class="list">
                                     <div class="text-1">
