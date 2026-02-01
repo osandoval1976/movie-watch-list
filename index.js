@@ -77,7 +77,7 @@ post = {
  /*-retriving data to watchlist-*/
  listItems =JSON.parse(localStorage.getItem('mobieCard') )
  console.log(listItems)
-    if(typeof (Storage) !== 'undefined'){
+    if(typeof (Storage) == 'undefined'){
     
     html.innerHTML = ` 
        <div class="image">
