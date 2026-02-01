@@ -10,8 +10,8 @@ console.log(html)
 btn.addEventListener('click',async  function() {
             let inputValue = inputText.value;
             let poster =''
-       const resp = await fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
-        const post = await resp.json()
+const resp = await fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
+const post = await resp.json()
                
                  poster = {
                         title: post.Title,
@@ -80,7 +80,8 @@ post = {
      localStorage.setItem('mobieCard', JSON.stringify(addData))
      /*-retriving data to watchlist-*/
     listItems =JSON.parse(localStorage.getItem('mobieCard') )
-  }if(html){
+    console.log(listItems)
+  }if(Storage !==null){
     html.innerHTML += `
     <div id="list" class="list">
                                     <div class="text-1">
