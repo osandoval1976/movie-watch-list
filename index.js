@@ -7,14 +7,12 @@ console.log(html)
    
         
 
-btn.addEventListener('click', newFetch)
-        
-function newFetch() {
+btn.addEventListener('click',async  function() {
             let inputValue = inputText.value;
             let poster =''
-            fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
-                .then(response => response.json())
-                .then(post => {
+       const resp = await fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
+        const post = await resp.json()
+               
                  poster = {
                         title: post.Title,
                         rating: post.imdbRating,
@@ -56,7 +54,7 @@ clickedBTN = event.target.span;
 renderHTML()
 })
  })
-}
+
 async function renderHTML(){
 let post=''
 let addData = []
@@ -77,15 +75,31 @@ post = {
         };  
  
  addData.push(post)
-   
+  if(typeof (Storage) !== 'undefined'){ 
     /*-Saving the data-*/        
-     const passLocal = localStorage.setItem('mobieCard', JSON.stringify(addData))
+     localStorage.setItem('mobieCard', JSON.stringify(addData))
      /*-retriving data to watchlist-*/
-    listItems =localStorage.getItem(passLocal) 
-     
-  
-   console.log(listItems)
-    
+    listItems =JSON.parse(localStorage.getItem('mobieCard') )
+  }if(html){
+    html.innerHTML += `
+    <div id="list" class="list">
+                                    <div class="text-1">
+                                        <h3>${listItems.title}</h3>
+                                        <span>${listItems.rating}</span>
+                                    </div>
+                                    <div class="text-2">
+                                        <span>${listItems.time}</span>
+                                        <span>${listItems.genre}</span>
+                                        <span id="btn-2">${listItems.image} </span>
+                                        <span>Watchlist </span>
+                                    </div>
+                                    <div class="text-3">
+                                        <span>${listItems.plot}</span>
+                                        <span>${listItems.poster}</span>
+                                    </div>
+                                </div>    `
+  }
+ 
  }                 
     
   
