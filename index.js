@@ -2,7 +2,8 @@
 const movies = document.getElementById('movie');
 const btn = document.getElementById('btn');
 const inputText = document.getElementById('search-site');
-const html = document.getElementById('movies')
+const html = document.getElementById('html')
+console.log(html)
 btn.addEventListener('click',async  function() {
             let inputValue = inputText.value;
             let poster =''
@@ -95,7 +96,7 @@ post = {
     
     
     
-    } if(typeof (Storage) !== 'undefined'){
+    } if(typeof (Storage) !== null){
         html.innerHTML = `
     <div id="list" class="list">
                                     <div class="text-1">
