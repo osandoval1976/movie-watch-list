@@ -4,6 +4,7 @@ const btn = document.getElementById('btn');
 const inputText = document.getElementById('search-site');
 const html = document.getElementById('html')
 console.log(html)
+const addData=[]
 btn.addEventListener('click',async  function() {
             let inputValue = inputText.value;
             let poster =''
@@ -16,6 +17,7 @@ const post = await resp.json()
                         time: post.Runtime,
                         genre: post.Genre,
                         anTag: `<img  class="icon" src=${"images/icon-10.svg"}>`,
+                        image: `<img  class="icon" src=${"images/icon-20.svg"}>`,
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
                     };
@@ -41,44 +43,21 @@ const post = await resp.json()
                                 </div>`;
 
                 }
-                
-            
-        
+addData.push(poster)
   /*adding movies to watchlist.html*/
  let clickedBTN ='' 
 document.getElementById('btn-1').addEventListener('click', function(event) {
 clickedBTN = event.target.span; 
-renderHTML()
-})
- })
+myFunction(addData)  
+})    
+function myFunction(items){          
 
-async function renderHTML(){
-let post=''
-let addData = []
-let inputValue1 = inputText.value;
-let listItems = ''
-
-
-const response = await fetch(`https://www.omdbapi.com/?t=${inputValue1}&apikey=4c9cae68`)
-const data = await response.json()
-
-post = {
-        title: data.Title,
-        rating: data.imdbRating,
-        time: data.Runtime,
-        genre: data.Genre,
-        image: `<img  class="icon" src=${"images/icon-20.svg"}>`,
-        plot: data.Plot,
-        poster: `<img class="poster" src=${data.Poster}>`
-        };  
- 
- addData.push(post)
      /*-Saving the data-*/  
- localStorage.setItem('mobieCard', JSON.stringify(addData))
+ localStorage.setItem('mobieCard', JSON.stringify(items))
  /*-retriving data to watchlist-*/
  listItems =JSON.parse(localStorage.getItem('mobieCard') )
  console.log(listItems)
-    if(typeof (listItems) == 'undefined'){
+    if(html !== null){
     
     html.innerHTML = ` 
        <div class="image">
@@ -96,7 +75,7 @@ post = {
     
     
     
-    } if(typeof (listItems) == null){
+    } if(html !==null){
         html.innerHTML = `
     <div id="list" class="list">
                                     <div class="text-1">
@@ -115,7 +94,23 @@ post = {
                                     </div>
                                 </div>    `
   }
+  console.log(html)
 }
+
+
+        
+        
+        
+  
+ })
+
+
+
+
+
+
+
+
                  
     
   
@@ -131,4 +126,7 @@ post = {
 document.getElementById('addList').addEventListener('click', function(e){
     const add =  e.target.span
     alert(add)
+    if(add !== null){
+        return add
+    }
    })
