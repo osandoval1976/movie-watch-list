@@ -5,6 +5,7 @@ const inputText = document.getElementById('search-site');
 const html = document.getElementById('html')
 console.log(html)
 const addData=[]
+const pushHTML=[]
 btn.addEventListener('click',async  function() {
             let inputValue = inputText.value;
             let poster =''
@@ -44,6 +45,7 @@ const post = await resp.json()
 
                 }
 addData.push(poster)
+pushHTML.push(html) 
   /*adding movies to watchlist.html*/
  let clickedBTN ='' 
 document.getElementById('btn-1').addEventListener('click', function(event) {
@@ -57,9 +59,9 @@ function myFunction(items){
  /*-retriving data to watchlist-*/
  listItems =JSON.parse(localStorage.getItem('mobieCard') )
  console.log(listItems)
-    if(html !== null){
+    if(pushHTML !== null){
     
-    html.innerHTML = ` 
+    pushHTML.innerHTML = ` 
        <div class="image">
            <p class="banner">"Your Watchlist looks a little empty.... </p> 
            <div class="mainPage">
@@ -75,8 +77,8 @@ function myFunction(items){
     
     
     
-    } if(html !==null){
-        html.innerHTML = `
+    } if(pushHTML !==null){
+        pushHTML.innerHTML = `
     <div id="list" class="list">
                                     <div class="text-1">
                                         <h3>${listItems.title}</h3>
@@ -94,7 +96,7 @@ function myFunction(items){
                                     </div>
                                 </div>    `
   }
-  console.log(html)
+  console.log(pushHTML)
 }
 
 
