@@ -77,7 +77,7 @@ function myFunction(items){
     
     
     
-    } if(pushHTML !==null){
+    } if(pushHTML){
         pushHTML.innerHTML = `
     <div id="list" class="list">
                                     <div class="text-1">
