@@ -53,7 +53,7 @@ let clickedBTN =''
 clickedBTN = event.target.span;   
 /*-Saving the data-*/  
 
-retrevingData(localStorageData)
+retrevingData()
  
 
  })
