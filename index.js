@@ -45,14 +45,14 @@ const post = await resp.json()
                                 </div>`;
 
                 }
-                                   
+  localStorageData = localStorage.setItem('mobieCard', JSON.stringify(poster))                                 
            
   /*adding movies to watchlist.html*/
 let clickedBTN ='' 
  document.getElementById('btn-1').addEventListener('click', function(event) {   
 clickedBTN = event.target.span;   
 /*-Saving the data-*/  
-localStorageData = localStorage.setItem('mobieCard', JSON.stringify(poster))
+
 retrevingData(localStorageData)
  
 
