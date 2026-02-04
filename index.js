@@ -59,9 +59,9 @@ retrevingData(localStorageData)
  })
 
 })  
-function retrevingData(data){
+function retrevingData(){
  /*-retriving data to watchlist-*/
-const listItems = JSON.parse(localStorage.getItem(data))
+const listItems = JSON.parse(localStorage.getItem(localStorageData))
 console.log(listItems) 
 
 
