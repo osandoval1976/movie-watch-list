@@ -5,7 +5,6 @@ let inputText = document.getElementById('search-site');
 let inputValue=[]
 const html = document.querySelector('#html')
 console.log(html)
-let newRender = ''
 btn.addEventListener('click',async  function() {
             inputValue.push(inputText.value);
             inputText =''
@@ -59,10 +58,10 @@ console.log(listItems)
 
 
 
-if(newRender){
+if(!html == null){
    
                
-                    newRender = ` 
+                    html.innerHTML = ` 
                      <div class="image">
                     <p class="banner">"Your Watchlist looks a little empty.... </p> 
                      <div class="mainPage">
@@ -75,7 +74,7 @@ if(newRender){
                     </div>` 
      
                 } else{
-                newRender = `
+                html.innerHTML = `
                                     <div id="list" class="list">
                                     <div class="text-1">
                                         <h3>${listItems.title}</h3>
@@ -104,7 +103,7 @@ if(newRender){
 
 })     
         
-  html.innerHTML =  newRender 
+  html.innerHTML =  html 
  
   
 
