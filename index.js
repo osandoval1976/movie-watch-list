@@ -55,7 +55,7 @@ clickedBTN = event.target.span;
  /*-retriving data to watchlist-*/
 const listItems = JSON.parse(localStorage.getItem('mobieCard'))
 console.log(listItems) 
-if(!html == null){
+if(html !== null){
    
                
                     html.innerHTML = ` 
@@ -92,7 +92,7 @@ if(!html == null){
 
                  }
                        
-  html.innerHTML =  html 
+  
  
 
 
