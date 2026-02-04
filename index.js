@@ -45,27 +45,16 @@ const post = await resp.json()
                                 </div>`;
 
                 }
-  localStorageData = localStorage.setItem('mobieCard', JSON.stringify(poster))                                 
+ /*-Saving the data-*/  
+ localStorageData = localStorage.setItem('mobieCard', JSON.stringify(poster))                                 
            
   /*adding movies to watchlist.html*/
 let clickedBTN ='' 
  document.getElementById('btn-1').addEventListener('click', function(event) {   
 clickedBTN = event.target.span;   
-/*-Saving the data-*/  
-
-retrevingData()
- 
-
- })
-
-})  
-function retrevingData(){
  /*-retriving data to watchlist-*/
 const listItems = JSON.parse(localStorage.getItem(localStorageData))
 console.log(listItems) 
-
-
-
 if(!html == null){
    
                
@@ -105,9 +94,11 @@ if(!html == null){
                        
   html.innerHTML =  html 
  
-}
 
 
+ })
+
+})  
 
 
 
