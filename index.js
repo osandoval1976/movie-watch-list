@@ -1,17 +1,14 @@
  
 const movies = document.getElementById('movie');
 const btn = document.getElementById('btn');
-const inputText = document.getElementById('search-site');
-const addData=[]
-<<<<<<< HEAD
+let inputText = document.getElementById('search-site');
+let inputValue=[]
 const html = document.querySelector('#html')
 console.log(html)
-document.addEventListener("DOMContentLoaded", ()=>{
-=======
-const pushHTML=[]
->>>>>>> b08489213632ef0be694db6006d78883137fe96a
+let newRender = ''
 btn.addEventListener('click',async  function() {
-            let inputValue = inputText.value;
+            inputValue.push(inputText.value);
+            inputText =''
             let poster =''
 const resp = await fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
 const post = await resp.json()
@@ -29,7 +26,7 @@ const post = await resp.json()
           
                 
                 if (movies) { // Add a check for movies element as well
-                        movies.innerHTML = `
+                       movies.innerHTML = `
                                 <div id="list" class="list">
                                     <div class="text-1">
                                         <h3>${poster.title}</h3>
@@ -48,8 +45,8 @@ const post = await resp.json()
                                 </div>`;
 
                 }
-<<<<<<< HEAD
-        
+                                   
+           
   /*adding movies to watchlist.html*/
 let clickedBTN ='' 
  document.getElementById('btn-1').addEventListener('click', function(event) {   
@@ -57,52 +54,32 @@ clickedBTN = event.target.span;
 /*-Saving the data-*/  
 localStorage.setItem('mobieCard', JSON.stringify(poster))
 /*-retriving data to watchlist-*/
-listItems =JSON.parse(localStorage.getItem('mobieCard') )
+const listItems = JSON.parse(localStorage.getItem('mobieCard'))
 console.log(listItems) 
-if(html){
-   html.innerHTML = `<div id="list" class="list">
-                    <div class="text-1">
-                    <h3>${listItems.title}</h3>
-=======
-addData.push(poster)
-pushHTML.push(html) 
-  /*adding movies to watchlist.html*/
- let clickedBTN ='' 
-document.getElementById('btn-1').addEventListener('click', function(event) {
-clickedBTN = event.target.span; 
-myFunction(addData)  
-})    
-function myFunction(items){          
 
-     /*-Saving the data-*/  
- localStorage.setItem('mobieCard', JSON.stringify(items))
- /*-retriving data to watchlist-*/
- listItems =JSON.parse(localStorage.getItem('mobieCard') )
- console.log(listItems)
-    if(pushHTML !== null){
-    
-    pushHTML.innerHTML = ` 
-       <div class="image">
-           <p class="banner">"Your Watchlist looks a little empty.... </p> 
-           <div class="mainPage">
-         <a id="addList" href="index.html"> 
-         <img  class="icon-1" src="images/icon-10.svg" alt="homepage-add-movies-icon"/> 
-         </a>
-         <p class="icon-2">  Let's add Some Movies!</p>
+
+
+if(newRender){
+   
+               
+                    newRender = ` 
+                     <div class="image">
+                    <p class="banner">"Your Watchlist looks a little empty.... </p> 
+                     <div class="mainPage">
+                    <a id="addList" href="index.html"> 
+                    <img  class="icon-1" src="images/icon-10.svg" alt="homepage-add-movies-icon"/> 
+                    </a>
+                    <p class="icon-2">  Let's add Some Movies!</p>
          
-       </div>
-       </div>` 
+                    </div>
+                    </div>` 
      
-    
-    
-    
-    
-    } if(pushHTML == null){
-        pushHTML.innerHTML = `
-    <div id="list" class="list">
+                } else{
+                newRender = `
+                                    <div id="list" class="list">
                                     <div class="text-1">
                                         <h3>${listItems.title}</h3>
->>>>>>> b08489213632ef0be694db6006d78883137fe96a
+
                                         <span>${listItems.rating}</span>
                                     </div>
                                     <div class="text-2">
@@ -116,35 +93,21 @@ function myFunction(items){
                                         <span>${listItems.poster}</span>
                                     </div>
                                 </div>    `
-<<<<<<< HEAD
-                     
-                 }if(html){ 
-                    
-                    html.innerHTML = ` 
-                     <div class="image">
-                    <p class="banner">"Your Watchlist looks a little empty.... </p> 
-                     <div class="mainPage">
-                    <a id="addList" href="index.html"> 
-                    <img  class="icon-1" src="images/icon-10.svg" alt="homepage-add-movies-icon"/> 
-                    </a>
-                    <p class="icon-2">  Let's add Some Movies!</p>
-         
-                    </div>
-                    </div>` 
-     
-                }
-=======
-  }
-  console.log(pushHTML)
-}
->>>>>>> b08489213632ef0be694db6006d78883137fe96a
 
-})
-})      
-        
-        
-  
+                 }
+                 
+   
+                
+ 
+
  })
+
+})     
+        
+  html.innerHTML =  newRender 
+ 
+  
+
 
 
 
