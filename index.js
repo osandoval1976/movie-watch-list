@@ -5,6 +5,7 @@ let inputText = document.getElementById('search-site');
 let inputValue=[]
 const html = document.querySelector('#html')
 console.log(html)
+let localStorageData=''
 btn.addEventListener('click',async  function() {
             inputValue.push(inputText.value);
             inputText =''
@@ -51,9 +52,16 @@ let clickedBTN =''
  document.getElementById('btn-1').addEventListener('click', function(event) {   
 clickedBTN = event.target.span;   
 /*-Saving the data-*/  
-localStorage.setItem('mobieCard', JSON.stringify(poster))
-/*-retriving data to watchlist-*/
-const listItems = JSON.parse(localStorage.getItem('mobieCard'))
+localStorageData = localStorage.setItem('mobieCard', JSON.stringify(poster))
+retrevingData(localStorageData)
+ 
+
+ })
+
+})  
+function retrevingData(data){
+ /*-retriving data to watchlist-*/
+const listItems = JSON.parse(localStorage.getItem(data))
 console.log(listItems) 
 
 
@@ -94,18 +102,10 @@ if(!html == null){
                                 </div>    `
 
                  }
-                 
-   
-                
- 
-
- })
-
-})     
-        
+                       
   html.innerHTML =  html 
  
-  
+}
 
 
 
