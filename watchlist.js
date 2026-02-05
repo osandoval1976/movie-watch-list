@@ -1,4 +1,4 @@
-const html = document.querySelector(#html)
+const html = document.querySelector('#html')
 const listItems = JSON.parse(localStorage.getItem('mobieCard'))
 console.log(listItems)
 
