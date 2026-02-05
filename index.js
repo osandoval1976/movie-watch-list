@@ -24,10 +24,7 @@ const post = await resp.json()
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
                     };
-    if(movies){     
-
-
-                
+                 
                if (movies !== 'undefined') { // Add a check for movies element as well
                        movies.innerHTML = `
                                 <div id="list" class="list">
@@ -47,24 +44,9 @@ const post = await resp.json()
                                     </div>
                                 </div>`;
 
-                } if(movies == 'undefined'){
-   
-               
-                    html.innerHTML = ` 
-                     <div class="image">
-                    <p class="banner">"Your Watchlist looks a little empty.... </p> 
-                     <div class="mainPage">
-                    <a id="addList" href="index.html"> 
-                    <img  class="icon-1" src="images/icon-20.svg" alt="homepage-add-movies-icon"/> 
-                    </a>
-                    <p class="icon-2">  Let's add Some Movies!</p>
-         
-                    </div>
-                    </div>` 
-     
-                }
+                } 
 
-            }
+            
  /*-Saving the data-*/  
  localStorage.setItem('mobieCard', JSON.stringify(poster))                                 
            
@@ -77,9 +59,7 @@ clickedBTN = e.target.span;
  
  /*-retriving data to watchlist-*/
 JSON.parse(localStorage.getItem('mobieCard'))
-
-
-                       
+                
   
 
  }
@@ -100,7 +80,6 @@ JSON.parse(localStorage.getItem('mobieCard'))
                  
              
  
-  /*function to save localstorage data and retrieve*/
 
 
 
