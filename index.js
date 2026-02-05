@@ -3,8 +3,6 @@ const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
 let inputValue=[]
 let localStorageData=''
-let html = document.getElementById('html')
-console.log(html)
 btn.addEventListener('click',renderHTML)
 
 async  function renderHTML() {
@@ -78,29 +76,9 @@ function  htmlRENDER (e) {
 clickedBTN = e.target.span;  
  
  /*-retriving data to watchlist-*/
-const listItems = JSON.parse(localStorage.getItem('mobieCard'))
-console.log(listItems)
+JSON.parse(localStorage.getItem('mobieCard'))
 
-html.innerHTML = `
-                                    <div id="list" class="list">
-                                    <div class="text-1">
-                                        <h3>${listItems.title}</h3>
 
-                                        <span>${listItems.rating}</span>
-                                    </div>
-                                    <div class="text-2">
-                                        <span>${listItems.time}</span>
-                                        <span>${listItems.genre}</span>
-                                        <span id="btn-2">${listItems.image} </span>
-                                        <span>Watchlist </span>
-                                    </div>
-                                    <div class="text-3">
-                                        <span>${listItems.plot}</span>
-                                        <span>${listItems.poster}</span>
-                                    </div>
-                                </div>    `
-
-                 
                        
   
 
