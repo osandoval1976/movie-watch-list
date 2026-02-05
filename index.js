@@ -2,7 +2,6 @@ const movies = document.getElementById('movie');
 const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
 let inputValue=[]
-let localStorageData=''
 btn.addEventListener('click',renderHTML)
 
 async  function renderHTML() {
