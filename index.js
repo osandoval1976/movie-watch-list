@@ -3,12 +3,11 @@ const movies = document.getElementById('movie');
 const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
 let inputValue=[]
-const html = document.querySelector('#html')
-console.log(html)
 let localStorageData=''
+let html =null
 btn.addEventListener('click',async  function() {
             inputValue.push(inputText.value);
-            inputText =''
+            inputText.value=''
             let poster =''
 const resp = await fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
 const post = await resp.json()
@@ -25,7 +24,22 @@ const post = await resp.json()
                     };
           
                 
-                if (movies) { // Add a check for movies element as well
+                if(movies == 'undefined'){
+   
+               
+                    html.innerHTML = ` 
+                     <div class="image">
+                    <p class="banner">"Your Watchlist looks a little empty.... </p> 
+                     <div class="mainPage">
+                    <a id="addList" href="index.html"> 
+                    <img  class="icon-1" src="images/icon-20.svg" alt="homepage-add-movies-icon"/> 
+                    </a>
+                    <p class="icon-2">  Let's add Some Movies!</p>
+         
+                    </div>
+                    </div>` 
+     
+                }if (movies) { // Add a check for movies element as well
                        movies.innerHTML = `
                                 <div id="list" class="list">
                                     <div class="text-1">
@@ -50,28 +64,13 @@ const post = await resp.json()
            
   /*adding movies to watchlist.html*/
 let clickedBTN ='' 
- document.getElementById('btn-1').addEventListener('click', function(event) {   
-clickedBTN = event.target.span;   
+ document.getElementById('btn-1').addEventListener('click', function(e) {   
+clickedBTN = e.target.span;   
  /*-retriving data to watchlist-*/
 const listItems = JSON.parse(localStorage.getItem('mobieCard'))
-console.log(listItems) 
-if(html !== null){
-   
-               
-                    html.innerHTML = ` 
-                     <div class="image">
-                    <p class="banner">"Your Watchlist looks a little empty.... </p> 
-                     <div class="mainPage">
-                    <a id="addList" href="index.html"> 
-                    <img  class="icon-1" src="images/icon-10.svg" alt="homepage-add-movies-icon"/> 
-                    </a>
-                    <p class="icon-2">  Let's add Some Movies!</p>
-         
-                    </div>
-                    </div>` 
-     
-                } else{
-                html.innerHTML = `
+console.log(listItems)
+if(listItems ){
+document.querySelector('#html').innerHTML = `
                                     <div id="list" class="list">
                                     <div class="text-1">
                                         <h3>${listItems.title}</h3>
@@ -93,12 +92,11 @@ if(html !== null){
                  }
                        
   
- 
-
 
  })
 
-})  
+
+
 
 
 
@@ -124,4 +122,5 @@ document.getElementById('addList').addEventListener('click', function(e){
     if(add !== null){
         return add
     }
+   })
    })
