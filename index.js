@@ -3,7 +3,7 @@ const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
 let inputValue=[]
 let localStorageData=''
-let html = document.getElementById('html') 
+let html = document.getElementById('html')
 console.log(html)
 btn.addEventListener('click',renderHTML)
 
@@ -26,7 +26,9 @@ const post = await resp.json()
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
                     };
-    if(html ==null){     
+    if(movies){     
+
+
                 
                if (movies !== 'undefined') { // Add a check for movies element as well
                        movies.innerHTML = `
@@ -78,7 +80,7 @@ clickedBTN = e.target.span;
  /*-retriving data to watchlist-*/
 const listItems = JSON.parse(localStorage.getItem('mobieCard'))
 console.log(listItems)
-if(html ){
+
 html.innerHTML = `
                                     <div id="list" class="list">
                                     <div class="text-1">
@@ -98,7 +100,7 @@ html.innerHTML = `
                                     </div>
                                 </div>    `
 
-                 }
+                 
                        
   
 
