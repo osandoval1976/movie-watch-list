@@ -43,8 +43,8 @@ const post = await resp.json()
                                     </div>
                                 </div>`;
 
-                } if(movies == 'undefined'){
-                           movies.html = `
+                }if(movies == 'undefined'){
+                           movies.innerHTML = `
                            Your search was not succesful, try another search.....
                            `
                }     
