@@ -6,7 +6,8 @@ btn.addEventListener('click',renderHTML)
 
 async  function renderHTML() {
             inputValue.push(inputText.value);
-            inputText.value=''
+            inputText.value='undefined'
+            inputText.value =''
             let poster =''
             
 const resp = await fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
