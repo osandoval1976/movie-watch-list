@@ -52,19 +52,13 @@ const post = await resp.json()
             
  /*-Saving the data-*/  
  localStorage.setItem('mobieCard', JSON.stringify(poster))                                 
-           
+          
   /*adding movies to watchlist.html*/
 let clickedBTN ='' 
  document.getElementById('btn-1').addEventListener('click', htmlRENDER)
     
 function  htmlRENDER (e) {   
-clickedBTN = e.target.span;  
- 
- /*-retriving data to watchlist-*/
-JSON.parse(localStorage.getItem('mobieCard'))
-                
-  
-
+clickedBTN = e.target.span; 
  }
 
 
@@ -89,10 +83,3 @@ JSON.parse(localStorage.getItem('mobieCard'))
    
 
    }
-   /*document.getElementById('addList').addEventListener('click', function(e){
-    const add =  e.target.span
-    alert(add)
-    if(add !== null){
-        return add
-    }
-   })*/
