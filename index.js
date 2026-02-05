@@ -43,7 +43,11 @@ const post = await resp.json()
                                     </div>
                                 </div>`;
 
-                } 
+                } if(movies == 'undefined'){
+                           movies.html = `
+                           Your search was not succesful, try another search.....
+                           `
+               }     
 
             
  /*-Saving the data-*/  
