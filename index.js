@@ -1,17 +1,21 @@
- 
 const movies = document.getElementById('movie');
 const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
 let inputValue=[]
 let localStorageData=''
-let html =null
-btn.addEventListener('click',async  function() {
+let html = document.getElementById('html') 
+console.log(html)
+btn.addEventListener('click',renderHTML)
+
+async  function renderHTML() {
             inputValue.push(inputText.value);
             inputText.value=''
             let poster =''
+            
 const resp = await fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
 const post = await resp.json()
                
+     
                  poster = {
                         title: post.Title,
                         rating: post.imdbRating,
@@ -22,24 +26,9 @@ const post = await resp.json()
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
                     };
-          
+    if(html ==null){     
                 
-                if(movies == 'undefined'){
-   
-               
-                    html.innerHTML = ` 
-                     <div class="image">
-                    <p class="banner">"Your Watchlist looks a little empty.... </p> 
-                     <div class="mainPage">
-                    <a id="addList" href="index.html"> 
-                    <img  class="icon-1" src="images/icon-20.svg" alt="homepage-add-movies-icon"/> 
-                    </a>
-                    <p class="icon-2">  Let's add Some Movies!</p>
-         
-                    </div>
-                    </div>` 
-     
-                }if (movies) { // Add a check for movies element as well
+               if (movies !== 'undefined') { // Add a check for movies element as well
                        movies.innerHTML = `
                                 <div id="list" class="list">
                                     <div class="text-1">
@@ -58,19 +47,39 @@ const post = await resp.json()
                                     </div>
                                 </div>`;
 
+                } if(movies == 'undefined'){
+   
+               
+                    html.innerHTML = ` 
+                     <div class="image">
+                    <p class="banner">"Your Watchlist looks a little empty.... </p> 
+                     <div class="mainPage">
+                    <a id="addList" href="index.html"> 
+                    <img  class="icon-1" src="images/icon-20.svg" alt="homepage-add-movies-icon"/> 
+                    </a>
+                    <p class="icon-2">  Let's add Some Movies!</p>
+         
+                    </div>
+                    </div>` 
+     
                 }
+
+            }
  /*-Saving the data-*/  
  localStorage.setItem('mobieCard', JSON.stringify(poster))                                 
            
   /*adding movies to watchlist.html*/
 let clickedBTN ='' 
- document.getElementById('btn-1').addEventListener('click', function(e) {   
-clickedBTN = e.target.span;   
+ document.getElementById('btn-1').addEventListener('click', htmlRENDER)
+    
+function  htmlRENDER (e) {   
+clickedBTN = e.target.span;  
+ 
  /*-retriving data to watchlist-*/
 const listItems = JSON.parse(localStorage.getItem('mobieCard'))
 console.log(listItems)
-if(listItems ){
-document.querySelector('#html').innerHTML = `
+if(html ){
+html.innerHTML = `
                                     <div id="list" class="list">
                                     <div class="text-1">
                                         <h3>${listItems.title}</h3>
@@ -93,7 +102,7 @@ document.querySelector('#html').innerHTML = `
                        
   
 
- })
+ }
 
 
 
@@ -116,11 +125,12 @@ document.querySelector('#html').innerHTML = `
 
 
    
-document.getElementById('addList').addEventListener('click', function(e){
+
+   }
+   /*document.getElementById('addList').addEventListener('click', function(e){
     const add =  e.target.span
     alert(add)
     if(add !== null){
         return add
     }
-   })
-   })
+   })*/
