@@ -5,10 +5,10 @@ let inputValue=[]
 const clickBTN=''
 let items = []
 let poster =''
- btn.addEventListener('click', async function(){ 
+
+btn.addEventListener('click', async function(){ 
 inputValue.push(inputText.value);
-inputText.value =''
-     
+inputText.value =''    
 const resp = await fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
 const post = await resp.json()
 poster = {
@@ -21,11 +21,15 @@ poster = {
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
                     };
-                    items.push(poster)
+                    
+                    
+                    
+                    
                  
             })   
+console.log(poster)
 
-   if(inputValue == 'undefined')     {        
+   if(items == 'undefined')     {        
       movies.innerHTML = `
                                 <div id="list" class="list">
                                     <div class="text-1">
@@ -46,7 +50,7 @@ poster = {
                            
       
 
-       const clickEd=''
+    const clickEd=''
     document.getElementById('btn-1').addEventListener('click', function(e){       
     clickEd = e.target.span
     localStorage.setItem('mobieCard', JSON.stringify(items)) 
