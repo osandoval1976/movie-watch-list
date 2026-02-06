@@ -23,7 +23,7 @@ poster = {
                     };
                     
                     
-                    
+                items.push(poster)     
                     
                  
             })   
@@ -49,7 +49,7 @@ console.log(poster)
                                 </div>`;
                            
       
-
+     
     const clickEd=''
     document.getElementById('btn-1').addEventListener('click', function(e){       
     clickEd = e.target.span
