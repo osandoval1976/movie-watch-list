@@ -3,8 +3,6 @@ if(localStorage !=='undefined'){
 
 
 const listItems = JSON.parse(localStorage.getItem('mobieCard'))
-
-
 html.innerHTML = `
                                     <div id="list" class="list">
                                     <div class="text-1">
@@ -23,4 +21,5 @@ html.innerHTML = `
                                         <span>${listItems.poster}</span>
                                     </div>
                                 </div>    `
+
 }
