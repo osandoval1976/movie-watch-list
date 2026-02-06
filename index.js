@@ -27,33 +27,33 @@ poster = {
                     
                  
             })   
-console.log(poster)
-
-   if(poster == 'undefined')     {        
+console.log(items)
+ const clickEd=''
+    document.getElementById('btn-1').addEventListener('click', function(e){       
+    clickEd = e.target.span
+    localStorage.setItem('mobieCard', JSON.stringify(items)) 
+ })
+   if(items == 'undefined')     {        
       movies.innerHTML = `
                                 <div id="list" class="list">
                                     <div class="text-1">
-                                        <h3>${poster.title}</h3>
-                                        <span>${poster.rating}</span>
+                                        <h3>${items.title}</h3>
+                                        <span>${items.rating}</span>
                                     </div>
                                     <div class="text-2">
-                                        <span>${poster.time}</span>
-                                        <span>${poster.genre}</span>
-                                        <span id="btn-1">${poster.anTag} </span>
+                                        <span>${items.time}</span>
+                                        <span>${items.genre}</span>
+                                        <span id="btn-1">${items.anTag} </span>
                                         <span>Watchlist </span>
                                     </div>
                                     <div class="text-3">
-                                        <span>${poster.plot}</span>
-                                        <span>${poster.poster}</span>
+                                        <span>${items.plot}</span>
+                                        <span>${items.poster}</span>
                                     </div>
                                 </div>`;
                            
       
      
-    const clickEd=''
-    document.getElementById('btn-1').addEventListener('click', function(e){       
-    clickEd = e.target.span
-    localStorage.setItem('mobieCard', JSON.stringify(items)) 
- })
+   
 
 }
