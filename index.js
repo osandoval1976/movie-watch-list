@@ -2,19 +2,16 @@ const movies = document.getElementById('movie');
 const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
 let inputValue=[]
-btn.addEventListener('click',renderHTML)
-
-async  function renderHTML() {
-            inputValue.push(inputText.value);
-            inputText.value='undefined'
-            inputText.value =''
-            let poster =''
-            
+const clickBTN=''
+let items = []
+let poster =''
+btn.addEventListener('click', async function(){
+inputValue.push(inputText.value);
+inputText.value =''
+     
 const resp = await fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
 const post = await resp.json()
-               
-     
-                 poster = {
+poster = {
                         title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
@@ -24,9 +21,7 @@ const post = await resp.json()
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
                     };
-                 
-               if (movies !== 'undefined') { // Add a check for movies element as well
-                       movies.innerHTML = `
+      movies.innerHTML = `
                                 <div id="list" class="list">
                                     <div class="text-1">
                                         <h3>${poster.title}</h3>
@@ -43,19 +38,10 @@ const post = await resp.json()
                                         <span>${poster.poster}</span>
                                     </div>
                                 </div>`;
-
-                }if(movies == 'undefined'){
-                           movies.innerHTML = `
-                           Your search was not succesful, try another search.....
-                           `
-               }     
-
-        
- /*-Saving the data-*/  
- localStorage.setItem('mobieCard', JSON.stringify(poster))                                 
- /*adding movies to watchlist.html*/
-let clickedBTN ='' 
- document.getElementById('btn-1').addEventListener('click', function(e) {   
-clickedBTN = e.target.span; 
+  
+      
+        localStorage.setItem('mobieCard', JSON.stringify(poster)) 
+       
+       
+    
  })
-}
