@@ -29,22 +29,22 @@ poster = {
             })   
 console.log(poster)
 
-   if(items == 'undefined')     {        
+   if(poster == 'undefined')     {        
       movies.innerHTML = `
                                 <div id="list" class="list">
                                     <div class="text-1">
-                                        <h3>${items.title}</h3>
-                                        <span>${items.rating}</span>
+                                        <h3>${poster.title}</h3>
+                                        <span>${poster.rating}</span>
                                     </div>
                                     <div class="text-2">
-                                        <span>${items.time}</span>
-                                        <span>${items.genre}</span>
-                                        <span id="btn-1">${items.anTag} </span>
+                                        <span>${poster.time}</span>
+                                        <span>${poster.genre}</span>
+                                        <span id="btn-1">${poster.anTag} </span>
                                         <span>Watchlist </span>
                                     </div>
                                     <div class="text-3">
-                                        <span>${items.plot}</span>
-                                        <span>${items.poster}</span>
+                                        <span>${poster.plot}</span>
+                                        <span>${poster.poster}</span>
                                     </div>
                                 </div>`;
                            
