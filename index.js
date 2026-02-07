@@ -23,10 +23,18 @@ poster = {
                     };
                   
                     
-                     movies.innerHTML = `
-                                                             
-                                        <h3>${poster.title}</h3>
-                                        <span>${poster.rating}</span>
+                    
+                    
+                 
+            })   
+console.log(poster)
+
+   if(items == 'undefined')     {        
+      movies.innerHTML = `
+                                <div id="list" class="list">
+                                    <div class="text-1">
+                                        <h3>${items.title}</h3>
+                                        <span>${items.rating}</span>
                                     </div>
                                     <div class="text-2">
                                         <span>${poster.time}</span>
@@ -39,18 +47,13 @@ poster = {
                                         <span>${poster.poster}</span>
                                     </div>
                                 </div>`;
-   
-                            items.push(poster)
-                    console.log(items)
-                 
-            })   
-function itemsHtml(items){
-localStorage.setItem('mobieCard', JSON.stringify(items)) 
-   
-}    
-  let clickEd=''
+                           
+      
+
+    const clickEd=''
     document.getElementById('btn-1').addEventListener('click', function(e){       
     clickEd = e.target.span
-    
-    itemsHtml(items)
+    localStorage.setItem('mobieCard', JSON.stringify(items)) 
  })
+
+}
