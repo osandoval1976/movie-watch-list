@@ -1,18 +1,18 @@
-const movies = document.getElementById('movie');
+const movies = document.getElementById('ulHTML');
 const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
 let inputValue=[]
 const clickBTN=''
 let items = []
-let poster=''
-
-btn.addEventListener('click', async function(){ 
+let poster=[]
+ 
+btn.addEventListener('click', renderHTML)
+async function renderHTML(){ 
 inputValue.push(inputText.value);
 inputText.value =''    
 const resp = await fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
 const post = await resp.json()
-poster = {
-                        title: post.Title,
+items=[{                title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
                         genre: post.Genre,
@@ -20,40 +20,33 @@ poster = {
                         image: `<img  class="icon" src=${"images/icon-20.svg"}>`,
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
-                    };
-                  
-                    
+        }]
+
+
+
+   poster.push(items)                 
                     
                     
                  
-            })   
-console.log(poster)
-
-   if(items == 'undefined')     {        
-      movies.innerHTML = `
-                                <div id="list" class="list">
-                                    <div class="text-1">
-                                        <h3>${items.title}</h3>
-                                        <span>${items.rating}</span>
-                                    </div>
-                                    <div class="text-2">
-                                        <span>${poster.time}</span>
-                                        <span>${poster.genre}</span>
-                                        <span id="btn-1">${poster.anTag} </span>
-                                        <span>Watchlist </span>
-                                    </div>
-                                    <div class="text-3">
-                                        <span>${poster.plot}</span>
-                                        <span>${poster.poster}</span>
-                                    </div>
-                                </div>`;
-                           
-      
-
-    const clickEd=''
+}   
+ /*const clickEd=''
     document.getElementById('btn-1').addEventListener('click', function(e){       
     clickEd = e.target.span
-    localStorage.setItem('mobieCard', JSON.stringify(items)) 
+   
  })
-
+*/
+console.log(poster)
+   if(poster !== 'undefined')     {        
+    let x =''
+    for(let i of poster){                  
+      x+= `<li><span>${i.title}</span>
+       <a id='btn-1'>${i.anTag}</a>
+       </li>`
+         }
+console.log(x)
+         movies.innerHTML = x
+   
 }
+
+/*
+                  */
