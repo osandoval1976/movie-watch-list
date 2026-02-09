@@ -21,10 +21,24 @@ items=[{                title: post.Title,
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
         }]
+ poster.push(items)  
+if(items !== 'undefined')     {        
+    let x =''
+    for(let i of items){                  
+      x+= `<li><span>${i.title}</span>
+       <a id='btn-1'>${i.anTag}</a>
+       </li>`
+      movies.innerHTML = x
+         }else{
+          movies.innerHTML = `Nothing found, Please try again.`
+         }
+          console.log(x)
+        
+   
+}
+      
 
-
-
-   poster.push(items)                 
+                  
                     
                     
                  
@@ -37,17 +51,7 @@ items=[{                title: post.Title,
 */
 console.log(poster)
 function newRender(items){
-   if(items !== 'undefined')     {        
-    let x =''
-    for(let i of items){                  
-      x+= `<li><span>${i.title}</span>
-       <a id='btn-1'>${i.anTag}</a>
-       </li>`
-         }
-console.log(x)
-         movies.innerHTML = x
    
-}
 }
 newRender(poster)
 /*
