@@ -36,8 +36,8 @@ items=[{                title: post.Title,
  })
 */
 console.log(poster)
-function newRender(items)
-   if(poster !== 'undefined')     {        
+function newRender(items){
+   if(items !== 'undefined')     {        
     let x =''
     for(let i of items){                  
       x+= `<li><span>${i.title}</span>
@@ -47,6 +47,7 @@ function newRender(items)
 console.log(x)
          movies.innerHTML = x
    
+}
 }
 newRender(poster)
 /*
