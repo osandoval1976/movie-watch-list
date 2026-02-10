@@ -1,4 +1,3 @@
-
 const movies = document.getElementById('ulHTML');
 const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
@@ -51,8 +50,9 @@ function storageRender(){
  
   
    
-   const clickEd=''
- function clicked(e){       
+   
+ function clicked(e){  
+  const clicked=''     
 clicked = e.target.span
  storageRender()
  }
