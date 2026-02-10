@@ -1,7 +1,5 @@
 const html = document.querySelector('#html')
 if(localStorage !=='undefined'){
-
-
 const listItems = JSON.parse(localStorage.getItem('mobieCard'))
 html.innerHTML = `
                                     <div id="list" class="list">

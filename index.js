@@ -2,7 +2,6 @@ const movies = document.getElementById('ulHTML');
 const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
 let inputValue=[]
-const clickBTN=''
 let items = []
 let poster=[]
 
@@ -28,39 +27,37 @@ items=[{                title: post.Title,
   x += `
   <div id="list" class="list">
   <div class="text-1">
-  <h3>${i.title}</h3>
-       <span>${i.rating}</span>
-       <span style="color: #FFFF00;">&#9733</span>
+  <li>${i.title}</li>
+       <li>${i.rating}</li>
+       <li style="color: #FFFF00;">&#9733</li>
        </div> 
        <div class="text-2">
-      <span>${i.time}</span>
-      <span>${i.genre}</span>
-      <button id="btn-1" class="btn-1">${i.image} </button>
+      <li>${i.time}</li>
+      <li>${i.genre}</li>
+      <li id="btn-1" class="btn-1" onclick=${clicked}>${i.image} </li>
     <span>Watchlist </span>
       </div>
       <div class="text-3">
-    <span>${i.plot}</span>
-   <span>${i.poster}</span>
+    <li>${i.plot}</li>
+   <li>${i.poster}</li>
 </div>
  </div>`
-       
+ 
   console.log(x)
  }
   
 
    movies.innerHTML = x
    poster.push(items)
-
+const clickEd=''
+ function clicked(e){       
+clicked = e.target.span
+ localStorage.setItem('mobieCard', JSON.stringify(poster))
+ }
 
 }
- document.getElementById('btn-1').addEventListener('click', clicked)
- const clickEd=''
+
  
-   
-function clicked(e){       
-clicked = e.target.span
-localStorage.setItem('mobieCard',JSON.stringify(poster))
- }
 
 
 
