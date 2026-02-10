@@ -36,10 +36,11 @@ if(i !== 'undefined'){
       <li>${i.plot}</li>
       <li>${i.poster}</li> `
 
-    movies.innerHTML = x
- }else{
-  movies.innerHTML = `Search again!`
- }
+    
+ }if(i == 'undefined'){
+  x = `Search again!`
+ } 
+  movies.innerHTML = x
  }
   
 function storageRender(x){
