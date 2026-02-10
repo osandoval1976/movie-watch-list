@@ -24,23 +24,22 @@ items=[{                title: post.Title,
        
  let x =''
  for(let i of items){
-  x += `
-  
- 
+if(i !== 'undefined'){
+   x += `
        <li>${i.title}</li>
        <li>${i.rating}</li>
        <li style="color: #FFFF00;">&#9733</li>
-      <li>${i.time}</li>
+       <li>${i.time}</li>
       <li>${i.genre}</li>
       <li id="btn-1" class="btn-1" onclick=${clicked}>${i.anTag} </li>
-    <li>Watchlist </li>
-     <li>${i.plot}</li>
-     <li>${i.poster}</li>
+      <li>Watchlist </li>
+      <li>${i.plot}</li>
+      <li>${i.poster}</li> `
 
- `
-
-  console.log(x)
-   movies.innerHTML = x
+    movies.innerHTML = x
+ }else{
+  movies.innerHTML = `Search again!`
+ }
  }
   
 function storageRender(x){
