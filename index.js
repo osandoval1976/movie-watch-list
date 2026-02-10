@@ -1,3 +1,4 @@
+
 const movies = document.getElementById('ulHTML');
 const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
@@ -25,39 +26,41 @@ items=[{                title: post.Title,
  let x =''
  for(let i of items){
   x += `
-  <div id="list" class="list">
-  <div class="text-1">
-  <li>${i.title}</li>
+  
+ 
+       <li>${i.title}</li>
        <li>${i.rating}</li>
        <li style="color: #FFFF00;">&#9733</li>
-       </div> 
-       <div class="text-2">
       <li>${i.time}</li>
       <li>${i.genre}</li>
       <li id="btn-1" class="btn-1" onclick=${clicked}>${i.image} </li>
-    <span>Watchlist </span>
-      </div>
-      <div class="text-3">
-    <li>${i.plot}</li>
-   <li>${i.poster}</li>
-</div>
- </div>`
- 
+    <li>Watchlist </li>
+     <li>${i.plot}</li>
+     <li>${i.poster}</li>
+
+ `
+
   console.log(x)
+   movies.innerHTML = x
  }
   
+function storageRender(){
 
-   movies.innerHTML = x
-   poster.push(items)
-const clickEd=''
+  localStorage.setItem('mobieCard', JSON.stringify(items)) 
+}
+ 
+  
+   
+   const clickEd=''
  function clicked(e){       
 clicked = e.target.span
- localStorage.setItem('mobieCard', JSON.stringify(poster))
+ storageRender()
  }
+   
+
 
 }
 
- 
 
 
 

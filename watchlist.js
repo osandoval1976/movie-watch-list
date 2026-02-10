@@ -20,4 +20,6 @@ html.innerHTML = `
                                     </div>
                                 </div>    `
 
+}else{
+    html.innerHTML = `Try to search again`
 }
