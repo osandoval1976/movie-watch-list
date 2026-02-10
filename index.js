@@ -5,8 +5,9 @@ let inputValue=[]
 const clickBTN=''
 let items = []
 let poster=[]
- 
+
 btn.addEventListener('click', renderHTML)
+
 async function renderHTML(){ 
 inputValue.push(inputText.value);
 inputText.value =''    
@@ -21,38 +22,48 @@ items=[{                title: post.Title,
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
         }]
- poster.push(items)  
-if(items !== 'undefined')     {        
-    let x =''
-    for(let i of items){                  
-      x+= `<li><span>${i.title}</span>
-       <a id='btn-1'>${i.anTag}</a>
-       </li>`
-      movies.innerHTML = x
-         }else{
-          movies.innerHTML = `Nothing found, Please try again.`
-         }
-          console.log(x)
-        
-   
-}
-      
+       
+ let x =''
+ for(let i of items){
+  x += `
+  <div id="list" class="list">
+  <div class="text-1">
+  <h3>${i.title}</h3>
+       <span>${i.rating}</span>
+       <span style="color: #FFFF00;">&#9733</span>
+       </div> 
+       <div class="text-2">
+      <span>${i.time}</span>
+      <span>${i.genre}</span>
+      <button id="btn-1" class="btn-1">${i.image} </button>
+    <span>Watchlist </span>
+      </div>
+      <div class="text-3">
+    <span>${i.plot}</span>
+   <span>${i.poster}</span>
+</div>
+ </div>`
+       
+  console.log(x)
+ }
+  
 
-                  
-                    
-                    
-                 
-}   
- /*const clickEd=''
-    document.getElementById('btn-1').addEventListener('click', function(e){       
-    clickEd = e.target.span
-   
- })
-*/
-console.log(poster)
-function newRender(items){
-   
+   movies.innerHTML = x
+   poster.push(items)
+
+
 }
-newRender(poster)
-/*
-                  */
+ document.getElementById('btn-1').addEventListener('click', clicked)
+ const clickEd=''
+ 
+   
+function clicked(e){       
+clicked = e.target.span
+localStorage.setItem('mobieCard',JSON.stringify(poster))
+ }
+
+
+
+
+
+
