@@ -32,7 +32,7 @@ items=[{                title: post.Title,
        <li style="color: #FFFF00;">&#9733</li>
       <li>${i.time}</li>
       <li>${i.genre}</li>
-      <li id="btn-1" class="btn-1" onclick=${clicked}>${i.image} </li>
+      <li id="btn-1" class="btn-1" onclick=${clicked}>${i.anTag} </li>
     <li>Watchlist </li>
      <li>${i.plot}</li>
      <li>${i.poster}</li>
@@ -43,9 +43,9 @@ items=[{                title: post.Title,
    movies.innerHTML = x
  }
   
-function storageRender(){
+function storageRender(x){
 
-  localStorage.setItem('mobieCard', JSON.stringify(items)) 
+  localStorage.setItem('mobieCard', JSON.stringify(x)) 
 }
  
   
@@ -54,7 +54,7 @@ function storageRender(){
  function clicked(e){  
   const clicked=''     
 clicked = e.target.span
- storageRender()
+ storageRender(items)
  }
    
 
