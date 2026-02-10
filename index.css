@@ -134,7 +134,13 @@ footer{
     
 }
 
-
+.btn-1, .btn-2{
+    height: 100%;
+    width: auto;
+    border-radius: 50%;
+    background-color: white;
+    border:1px solid white;
+}
 
 
 
