@@ -38,7 +38,7 @@ if(i !== 'undefined'){
       <li class='text-3'>${i.poster}</li> `
      
     
- }else if(inputValue == 'undefined'){
+ }else if(x == 'undefined'){
   x = `Search again!`
  } 
   movies.innerHTML = x
