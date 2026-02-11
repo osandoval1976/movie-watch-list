@@ -21,28 +21,34 @@ items=[{                title: post.Title,
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
         }]
-       
+      
  let x =''
  for(let i of items){
 if(i !== 'undefined'){
    x += `
-       <li>${i.title}</li>
-       <li>${i.rating}</li>
-       <li style="color: #FFFF00;">&#9733</li>
-       <li>${i.time}</li>
-      <li>${i.genre}</li>
-      <li id="btn-1" class="btn-1" onclick=${clicked}>${i.anTag} </li>
-      <li>Watchlist </li>
-      <li>${i.plot}</li>
-      <li>${i.poster}</li> `
-
     
- }if(i == 'undefined'){
+      <li class='text-1>${i.title}</li>
+       <li class='text-1'>${i.rating}</li>
+       <li class='text-1' style="color: #FFFF00;">&#9733</li>
+       <li class='text-2'>${i.time}</li>
+       <li class='text-2'>${i.genre}</li>
+      <li id="btn-1" class="btn-1">${i.anTag} </li>
+      <li class='text-2'>Watchlist </li>
+      <li class='text-3'>${i.plot}</li>
+      <li class='text-3'>${i.poster}</li> `
+     
+    
+ }else if(inputValue == 'undefined'){
   x = `Search again!`
  } 
   movies.innerHTML = x
  }
-  
+
+  let clicked=''  
+ document.getElementById('btn-1').addEventListener('click', function(e){
+clicked = e.target.span
+ storageRender(items)
+ }) 
 function storageRender(x){
 
   localStorage.setItem('mobieCard', JSON.stringify(x)) 
@@ -51,13 +57,8 @@ function storageRender(x){
   
    
    
- function clicked(e){  
-  const clicked=''     
-clicked = e.target.span
- storageRender(items)
- }
+ 
    
-
 
 }
 
