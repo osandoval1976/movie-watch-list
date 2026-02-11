@@ -25,7 +25,7 @@ items=[{                title: post.Title,
  let x =''
  for(let i of items){
 if(i !== 'undefined'){
-   x += `
+   x = `
     
       <li class='text-1'>${i.title}</li>
        <li class='text-1'>${i.rating}</li>
@@ -41,7 +41,7 @@ if(i !== 'undefined'){
  }else if(x == 'undefined'){
   x = `Search again!`
  } 
-  movies.innerHTML = x
+  movies.innerHTML += x
  }
 
   let clicked=''  
