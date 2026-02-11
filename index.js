@@ -27,7 +27,7 @@ items=[{                title: post.Title,
 if(i !== 'undefined'){
    x += `
     
-      <li class='text-1>${i.title}</li>
+      <li class='text-1'>${i.title}</li>
        <li class='text-1'>${i.rating}</li>
        <li class='text-1' style="color: #FFFF00;">&#9733</li>
        <li class='text-2'>${i.time}</li>
