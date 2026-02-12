@@ -6,10 +6,8 @@ let items = []
 let poster=[]
 
 btn.addEventListener('click', renderHTML)
-
-async function renderHTML(){ 
+async function renderHTML(){
 inputValue.push(inputText.value);
-inputText.value =''    
 const resp = await fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
 const post = await resp.json()
 items=[{                title: post.Title,
@@ -21,28 +19,27 @@ items=[{                title: post.Title,
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
         }]
+if(items !== 'undefined'){
+let x =''
+for(let i of items){
+ x = `
       
- let x =''
- for(let i of items){
-if(i !== 'undefined'){
-   x = `
-    
       <li class='text-1'>${i.title}</li>
-       <li class='text-1'>${i.rating}</li>
-       <li class='text-1' style="color: #FFFF00;">&#9733</li>
-       <li class='text-2'>${i.time}</li>
-       <li class='text-2'>${i.genre}</li>
+      <li class='text-1'>${i.rating}</li>
+      <li class='text-1' style="color: #FFFF00;">&#9733</li>
+      <li class='text-2'>${i.time}</li>
+      <li class='text-2'>${i.genre}</li>
       <li id="btn-1" class="btn-1">${i.anTag} </li>
       <li class='text-2'>Watchlist </li>
       <li class='text-3'>${i.plot}</li>
       <li class='text-3'>${i.poster}</li> `
-     
-    
- }else if(x == 'undefined'){
-  x = `Search again!`
- } 
-  movies.innerHTML += x
- }
+}
+
+  movies.innerHTML = x
+
+
+
+  }
 
   let clicked=''  
  document.getElementById('btn-1').addEventListener('click', function(e){
