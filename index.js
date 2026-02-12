@@ -7,10 +7,15 @@ let poster=[]
 
 btn.addEventListener('click', renderHTML)
 async function renderHTML(){
-inputValue.push(inputText.value);
-const resp = await fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68`)
+ inputValue.push(inputText.value);
+const apiUrls =[
+  
+  `https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68&totalResults=3` 
+]
+const resp = await fetch(`${apiUrls}`)
 const post = await resp.json()
-items=[{         title: post.Title,
+
+items=[{                title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
                         genre: post.Genre,
@@ -19,18 +24,11 @@ items=[{         title: post.Title,
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
                         
+                        
         }]
-
-
- 
-    
-
+ if(items.value !=='undefined'){     
 for(let i of items){
-  
-
-
-
- x = `
+  x = `
       
       <li class='text-1'>${i.title}</li>
       <li class='text-1'>${i.rating}</li>
@@ -40,14 +38,15 @@ for(let i of items){
       <li id="btn-1" class="btn-1">${i.anTag} </li>
       <li class='text-2'>Watchlist </li>
       <li class='text-3'>${i.plot}</li>
-      <li class='text-3'>${i.poster}</li> `
+      <li class='text-3'>${i.poster}</li> 
+      <li class='text-3'>${i.total}</li> `
 }
 
-if(typeof x === 'undefined'){
+
   movies.innerHTML = x
-}else{
-  movies.innerHTML = x
-}
+      }else{
+        movies.innerHTML ='Search Again'
+      }
 
 
 
