@@ -47,6 +47,8 @@ for(let i of items){
 
 
   movies.innerHTML = x
+      }else{
+         return i.error
       }
 
 
