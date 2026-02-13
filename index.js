@@ -8,14 +8,15 @@ let poster=[]
 btn.addEventListener('click', renderHTML)
 async function renderHTML(){
  inputValue.push(inputText.value);
-const apiUrls =[
-  
-  `https://www.omdbapi.com/?t=${inputValue}&apikey=4c9cae68&totalResults=3` 
+
+
+ const apiUrls =[
+`https://www.omdbapi.com/?apikey=4c9cae68&t=${inputValue}` 
 ]
 const resp = await fetch(`${apiUrls}`)
 const post = await resp.json()
 
-items=[{                title: post.Title,
+items=[{                title: post.title,
                         rating: post.imdbRating,
                         time: post.Runtime,
                         genre: post.Genre,
@@ -25,8 +26,10 @@ items=[{                title: post.Title,
                         poster: `<img class="poster" src=${post.Poster}>`
                         
                         
+                        
         }]
- if(items.value !=='undefined'){     
+console.log(items)
+        if(items.value !=='undefined'){     
 for(let i of items){
   x = `
       
@@ -39,13 +42,11 @@ for(let i of items){
       <li class='text-2'>Watchlist </li>
       <li class='text-3'>${i.plot}</li>
       <li class='text-3'>${i.poster}</li> 
-      <li class='text-3'>${i.total}</li> `
+      `
 }
 
 
   movies.innerHTML = x
-      }else{
-        movies.innerHTML ='Search Again'
       }
 
 
