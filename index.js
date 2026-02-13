@@ -16,7 +16,7 @@ async function renderHTML(){
 const resp = await fetch(`${apiUrls}`)
 const post = await resp.json()
 
-items=[{                title: post.title,
+items=[{                title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
                         genre: post.Genre,
