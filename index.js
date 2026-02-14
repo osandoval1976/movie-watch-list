@@ -14,6 +14,7 @@ inputValue=inputText.value
 ]
 const resp = await fetch(`${apiUrls}`)
 const post = await resp.json()
+
 items=[{                title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
@@ -44,8 +45,13 @@ for(let i of items){
       <li class='text-3'>${i.poster}</li> 
       `
 }
-movies.innerHTML =x  
-post=''
+
+
+  movies.innerHTML = x
+      }
+
+
+
 
 
 
