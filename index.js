@@ -45,10 +45,13 @@ for(let i of items){
       <li class='text-3'>${i.poster}</li> 
       `
 }
-
-
-  movies.innerHTML = x
-      }
+  if(post === 'undefined'){
+  post= ''
+  }if(post ==='undefined'){
+  movies.innerHTML = 'Search Again'
+  }else{
+    movies.innerHTML = x 
+  }
 
 
 
