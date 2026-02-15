@@ -33,16 +33,26 @@ let x=''
 for(let i of items){
   
   x = `
+  <div class='container-1'>
+      <div class='text-1'>
+      <h3 class='title'>${i.title}</h3>
+      <span class='start' style="color: #FFFF00;">&#9733</span>
+      <span class='rating'>${i.rating}</span>
       
-      <li class='text-1'>${i.title}</li>
-      <li class='text-1'>${i.rating}</li>
-      <li class='text-1' style="color: #FFFF00;">&#9733</li>
-      <li class='text-2'>${i.time}</li>
-      <li class='text-2'>${i.genre}</li>
-      <li id="btn-1" class="btn-1">${i.anTag} </li>
-      <li class='text-2'>Watchlist </li>
-      <li class='text-3'>${i.plot}</li>
-      <li class='text-3'>${i.poster}</li> 
+      </div>
+      <div  class='text-2'>
+      <span class='time'>${i.time}</span>
+      <span class='genre'>${i.genre}</span>
+      <span  id="btn-1" class="btn-1 wlist">${i.anTag} </span>
+      <span class='wlist'>Watchlist</span>
+      </div>
+      <div class='text-3'>
+      <span>${i.plot}</span>
+      </div>
+       <div class='text-4'>
+      <span  >${i.poster}</span> 
+      </div>
+      </div>
       `
 }
   if(post === 'undefined'){
@@ -59,7 +69,7 @@ for(let i of items){
 
 
   let clicked=''  
- document.getElementById('btn-1').addEventListener('click', function(e){
+ document.getElementById('btn-1').addEventListener('cspan ck', function(e){
 clicked = e.target.span
  
  storageRender(items)
