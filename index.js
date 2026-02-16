@@ -10,11 +10,11 @@ async function renderHTML(){
 inputValue=inputText.value
 
  const apiUrls =[
-`https://www.omdbapi.com/?apikey=4c9cae68&t=${inputValue}` 
+`https://www.omdbapi.com/?apikey=4c9cae68&t=${inputValue}&s=${inputValue}` 
 ]
 const resp = await fetch(`${apiUrls}`)
 const post = await resp.json()
-
+console.log(post.Search)
 items=[{                title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
