@@ -87,12 +87,17 @@ footer{
 .container-1{
     display: inline-block;
     margin-left: 15px;
+    margin-right: -105px;
     margin-top: 35px;
-   border-bottom: 1px solid burlywood;
+   
   
     
 }
-
+.container-2{
+    display: inline-block;
+    margin:30px 400px 0 130px;
+    border-bottom: 1px solid burlywood;
+}
 .title, .start, .rating{
     display: inline-block;
     margin: auto 2px;
@@ -160,7 +165,7 @@ footer{
     line-height: 1.3;
     margin-top: 30px;
     margin-left: 200px;
-    border-bottom: 1px solid burlywood;
+    
     
 }
 

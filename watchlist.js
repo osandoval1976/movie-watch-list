@@ -5,7 +5,7 @@ console.log( listItems)
 for (let i of  listItems) {
     newRender += `
                                     
-                                        <div class='container-1'>
+                                        <div class='container-2'>
                                         <div class='text-1'>
                                         <span   class='title'>${i.title}</span >
                                         <span class='start' style="color: #e4bd0f;">&#9733</span >
