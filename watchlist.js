@@ -30,8 +30,5 @@ for (let i of  listItems) {
                                           `
     
 }
-let x =''
-for(let i=0; i <newHTML.length;i++){
-x=newHTML.push(newRender[i])
-}
-html.innerHTML += x
+newHTML.push(newRender)
+html.innerHTML += newHTML
