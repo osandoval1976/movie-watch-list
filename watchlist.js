@@ -4,8 +4,8 @@ let newHTML = []
 let  listItems = JSON.parse(localStorage.getItem('mobieCard'))
 console.log( listItems)
 for (let i of  listItems) {
-    newRender += `
-                   <a>                 
+    newRender = `
+                                    
                                         <div class='container-2'>
                                         <div class='text-1'>
                                         <span   class='title'>${i.title}</span >
@@ -27,8 +27,11 @@ for (let i of  listItems) {
                                         <span>${i.poster}</span> 
                                           </div>   
                                           </div>         
-                                          </a>`
+                                          `
     
 }
-newHTML.push(newRender)
-html.innerHTML += newHTML
+let x =''
+for(let i=0; i <newHTML.length;i++){
+x=newHTML.push(newRender[i])
+}
+html.innerHTML += x
