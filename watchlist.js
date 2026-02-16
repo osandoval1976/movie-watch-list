@@ -1,24 +1,31 @@
 const html = document.querySelector('#html')
 let newRender = ''
-let listItems = JSON.parse(localStorage.getItem('mobieCard'))
-console.log(listItems)
-for (let i of listItems) {
+let  listItems = JSON.parse(localStorage.getItem('mobieCard'))
+console.log( listItems)
+for (let i of  listItems) {
     newRender += `
                                     
-                                    
-                                        <li class='text-1'>${i.title}</li>
-
-                                        <li class='text-1'>${i.rating}</li>
-                                  
-                                        <li class='text-1' style="color: #FFFF00;">&#9733</li>
-                                        <li class='text-1'>${i.time}</li>
-                                        <li class='text-1'>${i.genre}</li>
-                                        <li id="btn-2" class='text-1'>${i.image} </li>
-                                        <li class='text-1'>Watchlist </li>
-                                   
-                                        <li class='text-1'>${i.plot}</li>
-                                        <li class='text-1'>${i.poster}</li>
-                                                                              `
+                                        <div class='container-1'>
+                                        <div class='text-1'>
+                                        <span   class='title'>${i.title}</span >
+                                        <span class='start' style="color: #e4bd0f;">&#9733</span >
+                                        <span class='rating'>${i.rating}</span >
+                                        </div>
+                                        <div  class='text-2'>
+                                        <span class='time'>${i.time}</span> 
+                                        <span class='genre'>${i.genre}</span >
+                                        </div>
+                                        <div class='text-3'>
+                                        <span id="btn-3" class='btn-1'>${i.image} </span >
+                                        <span class='wlist'>remove  </span>
+                                       </div>
+                                       <div class='text-4'>
+                                        <span>${i.plot}</span> 
+                                        </div>
+                                          <div class='text-5'>
+                                        <span>${i.poster}</span> 
+                                          </div>   
+                                          </div>                                 `
     
 }
 

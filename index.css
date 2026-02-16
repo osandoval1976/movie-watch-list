@@ -69,7 +69,6 @@ p{
     margin-left: 310px;
     margin-right: 400px;
     padding: 20px 20px;
-    border-bottom: 1px solid burlywood;
     list-style: none;
 }
  
@@ -79,7 +78,7 @@ p{
     margin-top:-25px;
     margin-right: -15px;
     margin-bottom: 2px;
-    border-bottom: 1px solid burlywood;
+    
 }
 footer{
     margin-top:200px;
@@ -87,36 +86,32 @@ footer{
 
 .container-1{
     display: inline-block;
-    margin-left: 10px;
-    
+    margin-left: 15px;
+    margin-top: 35px;
+   border-bottom: 1px solid burlywood;
   
     
 }
 
 .title, .start, .rating{
     display: inline-block;
-    margin: 5px;
+    margin: auto 2px;
    
 }
+.text-1,.text-2, .text-3,  .text-4{
+    padding-bottom: 5px;
+    padding-right: 15px;
+    margin-left:150px;
+}
+
+
 .text-3{
-    margin-left:155px;
+    margin-left: -99px;
     
 }
-.text-2{
-margin-left: 154px;
 
-
-}
-
-.wlist{
-    margin-left: -95px;
-    
-}
-.text-1{
-margin-left: 150px;
-}
-.text-4{
-    margin-top: -100px;
+.text-5{
+    margin-top: -130px;
 }
 .mainPage{
     display: block;
