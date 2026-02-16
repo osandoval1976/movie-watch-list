@@ -2,8 +2,8 @@ const html = document.querySelector('#html')
 let newRender = ''
 let  listItems = JSON.parse(localStorage.getItem('mobieCard'))
 
-function newHTML(x)
-for(let i of  x) {
+
+for(let i of listItems) {
    
                         newRender   += `<div class='container-2'>
                                         <div class='text-1'>
@@ -29,10 +29,10 @@ for(let i of  x) {
                                            
                                           
     
-   
+   html.innerHTML += newRender
 }
-html.innerHTML += newRender
-newHTML(listItems)
+
+
    
 
 
