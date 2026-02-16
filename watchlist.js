@@ -1,5 +1,6 @@
 const html = document.querySelector('#html')
 let newRender = ''
+let newHTML = []
 let  listItems = JSON.parse(localStorage.getItem('mobieCard'))
 console.log( listItems)
 for (let i of  listItems) {
@@ -28,5 +29,8 @@ for (let i of  listItems) {
                                           </div>                                 `
     
 }
-
-html.innerHTML = newRender
+for(let i=0; i< newHTML.length;i++){
+newHTML.push(newRender)
+    newHTML++
+}
+html.innerHTML = newHTML
