@@ -29,9 +29,10 @@ for (let i of  listItems) {
                                            
                                           
     newHTML.push(newRender)
+   html.innerHTML += newHTML
 }
 
 
    
-html.innerHTML += newHTML
-}
+
+
