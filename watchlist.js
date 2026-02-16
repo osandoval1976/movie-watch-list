@@ -3,7 +3,7 @@ let newRender = ''
 let  listItems = JSON.parse(localStorage.getItem('mobieCard'))
 
 function newHTML(x)
-for (let i of  x) {
+for(let i of  x) {
    
                         newRender   += `<div class='container-2'>
                                         <div class='text-1'>
