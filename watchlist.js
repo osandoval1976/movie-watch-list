@@ -29,8 +29,5 @@ for (let i of  listItems) {
                                           </div>                                 `
     
 }
-for(let i=0; i< newHTML.length;i++){
 newHTML.push(newRender)
-    newHTML++
-}
-html.innerHTML = newHTML
+html.innerHTML += newHTML
