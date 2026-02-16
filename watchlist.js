@@ -29,9 +29,9 @@ for(let i of  x) {
                                            
                                           
     
-   html.innerHTML += newRender
+   
 }
-
+html.innerHTML += newRender
 newHTML(listItems)
    
 
