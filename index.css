@@ -168,7 +168,13 @@ footer{
     
     
 }
-
+.movie{
+    display:inline-block;
+    height: 100%;
+    width: auto;
+    margin-top: 130px;
+    margin-left:230px;
+}
 .btn-1, .btn-2{
     height: 100%;
     width: auto;
