@@ -3,7 +3,7 @@ let newRender = ''
 let newHTML = []
 let  listItems = JSON.parse(localStorage.getItem('mobieCard'))
 
-newHTML.push(lisItems)
+newHTML.push(listItems)
 console.log( newHTML)
 for (let i of  listItems) {
    
