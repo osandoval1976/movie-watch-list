@@ -28,9 +28,10 @@ for (let i of  listItems) {
                                           </div>    `         
                                            
                                           
-    
+    newHTML.push(newRender)
 }
-newHTML.push(newRender)
-for(let x of newHTML){
-html.innerHTML += x
+
+
+   
+html.innerHTML += newHTML
 }
