@@ -6,7 +6,11 @@ let newHTML = []
 
 
 let x = JSON.parse(localStorage.getItem('mobieCard'));
-for (let i of x) {
+
+newHTML.push(x)
+let m = JSON.stringlify(x)
+console.log(m)
+for (let i of m) {
                          newRender =[ `<div class='container-2'>
                                       <div class='text-1'>
                                       <span   class='title'>${i.title}</span >
