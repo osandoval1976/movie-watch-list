@@ -8,7 +8,8 @@ let newHTML = []
 let x = JSON.parse(localStorage.getItem('mobieCard'));
 
 newHTML.push(x)
-let m = JSON.stringify(newHTML)
+let n = localStorage.setItem(newHTML)
+let m = JSON.stringify(n)
 console.log(m)
 for (let i of m) {
                          newRender =[ `<div class='container-2'>
