@@ -36,7 +36,7 @@ for(let i of n) {
 
 for(let i=0; i <newHTML.length; i++){
   let x = ''
- x= ${newRender[i]}
+ x= `${newRender[i]}`
   html.innerHTML +=x
 }
 
