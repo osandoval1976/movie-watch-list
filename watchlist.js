@@ -3,7 +3,7 @@ let newRender =''
 let newHTML = []
 let x = JSON.parse(localStorage.getItem('mobieCard'));
 localStorage.setItem('text',JSON.stringify(x))
-let n = JSON.parse(localStorage.getItem('text');
+let n = JSON.parse(localStorage.getItem('text'));
 
 
 console.log(n)
