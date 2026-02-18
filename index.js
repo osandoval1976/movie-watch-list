@@ -59,7 +59,6 @@ for(let i of items){
 }
   if(post !== 'undefined'){
    movies.innerHTML = x 
-   break
   }else{
   movies.innerHTML = 'Search Again'
   
