@@ -8,7 +8,7 @@ let n = JSON.parse(localStorage.getItem('text'));
 
 console.log(n)
 for(let i of n) {
-                         newRender = `<li>
+                         newRender = `<li class="ulList">
                                      <div class='container-2'>
                                       <div class='text-1'>
                                       <span   class='title'>${i.title}</span >
