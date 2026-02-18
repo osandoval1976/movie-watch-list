@@ -8,7 +8,7 @@ let n = JSON.parse(localStorage.getItem('text'));
 
 console.log(n)
 for(let i of n) {
-                         newRender += `<div class='container-2'>
+                         newRender = `<div class='container-2'>
                                       <div class='text-1'>
                                       <span   class='title'>${i.title}</span >
                                         <span class='start' style="color: #e4bd0f;">&#9733</span >
@@ -31,15 +31,15 @@ for(let i of n) {
                                           </div>    `
 
 };
-function htmlRender(item){
-newHTML.push(item)
-html.innerHTML +=newHTML
 
-}
+
+html.innerHTML +=newRender
 
 
 
-htmlRender(newRender)
+
+
+
 
 
 
