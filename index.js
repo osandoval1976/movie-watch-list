@@ -59,8 +59,9 @@ for(let i of items){
 }
   if(post === 'undefined'){
   post= ''
-  }else if(post ==='undefined'){
+  }else if(post !=='undefined'){
   movies.innerHTML = 'Search Again'
+   break
   }else{
     movies.innerHTML = x 
   }
