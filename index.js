@@ -57,15 +57,14 @@ for(let i of items){
       </div>
       `
 }
-  if(post === 'undefined'){
-  post= ''
-  }else if(post !=='undefined'){
-  movies.innerHTML = 'Search Again'
+  if(post !== 'undefined'){
+   movies.innerHTML = x 
    break
   }else{
-    movies.innerHTML = x 
+  movies.innerHTML = 'Search Again'
+  
   }
-
+ 
 
 
 
