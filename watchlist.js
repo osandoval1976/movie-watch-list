@@ -2,8 +2,9 @@ const html = document.querySelector('#html')
 let newRender =''
 let newHTML = []
 let x = JSON.parse(localStorage.getItem('mobieCard'));
-let m = JSON.stringify(x)
-let n = JSON.parse(m);
+localStorage.setItem('text',JSON.stringify(x))
+let n = JSON.parse(localStorage.getItem('text');
+
 
 console.log(n)
 for(let i of n) {
