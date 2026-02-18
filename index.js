@@ -77,8 +77,7 @@ clicked = e.target.span
  storageRender(items)
  }) 
 function storageRender(x){
-
-  localStorage.setItem('mobieCard', JSON.stringify(x)) 
+ localStorage.setItem('mobieCard', JSON.stringify(x)) 
 }
 }
 
