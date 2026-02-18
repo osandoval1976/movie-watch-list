@@ -34,8 +34,12 @@ for(let i of n) {
 
 };
 
-console.log(newRender)
-html.innerHTML +=newRender
+for(let i=0; i <newHTML.length; i++){
+  let x = ''
+ x= ${newRender[i]}
+  html.innerHTML +=x
+}
+
 
 
 
