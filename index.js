@@ -14,7 +14,7 @@ inputValue=inputText.value
 ]
 const resp = await fetch(`${apiUrls}`)
 const post = await resp.json()
-
+if(!post.ok){
 items=[{                title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
@@ -25,7 +25,12 @@ items=[{                title: post.Title,
                         poster: `<img class="poster" src=${post.Poster}>`
 }]
 
-
+}try{
+ throw Error("oops");
+}catch{
+ console.error('Try Again')
+}
+ 
 console.log(items)
 
 let x=''
