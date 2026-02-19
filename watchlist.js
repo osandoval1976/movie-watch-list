@@ -1,15 +1,17 @@
 const html = document.querySelector('#html')
 let newRender =''
-let newHTML = []
-let x = JSON.parse(localStorage.getItem('mobieCard'));
-localStorage.setItem('text',JSON.stringify(x))
-let n = JSON.parse(localStorage.getItem('text'));
+let newHTML = ''
 
+let x = JSON.parse(localStorage.getItem('mobieCard'));
+
+if(typeof (localStorage) !== 'undefined'){
+localStorage.setItem('text',JSON.stringify(x)) 
+let n =JSON.parse(localStorage.getItem('text'))
 
 console.log(n)
 for(let i of n) {
-                         newRender = `<li class="ulList">
-                                     <div class='container-2'>
+             newRender = `<li class="ulList">
+             <div class='container-2'>
                                       <div class='text-1'>
                                       <span   class='title'>${i.title}</span >
                                         <span class='start' style="color: #e4bd0f;">&#9733</span >
@@ -32,17 +34,17 @@ for(let i of n) {
                                           </div>  
                                           </li>`
 
+
+
+
 };
 
-for(let i=0; i <newHTML.length; i++){
-  let x = ''
- x= `${newRender[i]}`
-  html.innerHTML +=x
+ html.innerHTML+=newRender
 }
+  
 
 
-
-
+ 
 
 
 

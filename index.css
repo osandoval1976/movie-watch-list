@@ -185,8 +185,8 @@ footer{
 }
 
 .ulList{
-    list.style:none;
-
+    list-style:none;
+}
 
 
 
