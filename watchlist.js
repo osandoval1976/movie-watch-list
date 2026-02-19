@@ -40,20 +40,21 @@ for(let i of n) {
 
 };
  
+
+
+}
+  
+
 let localItems = []
+let m =''
 localItems.push(newRender)
 for(let i=0;i< localItems.length;i++){
-  let m =''
+ 
 m+=localItems[i]
 console.log(m.length)
 html.innerHTML=m
 m=''
  }
-
-}
-  
-
-
  
 
 
