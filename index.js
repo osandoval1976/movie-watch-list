@@ -26,7 +26,7 @@ items=[{                title: post.Title,
 }]
 
 }try{
- movies.innerHTML= (throw Error("oops"));
+ movies.innerHTML= throw Error("oops");
 }catch(error=>{
  console.error('Try Again')
 })
