@@ -52,10 +52,10 @@ for(let i=0;i< localItems.length;i++){
  
 m+=localItems[i]
 console.log(m.length)
-html.innerHTML=m
-m=''
+
  }
- 
+ html.innerHTML=m
+m=''
 
 
 
