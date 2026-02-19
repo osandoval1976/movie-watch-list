@@ -41,17 +41,12 @@ for(let i of n) {
 };
  
 let localItems = []
-  
+localItems.push(Object.value(newRender))
 for(let i=0;i< localItems.length;i++){
-  localItems.push(Object.value(newRender))
-  
- const li = document.createElement('li');
-
- console.log(localItems.length)
+const li = document.createElement('li');
+console.log(localItems.length)
 li.innerHTML+=localItems[i]
- 
-  
- html.appendChild(li) 
+html.appendChild(li) 
  }
 
 }
