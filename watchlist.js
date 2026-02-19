@@ -46,7 +46,7 @@ for(let i=0;i< localItems.length;i++){
   let m =''
 m+=localItems[i]
 console.log(m.length)
-html.innerHTML+=m
+html.innerHTML=m
 
  }
 
