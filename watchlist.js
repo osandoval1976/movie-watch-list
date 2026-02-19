@@ -41,14 +41,14 @@ for(let i of n) {
 };
  
 let localItems = []
-  localItems.push(newRender)
+  
 for(let i=0;i< localItems.length;i++){
-  let x =[]
-  x.push(localItems)
+  localItems.push(newRender)
+  
  const li = document.createElement('li');
 
- console.log(x.length)
-li.innerHTML+=x[i]
+ console.log(localItems.length)
+li.innerHTML+=localItems[i]
  
   
  html.appendChild(li) 
