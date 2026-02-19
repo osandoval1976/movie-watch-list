@@ -26,10 +26,10 @@ items=[{                title: post.Title,
 }]
 
 }try{
- throw Error("oops");
-}catch{
+ movies.innerHTML= (throw Error("oops"));
+}catch(error=>{
  console.error('Try Again')
-}
+})
  
 console.log(items)
 
@@ -62,11 +62,8 @@ for(let i of items){
       </div>
       `
 }
-  if(post !== 'undefined'){
+ 
    movies.innerHTML = x 
-  }else{
-  movies.innerHTML = 'Search Again'
-  
   }
  
 
