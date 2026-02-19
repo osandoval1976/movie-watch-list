@@ -48,13 +48,13 @@ for(let i of n) {
 let localItems = []
 let m =''
 localItems.push(newRender)
-for(let i=0;i< localItems;i++){
+for(let  x of localItems){
  
-m+=localItems[i]
-console.log(m.length)
+m+=x
+console.log(x.length)
 
  }
- html.innerHTML=m
+ html.innerHTML=x
 m=''
 
 
