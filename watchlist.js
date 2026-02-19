@@ -41,7 +41,7 @@ for(let i of n) {
 };
  
 let localItems = []
-localItems.push(Object.value(newRender))
+localItems.push(Object.values(newRender))
 for(let i=0;i< localItems.length;i++){
 const li = document.createElement('li');
 console.log(localItems.length)
