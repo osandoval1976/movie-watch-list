@@ -43,7 +43,7 @@ for(let i of n) {
 let localItems = []
   
 for(let i=0;i< localItems.length;i++){
-  localItems.push(newRender)
+  localItems.push(Object.value(newRender))
   
  const li = document.createElement('li');
 
