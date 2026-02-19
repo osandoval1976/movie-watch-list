@@ -4,13 +4,14 @@ let newHTML = ''
 
 let x = JSON.parse(localStorage.getItem('mobieCard'));
 
-if(typeof (localStorage) !== 'undefined'){
+if(typeof (x) !== 'undefined'){
 localStorage.setItem('text',JSON.stringify(x)) 
 let n =JSON.parse(localStorage.getItem('text'))
-
 console.log(n)
 for(let i of n) {
-             newRender = `<li class="ulList">
+  
+  
+             newRender = `
              <div class='container-2'>
                                       <div class='text-1'>
                                       <span   class='title'>${i.title}</span >
@@ -32,14 +33,27 @@ for(let i of n) {
                                         <span>${i.poster}</span> 
                                           </div>   
                                           </div>  
-                                          </li>`
+                                          `
 
 
 
 
 };
+ 
+let localItems = []
+  localItems.push(newRender)
+for(let i=0;i< localItems.length;i++){
+  let x =[]
+  x.push(localItems)
+ const li = document.createElement('li');
 
- html.innerHTML+=newRender
+ console.log(x.length)
+li.innerHTML+=x[i]
+ 
+  
+ html.appendChild(li) 
+ }
+
 }
   
 
