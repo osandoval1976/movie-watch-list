@@ -43,10 +43,9 @@ for(let i of n) {
 let localItems = []
 localItems.push(Object.values(newRender))
 for(let i=0;i< localItems.length;i++){
-const li = document.createElement('li');
 console.log(localItems.length)
-li.innerHTML+=localItems[i]
-html.appendChild(li) 
+html.innerHTML+=localItems[i]
+
  }
 
 }
