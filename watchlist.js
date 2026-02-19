@@ -50,7 +50,7 @@ let m =''
 localItems.push(newRender)
 for(let i=0;i< localItems.length;i++){
  
-m+=localItems[i]
+m+=localItems
 console.log(m.length)
 
  }
