@@ -41,10 +41,12 @@ for(let i of n) {
 };
  
 let localItems = []
-localItems.push(Object.values(newRender))
+localItems.push(newRender)
 for(let i=0;i< localItems.length;i++){
-console.log(localItems.length)
-html.innerHTML+=localItems[i]
+  let m ='
+m+=localItems[i]
+console.log(m.length)
+html.innerHTML+=m
 
  }
 
