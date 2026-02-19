@@ -1,5 +1,5 @@
 const html = document.querySelector('#html')
-let newRender =''
+let newRender =[]
 let newHTML = ''
 
 let x = JSON.parse(localStorage.getItem('mobieCard'));
@@ -11,7 +11,7 @@ console.log(n)
 for(let i of n) {
   
   
-             newRender = `
+             newRender = [`
              <div class='container-2'>
                                       <div class='text-1'>
                                       <span   class='title'>${i.title}</span >
@@ -33,7 +33,7 @@ for(let i of n) {
                                         <span>${i.poster}</span> 
                                           </div>   
                                           </div>  
-                                          `
+                                          `]
 
 
 
@@ -48,9 +48,9 @@ for(let i of n) {
 let localItems = []
 let m =''
 localItems.push(newRender)
-for(let i=0;i< localItems.length;i++){
+for(let i=0;i< localItems;i++){
  
-m+=localItems
+m+=localItems[i]
 console.log(m.length)
 
  }
