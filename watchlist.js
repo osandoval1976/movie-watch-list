@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded",myFunction)
 
 const html = document.querySelector('#html')
 let newRender =[]
-let newHTML = []
+let newHTML =''
 let x = JSON.parse(localStorage.getItem('mobieCard'));
 
 function myFunction(p){ 
@@ -15,7 +15,7 @@ for(let i of m ) {
                                       <div class='container-2'>
                                       <div class='text-1'>
                                       <span   class='title'>${i.title}</span >
-                                        <span class='start' style="color: #e4bd0f;">&#9733</span >
+                                        <span class='start' style="color: #f7cb06;">&#9733</span >
                                         <span class='rating'>${i.rating}</span >
                                         </div>
                                         <div  class='text-2'>
@@ -44,9 +44,9 @@ for(let i of m ) {
 
 console.log(newRender)
 
-newHTML.push(newRender)
+
 }; 
-html.innerHTML+=newHTML
+html.innerHTML =newRender
 }
 myFunction(x)
 
