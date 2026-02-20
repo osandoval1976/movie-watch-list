@@ -1,18 +1,18 @@
+document.addEventListener("DOMContentLoaded",myFunction)
+
 const html = document.querySelector('#html')
 let newRender =[]
-let newHTML = ''
-
+let newHTML = []
 let x = JSON.parse(localStorage.getItem('mobieCard'));
 
-if(typeof (x) !== 'undefined'){
-localStorage.setItem('text',JSON.stringify(x)) 
-let n =JSON.parse(localStorage.getItem('text'))
-console.log(n)
-for(let i of n) {
-  
-  
-             newRender = [`
-             <div class='container-2'>
+function myFunction(p){ 
+localStorage.setItem('text',JSON.stringify(p))
+let m =JSON.parse(localStorage.getItem('text'))
+
+for(let i of m ) {
+   
+             newRender = `<li class='ulList'>
+                                      <div class='container-2'>
                                       <div class='text-1'>
                                       <span   class='title'>${i.title}</span >
                                         <span class='start' style="color: #e4bd0f;">&#9733</span >
@@ -33,29 +33,24 @@ for(let i of n) {
                                         <span>${i.poster}</span> 
                                           </div>   
                                           </div>  
-                                          `]
+                                          </li>`
 
 
 
 
-};
- 
 
 
+
+
+console.log(newRender)
+
+newHTML.push(newRender)
+}; 
+html.innerHTML+=newHTML
 }
-  
+myFunction(x)
 
-let localItems = []
-let m =''
-localItems.push(newRender)
-for(let  x of localItems){
- 
-m+=x
-console.log(x.length)
 
- }
- html.innerHTML=x
-m=''
 
 
 

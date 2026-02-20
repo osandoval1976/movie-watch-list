@@ -14,7 +14,7 @@ inputValue=inputText.value
 ]
 const resp = await fetch(`${apiUrls}`)
 const post = await resp.json()
-if(!post.ok){
+
 items=[{                title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
@@ -25,11 +25,7 @@ items=[{                title: post.Title,
                         poster: `<img class="poster" src=${post.Poster}>`
 }]
 
-}try{
- movies.innerHTML= throw Error("oops");
-}catch(error=>{
- console.error('Try Again')
-})
+
  
 console.log(items)
 
@@ -64,7 +60,7 @@ for(let i of items){
 }
  
    movies.innerHTML = x 
-  }
+  
  
 
 
@@ -72,16 +68,15 @@ for(let i of items){
 
 
   let clicked=''  
- document.getElementById('btn-1').addEventListener('click', function(e){
+document.getElementById('btn-1').addEventListener('click', function(e){
 clicked = e.target.span
- 
- storageRender(items)
+storageRender(items)
  }) 
 function storageRender(x){
  localStorage.setItem('mobieCard', JSON.stringify(x)) 
 }
-}
 
+}
 
 
 
