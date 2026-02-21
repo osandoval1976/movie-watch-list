@@ -1,17 +1,20 @@
-document.addEventListener("DOMContentLoaded",myFunction)
+
 
 const html = document.querySelector('#html')
-let newRender =[]
-let newHTML =''
+let newRender =''
+let newHTML =[]
 let x = JSON.parse(localStorage.getItem('mobieCard'));
 
-function myFunction(p){ 
-localStorage.setItem('text',JSON.stringify(p))
-let m =JSON.parse(localStorage.getItem('text'))
 
-for(let i of m ) {
-   
-             newRender = `<li class='ulList'>
+ function myFunction(h){ 
+ 
+(localStorage.setItem('text',JSON.stringify(h)))
+let m =JSON.parse(localStorage.getItem('text'))
+ 
+for(let i of  m) {
+  
+ let items = ""
+                                    items += `<li class='ulList'>
                                       <div class='container-2'>
                                       <div class='text-1'>
                                       <span   class='title'>${i.title}</span >
@@ -40,15 +43,15 @@ for(let i of m ) {
 
 
 
+console.log(items)
 
 
-console.log(newRender)
-
-
-}; 
-html.innerHTML =newRender
 }
+html.innerHTML +=newRender
+}; 
 myFunction(x)
+
+
 
 
 
