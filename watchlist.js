@@ -1,18 +1,27 @@
 let items =''
 let p=[]
 let y =''
+let newStorage=''
 let x = JSON.parse(localStorage.getItem('mobieCard'));
+console.log(x)
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", function(){
 localStorage.setItem('text', JSON.stringify(x))
 y = JSON.parse(localStorage.getItem('text'));
+
 myFunction()
 })
+ 
 
 function myFunction(){
-items = "<ul>"
+items += "<ul>"
 for(let i of y) {
   
-                                    items = `<li class='ulList'>
+                                    items += `<li class='ulList'>
                                       <div class='container-2'>
                                       <div class='text-1'>
                                       <span   class='title'>${i.title}</span >
@@ -40,23 +49,21 @@ for(let i of y) {
  
 
 items+="</ul>"
-                                 
 
 };
+ 
+newStorage = localStorage.setItem('new', JSON.stringify(items))    
+console.log(newStorage)
+if(newStorage){
+ items=`${newStorage}`
+  myFunction()
+  
+}                         
+document.querySelector('#html').innerHTML =items
 
-for(let i=0;i <  items.length;i++){
-  if(items.length == 0){
-     p.push(items)   
-  }if(items.length !== i){
-    p.push(items)
-  }
-  break
+
+
 }
-
-
-document.querySelector('#html').innerHTML =p
-}
-
 
 
 

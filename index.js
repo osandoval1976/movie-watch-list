@@ -3,19 +3,19 @@ const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
 let inputValue=''
 let items = []
-let poster=[]
+
 
 btn.addEventListener('click', renderHTML)
 async function renderHTML(){
 inputValue=inputText.value
 
- const apiUrls =[
+ let apiUrls =[
 `https://www.omdbapi.com/?apikey=4c9cae68&t=${inputValue}` 
 ]
+
 const resp = await fetch(`${apiUrls}`)
 const post = await resp.json()
-
-items=[{                title: post.Title,
+items=[{               title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
                         genre: post.Genre,
@@ -26,14 +26,13 @@ items=[{                title: post.Title,
 }]
 
 
- 
-console.log(items)
+
 
 let x=''
      
 for(let i of items){
   
-  x = `
+  x =[ `
   <div class='container-1'>
       <div class='text-1'>
       <h3 class='title'>${i.title}</h3>
@@ -56,7 +55,8 @@ for(let i of items){
       <span  >${i.poster}</span> 
       </div>
       </div>
-      `
+      `]
+     
 }
 
    movies.innerHTML = x 
@@ -73,7 +73,10 @@ clicked = e.target.span
 storageRender(items)
  }) 
 function storageRender(x){
+
+
  localStorage.setItem('mobieCard', JSON.stringify(x)) 
+
 }
 
 }
