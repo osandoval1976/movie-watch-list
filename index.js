@@ -58,7 +58,7 @@ for(let i of items){
       </div>
       `
 }
- 
+
    movies.innerHTML = x 
   
  
