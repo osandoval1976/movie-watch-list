@@ -8,8 +8,8 @@ if(m){
 inputText.value =m
 
 
-const resp = await fetch(`https://www.omdbapi.com/?apikey=4c9cae68&t=${inputText}` )
-const post = await resp.json()
+const resp =  fetch(`https://www.omdbapi.com/?apikey=4c9cae68&t=${inputText}` )
+const post = resp.json()
 items=[{               title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
