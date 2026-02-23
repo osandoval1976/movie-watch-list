@@ -3,23 +3,9 @@ let y =''
 let newStorage=''
 let m = ''
 let x = JSON.parse(localStorage.getItem('mobieCard'));
-
-  
- m = JSON.parse(localStorage.getItem('text'))
-
-if(m){
- items += m
-  myFunction()
-}
-document.addEventListener('DOMContentLoaded', function(){
-m =localStorage.setItem('text', JSON.stringify(x))
-})
-
-
-
 function myFunction(){
 items += "<ul>"
-for(let i of m) {
+for(let i of x ) {
   console.log(i)
                                     items =[ `<li class='ulList'>
                                       <div class='container-2'>
@@ -51,12 +37,7 @@ for(let i of m) {
 items+="</ul>"
 
 };
- 
-                     
-
-
-
-
+document.querySelector('#html').innerHTML =items                     
 }
-document.querySelector('#html').innerHTML =items
+
 
