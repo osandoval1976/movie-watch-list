@@ -35,15 +35,15 @@ for(let i of x) {
 
  
 
-items+="</ul>"
+
 
 };
- 
-                     
+ items+="</ul>"
+  document.querySelector('#html').innerHTML =items                   
 
 
 
 
 }
-document.querySelector('#html').innerHTML =items
+
 myFunction()
