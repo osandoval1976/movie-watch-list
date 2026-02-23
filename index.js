@@ -6,6 +6,52 @@ let items = []
 let m = JSON.parse(localStorage.getItem('mobieCard'));
 if(m){
 inputText.value =m
+
+ const resp = await fetch(`https://www.omdbapi.com/?apikey=4c9cae68&t=${inputText}` )
+const post = await resp.json()
+items=[{               title: post.Title,
+                        rating: post.imdbRating,
+                        time: post.Runtime,
+                        genre: post.Genre,
+                        anTag: `<img  class="icon" src=${"images/icon-10.svg"}>`,
+                        image: `<img  class="icon" src=${"images/icon-20.svg"}>`,
+                        plot: post.Plot,
+                        poster: `<img class="poster" src=${post.Poster}>`
+}]
+
+
+
+
+let n=''
+     
+for(let i of items){
+  
+  n =[ `
+  <div class='container-1'>
+      <div class='text-1'>
+      <h3 class='title'>${i.title}</h3>
+      <span class='start' style="color: #e4bd0f">&#9733</span>
+      <span class='rating'>${i.rating}</span>
+      
+      </div>
+      <div  class='text-2'>
+      <span class='time'>${i.time}</span>
+      <span class='genre'>${i.genre}</span>
+      </div>
+      <div class='text-3'>
+      <span  id="btn-1" class="btn-1">${i.anTag} </span>
+      <span class='wlist'>Watchlist</span>
+      </div>
+      <div class='text-4'>
+      <span>${i.plot}</span>
+      </div>
+       <div class='text-5'>
+      <span  >${i.poster}</span> 
+      </div>
+      </div>
+      `]
+     
+}
  renderHTML()
 
 }
