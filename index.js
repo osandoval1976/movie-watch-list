@@ -3,7 +3,11 @@ const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
 let inputValue=''
 let items = []
-
+let x = JSON.parse(localStorage.getItem('mobieCard'));
+if(x){
+ inputValue = x
+ renderHTML()
+}
 
 btn.addEventListener('click', renderHTML)
 async function renderHTML(){
