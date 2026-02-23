@@ -5,11 +5,9 @@ let inputValue=''
 let items = []
 let m = JSON.parse(localStorage.getItem('mobieCard'));
 if(m){
- 
-for(let i of m){
- inputText.value =i
+inputText.value =m
  renderHTML()
-}
+
 }
 
 btn.addEventListener('click', renderHTML)
