@@ -7,30 +7,7 @@ let m = JSON.parse(localStorage.getItem('mobieCard'));
 if(m){
  
 for(let i of m){
- inputText.value =[ `
-  <div class='container-1'>
-      <div class='text-1'>
-      <h3 class='title'>${i.title}</h3>
-      <span class='start' style="color: #e4bd0f">&#9733</span>
-      <span class='rating'>${i.rating}</span>
-      
-      </div>
-      <div  class='text-2'>
-      <span class='time'>${i.time}</span>
-      <span class='genre'>${i.genre}</span>
-      </div>
-      <div class='text-3'>
-      <span  id="btn-1" class="btn-1">${i.anTag} </span>
-      <span class='wlist'>Watchlist</span>
-      </div>
-      <div class='text-4'>
-      <span>${i.plot}</span>
-      </div>
-       <div class='text-5'>
-      <span  >${i.poster}</span> 
-      </div>
-      </div>
-      `]
+ inputText.value =i
  renderHTML()
 }
 }
