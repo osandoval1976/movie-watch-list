@@ -36,7 +36,7 @@ let x =''
 }
 
  
- inputValue.value = x
+ inputText.value = x
  renderHTML()
   
 }
