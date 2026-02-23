@@ -7,8 +7,9 @@ let m = JSON.parse(localStorage.getItem('mobieCard'));
 if(m){
 inputText.value =m
 
- const resp = await fetch(`https://www.omdbapi.com/?apikey=4c9cae68&t=${inputText}` )
-const post = await resp.json()
+fetch(`https://www.omdbapi.com/?apikey=4c9cae68&t=${inputText}` )
+.then(resp=> resp.json())
+ .then(i=>{
 items=[{               title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
@@ -19,7 +20,7 @@ items=[{               title: post.Title,
                         poster: `<img class="poster" src=${post.Poster}>`
 }]
 
-
+ }
 
 
 let n=''
@@ -53,7 +54,7 @@ for(let i of items){
      
 }
  renderHTML()
-
+ 
 }
 
 btn.addEventListener('click', renderHTML)
