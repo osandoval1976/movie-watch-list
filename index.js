@@ -54,8 +54,6 @@ for(let i of items){
      
 }
  renderHTML()
- 
-}
  }
 btn.addEventListener('click', renderHTML)
 async function renderHTML(){
