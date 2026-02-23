@@ -3,8 +3,9 @@ let p=[]
 let y =''
 let newStorage=''
 let x = JSON.parse(localStorage.getItem('mobieCard'));
-document.addEventListener("DOMContentLoaded", function(){
-if(x !== items){
+ console.log(x)
+
+if(x){
  for(let i of x){
    items= `<li class='ulList'>
                                       <div class='container-2'>
@@ -31,12 +32,12 @@ if(x !== items){
                                           </li>`
   
  }
- console.log(items)
+
   myFunction()
   
 }
 
-})
+
  
 
 function myFunction(){
