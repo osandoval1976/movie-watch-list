@@ -20,7 +20,7 @@ items=[{               title: post.Title,
                         poster: `<img class="poster" src=${post.Poster}>`
 }]
 
- }
+
 
 
 let n=''
@@ -56,7 +56,7 @@ for(let i of items){
  renderHTML()
  
 }
-
+ }
 btn.addEventListener('click', renderHTML)
 async function renderHTML(){
 inputValue=inputText.value
