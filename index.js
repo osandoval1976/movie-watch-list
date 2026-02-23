@@ -5,8 +5,9 @@ let inputValue=''
 let items = []
 let m = JSON.parse(localStorage.getItem('mobieCard'));
 if(m){
-for(let i of m){
- let x ='' 
+let x ='' 
+ for(let i of m){
+ 
   x =[ `
   <div class='container-1'>
       <div class='text-1'>
