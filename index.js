@@ -38,7 +38,7 @@ let x =''
  
  inputValue = x
  renderHTML()
-  storageRender()
+  
 }
 
 btn.addEventListener('click', renderHTML)
