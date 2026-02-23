@@ -3,10 +3,10 @@ const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
 let inputValue=''
 let items = []
-let x = JSON.parse(localStorage.getItem('mobieCard'));
-if(x){
-for(let i of x){
-  
+let m = JSON.parse(localStorage.getItem('mobieCard'));
+if(m){
+for(let i of m){
+ let x ='' 
   x =[ `
   <div class='container-1'>
       <div class='text-1'>
@@ -63,11 +63,11 @@ items=[{               title: post.Title,
 
 
 
-let x=''
+let n=''
      
 for(let i of items){
   
-  x =[ `
+  n =[ `
   <div class='container-1'>
       <div class='text-1'>
       <h3 class='title'>${i.title}</h3>
@@ -94,7 +94,7 @@ for(let i of items){
      
 }
 
-   movies.innerHTML = x 
+   movies.innerHTML = n 
   
  
 
@@ -105,6 +105,7 @@ for(let i of items){
   let clicked=''  
 document.getElementById('btn-1').addEventListener('click', function(e){
 clicked = e.target.span
+  inputValue =''
 storageRender(items)
  }) 
 function storageRender(x){
