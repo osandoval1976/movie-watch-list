@@ -52,7 +52,7 @@ for(let i of items){
       </div>
       `]
      
-}
+})
  renderHTML()
  }
 btn.addEventListener('click', renderHTML)
