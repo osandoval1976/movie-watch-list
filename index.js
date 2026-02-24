@@ -78,6 +78,12 @@ storageRender(items)
  }) 
 
 
+
+
+
+}
+
+
 function storageRender(x){
 let m = localStorage.setItem('mobieCard', JSON.stringify(x)) 
 if(m){
@@ -107,14 +113,8 @@ for(let i of m){
                                           </li>`]
   }
   
-
 }
-
 }
-
-}
-
-
 
 
 
