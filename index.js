@@ -4,7 +4,7 @@ let inputText = document.getElementById('search-site');
 let inputValue=''
 let items = []
 let n=[]
-
+let d={}
 
 btn.addEventListener('click', renderHTML)
 
@@ -72,7 +72,7 @@ for(let i of items){
   
 function storageRender(x){
 let m = localStorage.setItem('mobieCard', JSON.stringify(x)) 
-let d={}
+
 
 if(m){
 
@@ -86,10 +86,10 @@ if(m){
                         plot: m.Plot,
                         poster: `<img class="poster" src=${m.Poster}>`
 }
- 
-}
  console.log(d)
  items=[...items,d]
+}
+ 
  renderHTML()
 }
  
