@@ -88,13 +88,13 @@ if(m){
  
  renderHTML()
 }
- 
+ items.push(d)
 }
  
  let clicked=''  
 document.getElementById('btn-1').addEventListener('click', function(e){
 clicked = e.target.span
-  items.push(d)
+  
 storageRender(items)
  }) 
 
