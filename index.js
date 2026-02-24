@@ -4,7 +4,7 @@ let inputText = document.getElementById('search-site');
 let inputValue=''
 let items = []
 let n=[]
-let m = JSON.parse(localStorage.getItem('mobieCard')
+let m = JSON.parse(localStorage.getItem('mobieCard'))
 
 if(m){
 
