@@ -69,18 +69,11 @@ for(let i of items){
 
 
 
-
-  let clicked=''  
-document.getElementById('btn-1').addEventListener('click', function(e){
-clicked = e.target.span
-  
-storageRender(items)
- }) 
-
+  let d=[]
 function storageRender(x){
 let m = localStorage.setItem('mobieCard', JSON.stringify(x)) 
 
-let d=[]
+
 if(m){
 
    d = [{ title: m.Title,
@@ -92,11 +85,20 @@ if(m){
                         plot: m.Plot,
                         poster: `<img class="poster" src=${m.Poster}>`
 }]
- items.push(d)
+ 
  renderHTML()
 }
  
 }
+ 
+ let clicked=''  
+document.getElementById('btn-1').addEventListener('click', function(e){
+clicked = e.target.span
+  items.push(d)
+storageRender(items)
+ }) 
+
+
 
 
 
