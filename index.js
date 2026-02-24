@@ -4,7 +4,7 @@ let inputText = document.getElementById('search-site');
 let inputValue=''
 let items = []
 let n=[]
-let d=''
+let d=[]
 
 btn.addEventListener('click', renderHTML)
 
@@ -87,7 +87,7 @@ if(m){
                         poster: `<img class="poster" src=${m.Poster}>`
 }]
  
- items=[...items,d]
+ items.push(d)
  console.log(d, items)
 }
  
