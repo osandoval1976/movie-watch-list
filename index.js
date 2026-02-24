@@ -5,7 +5,7 @@ let inputValue=''
 let items = []
 let n=[]
 let m = JSON.parse(localStorage.getItem('mobieCard'))
-
+console.log(m)
 if(m){
 
   let d = { 
