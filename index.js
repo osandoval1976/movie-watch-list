@@ -88,7 +88,7 @@ if(m){
 }
  
  items.push(d)
- console.log(...items, d)
+ console.log(items, d)
 }
  
  renderHTML()
