@@ -72,7 +72,7 @@ for(let i of items){
   
 function storageRender(x){
 let m = localStorage.setItem('mobieCard', JSON.stringify(x)) 
-let d=''
+let d=[]
 
 if(m){
 
@@ -85,10 +85,10 @@ if(m){
                         plot: m.Plot,
                         poster: `<img class="poster" src=${m.Poster}>`
 }]
-  items.push(d)
- renderHTML()
+ 
 }
-
+ items.push(d)
+ renderHTML()
 }
  
  let clicked=''  
