@@ -87,6 +87,7 @@ if(m){
 }]
  
 }
+ console.log(d)
  items.push(d)
  renderHTML()
 }
