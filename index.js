@@ -5,7 +5,29 @@ let inputValue=''
 let items = []
 let n=[]
 let d=''
+function storageRender(x){
+let m = localStorage.setItem('mobieCard', JSON.stringify(x)) 
 
+
+if(m){
+
+   d = { 
+                        title: m.Title,
+                        rating: m.imdbRating,
+                        time: m.Runtime,
+                        genre: m.Genre,
+                        anTag: `<img  class="icon" src=${"images/icon-10.svg"}>`,
+                        image: `<img  class="icon" src=${"images/icon-20.svg"}>`,
+                        plot: m.Plot,
+                        poster: `<img class="poster" src=${m.Poster}>`
+}
+ 
+ items.push(d)
+ console.log(items, d)
+}
+ 
+ renderHTML()
+}
 btn.addEventListener('click', renderHTML)
 
 
@@ -70,29 +92,7 @@ for(let i of items){
 
 
   
-function storageRender(x){
-let m = localStorage.setItem('mobieCard', JSON.stringify(x)) 
 
-
-if(m){
-
-   d = { 
-                        title: m.Title,
-                        rating: m.imdbRating,
-                        time: m.Runtime,
-                        genre: m.Genre,
-                        anTag: `<img  class="icon" src=${"images/icon-10.svg"}>`,
-                        image: `<img  class="icon" src=${"images/icon-20.svg"}>`,
-                        plot: m.Plot,
-                        poster: `<img class="poster" src=${m.Poster}>`
-}
- 
- items.push(d)
- console.log(items, d)
-}
- 
- renderHTML()
-}
  
  let clicked=''  
 document.getElementById('btn-1').addEventListener('click', function(e){
