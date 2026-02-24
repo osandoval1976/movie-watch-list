@@ -69,7 +69,7 @@ for(let i of items){
 
 
 
-  let d=[]
+  let d=''
 function storageRender(x){
 let m = localStorage.setItem('mobieCard', JSON.stringify(x)) 
 
