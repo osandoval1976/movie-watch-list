@@ -32,7 +32,7 @@ for(let i of x){
 
 items.push(y)
  console.log(items) 
- document.querySelector('#html').innerHTML =items   
+   
 function myFunction(){
 items += "<ul>"
 
@@ -76,7 +76,7 @@ for(let i of x) {
 
 
  items+="</ul>"
-                  
+  document.querySelector('#html').innerHTML +=items                 
 }
 
 
