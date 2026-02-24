@@ -4,7 +4,7 @@ let inputText = document.getElementById('search-site');
 let inputValue=''
 let items = []
 let n=[]
-let d={}
+let d=[]
 
 btn.addEventListener('click', renderHTML)
 
@@ -76,7 +76,7 @@ let m = localStorage.setItem('mobieCard', JSON.stringify(x))
 
 if(m){
 
-   d = { 
+   d = [{ 
                         title: m.Title,
                         rating: m.imdbRating,
                         time: m.Runtime,
@@ -85,9 +85,10 @@ if(m){
                         image: `<img  class="icon" src=${"images/icon-20.svg"}>`,
                         plot: m.Plot,
                         poster: `<img class="poster" src=${m.Poster}>`
-}
- console.log(d)
+}]
+ 
  items=[...items,d]
+ console.log(d)
 }
  
  renderHTML()
