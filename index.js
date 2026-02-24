@@ -114,6 +114,7 @@ for(let i of m){
   }
   
 }
+ renderHTML()
 }
 
 
