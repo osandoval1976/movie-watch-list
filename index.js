@@ -12,14 +12,14 @@ let m = localStorage.setItem('mobieCard', JSON.stringify(x))
 if(m !== items){
 
   let d = { 
-                        title: m.Title,
-                        rating: m.imdbRating,
-                        time: m.Runtime,
-                        genre: m.Genre,
+                        title: m.title,
+                        rating: m.rating,
+                        time: m.time,
+                        genre: m.genre,
                         anTag: `<img  class="icon" src=${"images/icon-10.svg"}>`,
                         image: `<img  class="icon" src=${"images/icon-20.svg"}>`,
-                        plot: m.Plot,
-                        poster: `<img class="poster" src=${m.Poster}>`
+                        plot: m.plot,
+                        poster: `<img class="poster" src=${m.poster}>`
 }
  
  items.push(d)
