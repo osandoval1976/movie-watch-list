@@ -83,7 +83,7 @@ let m = localStorage.setItem('mobieCard', JSON.stringify(x))
 
 if(m){
 
-   items = [{ title: m.Title,
+   items += [{ title: m.Title,
                         rating: m.imdbRating,
                         time: m.Runtime,
                         genre: m.Genre,
