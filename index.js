@@ -4,12 +4,9 @@ let inputText = document.getElementById('search-site');
 let inputValue=''
 let items = []
 let n=[]
+let m = JSON.parse(localStorage.getItem('mobieCard')
 
-function storageRender(x){
-let m = localStorage.setItem('mobieCard', JSON.stringify(x)) 
-
-
-if(m !== items){
+if(m){
 
   let d = { 
                         title: m.title,
@@ -25,6 +22,9 @@ if(m !== items){
  items.push(d)
  console.log(items, d)
 }
+function storageRender(x){
+localStorage.setItem('mobieCard', JSON.stringify(x)) 
+
  
  renderHTML()
 }
