@@ -77,13 +77,6 @@ clicked = e.target.span
 storageRender(items)
  }) 
 
-
-
-
-
-}
-
-
 function storageRender(x){
 let m = localStorage.setItem('mobieCard', JSON.stringify(x)) 
 
@@ -103,6 +96,13 @@ if(m){
 }
  
 }
+
+
+
+
+}
+
+
 
 
 
