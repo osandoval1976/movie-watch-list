@@ -86,8 +86,9 @@ storageRender(items)
 
 function storageRender(x){
 let m = localStorage.setItem('mobieCard', JSON.stringify(x)) 
-if(m){
-for(let i of m){
+let w = JSON.parse(localStorage.getItem(m)) 
+if(w){
+for(let i of w){
  n += [ `<li class='ulList'>
                                       <div class='container-2'>
                                       <div class='text-1'>
