@@ -85,10 +85,10 @@ if(m){
                         plot: m.Plot,
                         poster: `<img class="poster" src=${m.Poster}>`
 }]
- 
+  items.push(d)
  renderHTML()
 }
- items.push(d)
+
 }
  
  let clicked=''  
