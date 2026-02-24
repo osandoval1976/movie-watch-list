@@ -88,7 +88,7 @@ if(m){
 }]
  
  items=[...items,d]
- console.log(d)
+ console.log(d, items)
 }
  
  renderHTML()
