@@ -3,8 +3,8 @@ const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
 let inputValue=''
 let items = []
-let n=''
-let m = JSON.parse(localStorage.getItem('mobieCard'));
+let n=[]
+
 
 btn.addEventListener('click', renderHTML)
 
@@ -35,7 +35,7 @@ const post = await resp.json()
      
 for(let i of items){
   
-  n += `
+  n =[ `
   <div class='container-1'>
       <div class='text-1'>
       <h3 class='title'>${i.title}</h3>
@@ -58,7 +58,7 @@ for(let i of items){
       <span  >${i.poster}</span> 
       </div>
       </div>
-      `
+      `]
      
 }
 
@@ -73,14 +73,43 @@ for(let i of items){
   let clicked=''  
 document.getElementById('btn-1').addEventListener('click', function(e){
 clicked = e.target.span
-  inputText.value =''
+  
 storageRender(items)
  }) 
 
 
 function storageRender(x){
-localStorage.setItem('mobieCard', JSON.stringify(x)) 
-inputText.value=''
+let m = localStorage.setItem('mobieCard', JSON.stringify(x)) 
+if(m){
+for(let i of m){
+ n += [ `<li class='ulList'>
+                                      <div class='container-2'>
+                                      <div class='text-1'>
+                                      <span   class='title'>${i.title}</span >
+                                        <span class='start' style="color: #f7cb06;">&#9733</span >
+                                        <span class='rating'>${i.rating}</span >
+                                        </div>
+                                        <div  class='text-2'>
+                                        <span class='time'>${i.time}</span> 
+                                        <span class='genre'>${i.genre}</span >
+                                        </div>
+                                        <div class='text-3'>
+                                        <span id="btn-3" class='btn-1'>${i.image} </span >
+                                        <span class='wlist'>remove  </span>
+                                       </div>
+                                       <div class='text-4'>
+                                        <span>${i.plot}</span> 
+                                        </div>
+                                          <div class='text-5'>
+                                        <span>${i.poster}</span> 
+                                          </div>   
+                                          </div>  
+                                          </li>`]
+  }
+  
+
+}
+
 }
 
 }
