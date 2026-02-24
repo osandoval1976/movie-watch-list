@@ -4,7 +4,7 @@ let inputText = document.getElementById('search-site');
 let inputValue=''
 let items = []
 let n=[]
-let d=[]
+let d=''
 
 btn.addEventListener('click', renderHTML)
 
