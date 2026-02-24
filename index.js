@@ -9,7 +9,7 @@ function storageRender(x){
 let m = localStorage.setItem('mobieCard', JSON.stringify(x)) 
 
 
-if(m){
+if(m !== items){
 
   let d = { 
                         title: m.Title,
