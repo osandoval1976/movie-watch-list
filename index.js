@@ -72,11 +72,11 @@ for(let i of items){
   
 function storageRender(x){
 let m = localStorage.setItem('mobieCard', JSON.stringify(x)) 
-let d=[]
+let d={}
 
 if(m){
 
-   d = [{ title: m.Title,
+   d = { title: m.Title,
                         rating: m.imdbRating,
                         time: m.Runtime,
                         genre: m.Genre,
@@ -84,7 +84,7 @@ if(m){
                         image: `<img  class="icon" src=${"images/icon-20.svg"}>`,
                         plot: m.Plot,
                         poster: `<img class="poster" src=${m.Poster}>`
-}]
+}
  
 }
  console.log(d)
