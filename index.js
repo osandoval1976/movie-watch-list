@@ -76,7 +76,8 @@ let d={}
 
 if(m){
 
-   d = { title: m.Title,
+   d = { 
+                        title: m.Title,
                         rating: m.imdbRating,
                         time: m.Runtime,
                         genre: m.Genre,
@@ -88,7 +89,7 @@ if(m){
  
 }
  console.log(d)
- items.push(d)
+ items=[...items,d]
  renderHTML()
 }
  
