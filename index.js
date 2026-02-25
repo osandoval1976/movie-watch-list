@@ -24,10 +24,11 @@ renderHTML()
 
 
 btn.addEventListener('click', renderHTML)
-inputValue.push(inputText.value)
-inputText.value = '' 
+
 async function renderHTML(){
 
+  inputValue.push([inputText.value])
+inputText.value = '' 
  
 
 const resp = await fetch( `https://www.omdbapi.com/?apikey=4c9cae68&t=${inputValue}`)
