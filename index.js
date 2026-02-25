@@ -1,40 +1,31 @@
 const movies = document.getElementById('ulHTML');
 const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
-
 let inputValue=''
-let items = []
+let items=[]
 let n=[]
-let d=[]
+
 
 let m = JSON.parse(localStorage.getItem('mobieCard'))
-if(m){
-items= m 
-  console.log(items)
- renderHTML()
-}
 
 
 
 function storageRender(x){
 localStorage.setItem('mobieCard', JSON.stringify(x)) 
-
- 
- renderHTML()
+renderHTML()
 }
-btn.addEventListener('click', renderHTML)
 
+
+btn.addEventListener('click', renderHTML())
 
 async function renderHTML(){
 inputValue=inputText.value
 
- let apiUrls =[
-`https://www.omdbapi.com/?apikey=4c9cae68&t=${inputValue}` 
-]
-
-const resp = await fetch(`${apiUrls}`)
+let apiUrls = [`https://www.omdbapi.com/?apikey=4c9cae68&t=${inputValue}`]
+const resp = await fetch( `${apiUrls}`)
 const post = await resp.json()
-               items= [{ title: post.Title,
+
+               items=[ { title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
                         genre: post.Genre,
@@ -43,12 +34,8 @@ const post = await resp.json()
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
 }]
-
-
-
-
-
-     
+console.log(items)
+/*for loop to render html on index.html*/     
 for(let i of items){
   
   n =[ `
@@ -79,27 +66,18 @@ for(let i of items){
 }
 
    movies.innerHTML = n 
-  
- 
-
-
-
-
-  
 
  
  let clicked=''  
 document.getElementById('btn-1').addEventListener('click', function(e){
 clicked = e.target.span
-localStorage.setItem('mobieCard', JSON.stringify(apiUrls))  
 storageRender(items)
  }) 
-
-
-
-
-
-
 }
+
+
+
+
+
 
 
