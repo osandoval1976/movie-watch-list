@@ -22,7 +22,7 @@ async function renderHTML(){
 inputValue=inputText.value
 
 let apiUrls = [`https://www.omdbapi.com/?apikey=4c9cae68&t=${inputValue}`]
-const resp = await fetch( `${apiUrls}`)
+const resp = await fetch( apiUrls)
 const post = await resp.json()
 
                items=[ { title: post.Title,
