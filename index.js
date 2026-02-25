@@ -16,13 +16,13 @@ renderHTML()
 }
 
 
-btn.addEventListener('click', renderHTML())
+btn.addEventListener('click', renderHTML)
 
 async function renderHTML(){
 inputValue.push(inputText.value)
+inputText.value = ''  
 
-let apiUrls = [`https://www.omdbapi.com/?apikey=4c9cae68&t=${inputValue}`]
-const resp = await fetch( apiUrls)
+const resp = await fetch( `https://www.omdbapi.com/?apikey=4c9cae68&t=${inputValue}`)
 const post = await resp.json()
 
                items=[ { title: post.Title,
