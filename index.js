@@ -1,29 +1,21 @@
 const movies = document.getElementById('ulHTML');
 const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
+
 let inputValue=''
 let items = []
 let n=[]
-let d={}
+let d=[]
+
 let m = JSON.parse(localStorage.getItem('mobieCard'))
-console.log(m)
-
 if(m){
+items= m 
+  console.log(items)
+ renderHTML()
+}
 
-  d = { 
-                        title: m.title,
-                        rating: m.rating,
-                        time: m.time,
-                        genre: m.genre,
-                        anTag: `<img  class="icon" src=${"images/icon-10.svg"}>`,
-                        image: `<img  class="icon" src=${"images/icon-20.svg"}>`,
-                        plot: m.plot,
-                        poster: `<img class="poster" src=${m.poster}>`
-}
- 
- items.push(d)
- console.log(items, d)
-}
+
+
 function storageRender(x){
 localStorage.setItem('mobieCard', JSON.stringify(x)) 
 
@@ -99,7 +91,7 @@ for(let i of items){
  let clicked=''  
 document.getElementById('btn-1').addEventListener('click', function(e){
 clicked = e.target.span
-  
+localStorage.setItem('mobieCard', JSON.stringify(apiUrls))  
 storageRender(items)
  }) 
 
@@ -109,9 +101,5 @@ storageRender(items)
 
 
 }
-
-
-
-
 
 

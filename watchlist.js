@@ -7,7 +7,7 @@ let x = JSON.parse(localStorage.getItem('mobieCard'));
 items = "<ul>"
 for(let i of x) {
   
-                                    items +=[ `<li class='ulList'>
+                                    items =[ `<li class='ulList'>
                                       <div class='container-2'>
                                       <div class='text-1'>
                                       <span   class='title'>${i.title}</span >
@@ -42,7 +42,7 @@ for(let i of x) {
 
 
  items+="</ul>"
-  document.querySelector('#html').innerHTML =items                 
+  document.querySelector('#html').innerHTML +=items                 
 
 
 
