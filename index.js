@@ -1,7 +1,7 @@
 const movies = document.getElementById('ulHTML');
 const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
-let inputValue=[]
+let inputValue=''
 let items=[]
 let n=''
 
@@ -27,7 +27,7 @@ btn.addEventListener('click', renderHTML)
 
 async function renderHTML(){
 
-  inputValue.push([inputText.value])
+  inputValue=[inputText.value]
 inputText.value = '' 
  
 
