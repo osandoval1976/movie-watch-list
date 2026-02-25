@@ -6,7 +6,11 @@ let items=[]
 let n=''
 
 
-JSON.parse(localStorage.getItem('mobieCard'))
+let x = JSON.parse(localStorage.getItem('mobieCard'))
+if(x){
+inputValue = x
+renderHTML()
+}
 
 
 
