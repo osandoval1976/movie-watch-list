@@ -7,10 +7,11 @@ let n=''
 
 
 let x = JSON.parse(localStorage.getItem('mobieCard'))
+console.log(x)
 if(x){
   for(let i of x){
 inputValue = i
-console.log(inputValue, i)
+console.log(inputValue)
   }
 renderHTML()
 }
