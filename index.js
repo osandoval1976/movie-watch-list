@@ -1,7 +1,7 @@
 const movies = document.getElementById('ulHTML');
 const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
-let inputValue=''
+let inputValue=[]
 let items=[]
 let n=[]
 
@@ -19,7 +19,7 @@ renderHTML()
 btn.addEventListener('click', renderHTML())
 
 async function renderHTML(){
-inputValue=inputText.value
+inputValue.push(inputText.value)
 
 let apiUrls = [`https://www.omdbapi.com/?apikey=4c9cae68&t=${inputValue}`]
 const resp = await fetch( apiUrls)
