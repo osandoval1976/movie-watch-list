@@ -3,10 +3,10 @@ const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
 let inputValue=[]
 let items=[]
-let n=[]
+let n=''
 
 
-let m = JSON.parse(localStorage.getItem('mobieCard'))
+JSON.parse(localStorage.getItem('mobieCard'))
 
 
 
@@ -38,7 +38,7 @@ console.log(items)
 /*for loop to render html on index.html*/     
 for(let i of items){
   
-  n =[ `
+  n = `
   <div class='container-1'>
       <div class='text-1'>
       <h3 class='title'>${i.title}</h3>
@@ -61,7 +61,7 @@ for(let i of items){
       <span  >${i.poster}</span> 
       </div>
       </div>
-      `]
+      `
      
 }
 
