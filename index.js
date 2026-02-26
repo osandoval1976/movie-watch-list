@@ -28,9 +28,10 @@ for(let i of x){
   items=[...items, newItems]
   console.log(items)
   renderHTML()
-}catch(err){
-   console.log(`Opss:` err)
+}catch (error) { // Line 31
+  console.error('An error occurred:', error);
 }
+console.log('Operation finished');
 }
 btn.addEventListener('click', renderHTML)
 
