@@ -6,7 +6,7 @@ let items=[]
 let n=''
 let newItems
 let firstItems=''
-
+try{
 let x = JSON.parse(localStorage.getItem('mobieCard'));
 console.log(x)
 
@@ -28,30 +28,25 @@ for(let i of x){
   items=[...items, newItems]
   console.log(items)
   renderHTML()
-  
- 
+}catch(err){
+   console.log(`Opss:` err)
+}
 }
 btn.addEventListener('click', renderHTML)
 
-async function renderHTML(){
 
-  inputValue=[inputText.value]
-inputText.value = '' 
+try{
  
-
-
-
-    fetch(`https://www.omdbapi.com/?apikey=4c9cae68&t=${inputValue}`)
-        .then(response => {
+inputValue=[inputText.value]
+inputText.value = '' 
+const response = await fetch(`https://www.omdbapi.com/?apikey=4c9cae68&t=${inputValue}`)
+const post = await   response.json()
             if (!response.ok) {
                 // If response is not OK, it might not be JSON.
                 // Throw an error or handle accordingly.
                 throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json(); // .json() handles JSON.parse() internally
-        })
-        .then(post => {
-          items=[{ title: post.Title,
+            }else{        
+            items=[{ title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
                         genre: post.Genre,
@@ -59,21 +54,21 @@ inputText.value = ''
                         image: `<img  class="icon" src=${"images/icon-20.svg"}>`,
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
-}]
+                  }]
 
-            
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
-    
-               
-
-
+      
+let clicked=''  
+document.getElementById('btn-1').addEventListener('click', function(e){
+clicked = e.target.span
+storageRender(items)
+ }) 
+function storageRender(m){
+localStorage.setItem('mobieCard', JSON.stringify(m)) 
+renderHTML()
+}     
+        
 /*for loop to render html on index.html*/  
-    
-    for(let i of items){
-  
+for(let i of items){
   n = `
   <div class='container-1'>
       <div class='text-1'>
@@ -96,24 +91,17 @@ inputText.value = ''
        <div class='text-5'>
       <span  >${i.poster}</span> 
       </div>
-      </div>
-      `
-     
+      </div> `     
 
 }
+ }catch(error) {
+            console.error('There was a problem with the fetch operation:', error);
+   
+} 
    movies.innerHTML = n 
 
  
- let clicked=''  
-document.getElementById('btn-1').addEventListener('click', function(e){
-clicked = e.target.span
-storageRender(items)
- }) 
-function storageRender(m){
-localStorage.setItem('mobieCard', JSON.stringify(m)) 
-renderHTML()
-}
 
-}
+
 
 
