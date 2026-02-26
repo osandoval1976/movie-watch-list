@@ -4,52 +4,33 @@ let inputText = document.getElementById('search-site');
 let inputValue=[]
 let items=[]
 let n=''
-let newItems=''
+let newItems
 let firstItems=''
 
-let mobieCardData = localStorage.getItem('mobieCard');
+let x = JSON.parse(localStorage.getItem('mobieCard'));
+console.log(x)
 
-// Check if mobieCardData is null or an empty string before parsing
-let x = []; // Default to an empty array
-if (mobieCardData) { // Only parse if it's not null or empty
-    try {
-        x = JSON.parse(mobieCardData);
-    } catch (e) {
-        // Handle potential parsing errors if the data is malformed JSON
-        console.error("Error parsing 'mobieCard' from localStorage:", e);
-        // You might want to clear the corrupted data or log it
-        // localStorage.removeItem('mobieCard');
-    }
-}
-
-
- if(x.length === 0){ 
-   
-  for(let i of x){
-    
-  inputValue = i.title
-   fetch( `https://www.omdbapi.com/?apikey=4c9cae68&t=${inputValue}`)
-   .then(response =>response.json())
-   .then(data=>{
-      
-    newItems={ 
-                        title: data.Title,
-                        rating: data.imdbRating,
-                        time: data.Runtime,
-                        genre: data.Genre,
+if (x) { // Only parse if it's not null or empty
+for(let i of x){
+   newItems={ 
+                        title: i.Title,
+                        rating: i.imdbRating,
+                        time: i.Runtime,
+                        genre: i.Genre,
                         anTag: `<img  class="icon" src=${"images/icon-10.svg"}>`,
                         image: `<img  class="icon" src=${"images/icon-20.svg"}>`,
-                        plot: data.Plot,
-                        poster: `<img class="poster" src=${data.Poster}>`
+                        plot: i.Plot,
+                        poster: `<img class="poster" src=${i.Poster}>`
 }
  
-   })
-  }
+   }
+ 
   items=[...items, newItems]
   console.log(items)
   renderHTML()
   
- }
+ 
+}
 btn.addEventListener('click', renderHTML)
 
 async function renderHTML(){
@@ -70,7 +51,7 @@ inputText.value = ''
             return response.json(); // .json() handles JSON.parse() internally
         })
         .then(post => {
-          firstItems=[{ title: post.Title,
+          items=[{ title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
                         genre: post.Genre,
@@ -79,8 +60,7 @@ inputText.value = ''
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
 }]
-items=[...items, firstItems]
-console.log(items)
+
             
         })
         .catch(error => {
@@ -91,8 +71,8 @@ console.log(items)
 
 
 /*for loop to render html on index.html*/  
- 
-for(let i of firstItems){
+    
+    for(let i of items){
   
   n = `
   <div class='container-1'>
@@ -127,11 +107,13 @@ for(let i of firstItems){
  let clicked=''  
 document.getElementById('btn-1').addEventListener('click', function(e){
 clicked = e.target.span
-storageRender(firstItems)
+storageRender(items)
  }) 
-}
-function storageRender(x){
-localStorage.setItem('mobieCard', JSON.stringify(x)) 
+function storageRender(m){
+localStorage.setItem('mobieCard', JSON.stringify(m)) 
 renderHTML()
 }
+
+}
+
 
