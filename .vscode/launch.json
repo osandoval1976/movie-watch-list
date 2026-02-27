@@ -6,7 +6,7 @@
     "configurations": [
         
         {
-            "type": "pwa-msedge",
+            "type": "msedge",
             "name": "Launch Microsoft Edge",
             "request": "launch",
             "runtimeArgs": [
