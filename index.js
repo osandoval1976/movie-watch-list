@@ -5,42 +5,44 @@ let inputValue=[]
 let items=[]
 let n=''
 let newItems
-let firstItems=''
+let firstItems
 
 let x = JSON.parse(localStorage.getItem('mobieCard'));
-console.log(x)
-
 if (x) { // Only parse if it's not null or empty
-for(let i of x){
- 
-   newItems={ 
-                        title: i.Title,
-                        rating: i.imdbRating,
-                        time: i.Runtime,
-                        genre: i.Genre,
+for(let post of x) {
+      
+      newItems=[{ title: post.title,
+                        rating: post.rating,
+                        time: post.time,
+                        genre: post.genre,
                         anTag: `<img  class="icon" src=${"images/icon-10.svg"}>`,
                         image: `<img  class="icon" src=${"images/icon-20.svg"}>`,
-                        plot: i.Plot,
-                        poster: `<img class="poster" src=${i.Poster}>`
+                        plot: post.plot,
+                        poster: `<img class="poster" src=${post.poster}>`
+                  }]
+                 
+ renderHTML()
 }
- 
-   }
- 
-  items=[...items, newItems]
-  console.log(items)
-  renderHTML()
+items = [...items,newItems] 
   }
 
 btn.addEventListener('click', renderHTML)
 
 
 
-async function renderHTML(){
+
+async function renderHTML() {
+      
+     
 inputValue=[inputText.value]
 inputText.value = '' 
-
+try{
+   
 const response = await fetch(`https://www.omdbapi.com/?apikey=4c9cae68&t=${inputValue}`)
 const post = await response.json()
+if(!response.ok){
+throw Error("Something went wrong")
+}
              items=[{ title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
@@ -51,8 +53,9 @@ const post = await response.json()
                         poster: `<img class="poster" src=${post.Poster}>`
                   }]
                   
-      console.log(items)        
-
+   
+           
+            
 for(let i of items){
   n = `
   <div class='container-1'>
@@ -82,20 +85,27 @@ for(let i of items){
 
 
 }  
-
  movies.innerHTML = n 
 
+ 
 
 let clicked=''  
 document.getElementById('btn-1').addEventListener('click', function(e){
 clicked = e.target.span
-
-storageRender(firstItems)
+storageRender(items)
  })
+
+}catch(err){
+console.log(err)
+movies.innerHTML = `Opss, try again`
 }
- function storageRender(m){
+
+
+
+ }
+function storageRender(m){
 localStorage.setItem('mobieCard', JSON.stringify(m)) 
-} 
+}
 
 
 

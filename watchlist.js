@@ -1,13 +1,14 @@
 let items =[]
-let y =[]
+let newItems =[]
 let newStorage=''
 let m = ''
 let x = JSON.parse(localStorage.getItem('mobieCard')); // Example source
+
 if (x) { // Check if the string is not empty or null
   
-    for(let i of data) {
+    for(let i of x) {
  
-                                    items +=[`<li class='ulList'>
+                                    newItems +=[`<li class='ulList'>
                                       <div class='container-2'>
                                       <div class='text-1'>
                                       <span   class='title'>${i.title}</span >
@@ -30,25 +31,21 @@ if (x) { // Check if the string is not empty or null
                                           </div>   
                                           </div>  
                                           </li>`]
-
-
- 
-
-
-
 };
-                 
+
+ items=[...items,newItems]
+ 
+  document.querySelector('#html').innerHTML =items  
+            
 }
 
  
-
-
- 
-
+  
 
  
- console.log(items)
-  document.querySelector('#html').innerHTML +=items                 
+
+
+              
 
 
 
