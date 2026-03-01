@@ -18,7 +18,7 @@ inputValue=[inputText.value]
 const response = await fetch(`https://www.omdbapi.com/?apikey=4c9cae68&t=${inputValue}`)
 const post = await response.json()
 if(!response.ok){
-throw Error("Something went wrong", response.status)
+throw Error("Something went wrong", !response.status)
 }
              firstItems=[{ title: post.Title,
                         rating: post.imdbRating,
@@ -31,7 +31,7 @@ throw Error("Something went wrong", response.status)
                   }]
                   
   }catch(err){
-console.error(`trya again:`,err)
+console.error(`try again:`,err)
 movies.innerHTML = `Opss, try again`
 }finally{ 
           
@@ -82,11 +82,12 @@ storageRender(firstItems)
 
 
  }
-p = JSON.parse(localStorage.getItem('mobileCard'));
-if (p) { // Check if the string is not empty or null
+ 
+p = JSON.parse(localStorage.getItem('mobieCard'));
+if (p === 'undefined') { // Check if the string is not empty or null
  
       for(let post of p){
-         newItems= [{ title: post.title,
+         newItems= { title: post.title,
                         rating: post.rating,
                         time: post.time,
                         genre: post.genre,
@@ -95,10 +96,12 @@ if (p) { // Check if the string is not empty or null
                         plot: post.plot,
                         poster: `<img class="poster" src=${post.poster}>`
                         
-         }] 
-      
- }
-   firstItems = newItems
+         }
+      }
+ 
+ console.log(newItems)
+ firstItems =[newItems] 
+ storageRender()
  }
 
  function storageRender(m){
