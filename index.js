@@ -4,21 +4,52 @@ let inputText = document.getElementById('search-site');
 let inputValue=[]
 let items=[]
 let n=''
-let newItems={}
+let newItems=[]
 let firstItems=[]
-let p =[]
+let p =[] 
+let r=[]
+ p=JSON.parse(localStorage.getItem('mobieCard'));
 
+ 
+if (p) { // Check if the string is not empty or null
+  for(let i of p){
+    if(i){
+newItems= [{
+                        title:i.title,
+                        rating: i.rating,
+                        time: i.time,
+                        genre: i.genre,
+                        anTag: `<img  class="icon" src=${"images/icon-10.svg"}>`,
+                        image: `<img  class="icon" src=${"images/icon-20.svg"}>`,
+                        plot: i.plot,
+                        poster: `<img class="poster" src=${i.poster}>`
+}]
+}
+} 
+}if(newItems){
+localStorage.setItem('mobieCard', JSON.stringify(newItems))
+r= JSON.parse(localStorage.getItem('mobieCard'))
+renderHTML()
+}if(p){
+p=r
+console.log(p, r)
+}
+ 
 
 btn.addEventListener('click', renderHTML)
 
 async function renderHTML() {
   try{     
-inputValue=[inputText.value]
- inputText.value = '' 
-const response = await fetch(`https://www.omdbapi.com/?apikey=4c9cae68&t=${inputValue}`)
+items=[inputText.value]
+inputText.value = '' 
+
+
+
+
+const response = await fetch(`https://www.omdbapi.com/?apikey=285370f9&t=${items}`)
 const post = await response.json()
 if(!response.ok){
-throw Error("Something went wrong", !response.status)
+throw Error("Something went wrong", response.status)
 }
              firstItems=[{ title: post.Title,
                         rating: post.imdbRating,
@@ -35,9 +66,11 @@ console.error(`try again:`,err)
 movies.innerHTML = `Opss, try again`
 }finally{ 
           
-            
+ 
+  
+
 for(let i of firstItems){
-  n = `
+  n = `<li>
   <div class='container-1'>
       <div class='text-1'>
       <h3 class='title'>${i.title}</h3>
@@ -59,7 +92,7 @@ for(let i of firstItems){
        <div class='text-5'>
       <span  >${i.poster}</span> 
       </div>
-      </div> `    
+      </div> </li>`    
     
       
 
@@ -73,40 +106,17 @@ for(let i of firstItems){
 let clicked=''  
 document.getElementById('btn-1').addEventListener('click', function(e){
 clicked = e.target.span
-storageRender(firstItems)
+localStorage.setItem('mobieCard', JSON.stringify(firstItems))
 
  })
 }
 
-
-
-
  }
  
-p = JSON.parse(localStorage.getItem('mobieCard'));
-if (p === 'undefined') { // Check if the string is not empty or null
- 
-      for(let post of p){
-         newItems= { title: post.title,
-                        rating: post.rating,
-                        time: post.time,
-                        genre: post.genre,
-                        anTag: `<img  class="icon" src=${"images/icon-10.svg"}>`,
-                        image: `<img  class="icon" src=${"images/icon-20.svg"}>`,
-                        plot: post.plot,
-                        poster: `<img class="poster" src=${post.poster}>`
-                        
-         }
-      }
- 
- console.log(newItems)
- firstItems =[newItems] 
- storageRender()
- }
 
- function storageRender(m){
-localStorage.setItem('mobieCard', JSON.stringify(m))
- }
+ 
+
+ 
 
 
 
