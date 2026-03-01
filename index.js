@@ -8,31 +8,31 @@ let newItems=[]
 let firstItems=[]
 let p =[] 
 let r=[]
- p=JSON.parse(localStorage.getItem('mobieCard'));
-
- 
-if (p) { // Check if the string is not empty or null
+p=JSON.parse(localStorage.getItem('mobieCard'));
+ if (p) { 
   for(let i of p){
-    if(i){
-newItems= [{
-                        title:i.title,
-                        rating: i.rating,
-                        time: i.time,
-                        genre: i.genre,
+   
+items = i.title   
+if(items){
+  fetch(`https://www.omdbapi.com/?apikey=285370f9&t=${items}`)
+  .then(resp=>resp.json())
+  .then(post=>{
+    console.log(post)
+    newItems =[{
+                        title: post.Title,
+                        rating: post.imdbRating,
+                        time: post.Runtime,
+                        genre: post.Genre,
                         anTag: `<img  class="icon" src=${"images/icon-10.svg"}>`,
                         image: `<img  class="icon" src=${"images/icon-20.svg"}>`,
-                        plot: i.plot,
-                        poster: `<img class="poster" src=${i.poster}>`
-}]
+                        plot: post.Plot,
+                        poster: `<img class="poster" src=${post.Poster}>`
+
+    }]
+  })          
+renderHTML()
 }
 } 
-}if(newItems){
-localStorage.setItem('mobieCard', JSON.stringify(newItems))
-r= JSON.parse(localStorage.getItem('mobieCard'))
-renderHTML()
-}if(p){
-p=r
-console.log(p, r)
 }
  
 
@@ -106,8 +106,11 @@ for(let i of firstItems){
 let clicked=''  
 document.getElementById('btn-1').addEventListener('click', function(e){
 clicked = e.target.span
+if(firstItems){
+firstItems=[...firstItems, newItems]
 localStorage.setItem('mobieCard', JSON.stringify(firstItems))
 
+}
  })
 }
 
