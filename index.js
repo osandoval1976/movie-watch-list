@@ -2,19 +2,22 @@ const movies = document.getElementById('ulHTML');
 const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
 let inputValue=[]
-let items=[]
+let title=[]
 let n=''
 let newItems=[]
+let newTitle=[]
 let firstItems=[]
 let p =[] 
 let r=[]
 p=JSON.parse(localStorage.getItem('mobieCard'));
+
  if (p) { 
   for(let i of p){
    
-items = i.title   
-if(items){
-  fetch(`https://www.omdbapi.com/?apikey=285370f9&t=${items}`)
+newTitle = i.title 
+title = newTitle 
+if(newTitle){
+  fetch(`https://www.omdbapi.com/?apikey=285370f9&t=${newTitle}`)
   .then(resp=>resp.json())
   .then(post=>{
     console.log(post)
@@ -29,24 +32,25 @@ if(items){
                         poster: `<img class="poster" src=${post.Poster}>`
 
     }]
-  })          
-renderHTML()
+  })    
+ 
+  renderHTML()
 }
 } 
 }
- 
+
 
 btn.addEventListener('click', renderHTML)
 
 async function renderHTML() {
   try{     
-items=[inputText.value]
+title=[inputText.value]
 inputText.value = '' 
 
 
 
 
-const response = await fetch(`https://www.omdbapi.com/?apikey=285370f9&t=${items}`)
+const response = await fetch(`https://www.omdbapi.com/?apikey=285370f9&t=${title}`)
 const post = await response.json()
 if(!response.ok){
 throw Error("Something went wrong", response.status)
@@ -107,10 +111,11 @@ let clicked=''
 document.getElementById('btn-1').addEventListener('click', function(e){
 clicked = e.target.span
 if(firstItems){
-firstItems=[...firstItems, newItems]
+firstItems.push(newItems)
 localStorage.setItem('mobieCard', JSON.stringify(firstItems))
 
 }
+
  })
 }
 
