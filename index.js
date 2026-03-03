@@ -101,14 +101,9 @@ for(let i of firstItems){
 let clicked=''  
 document.getElementById('btn-1').addEventListener('click', function(e){
 clicked = e.target.span
-
 localStorage.setItem('mobieCard', JSON.stringify(firstItems))
-
-if(firstItems){
- firstItems=[...firstItems, newItems]
-}
-
- })
+firstItems=[...firstItems, newItems]
+})
 }
 }
 
