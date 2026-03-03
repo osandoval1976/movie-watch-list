@@ -15,13 +15,13 @@ p=JSON.parse(localStorage.getItem('mobieCard'));
   for(let i of p){
    
 newTitle = i.title 
-title = newTitle 
+ 
 if(newTitle){
-  fetch(`https://www.omdbapi.com/?apikey=285370f9&t=${newTitle}`)
+  fetch(`https://www.omdbapi.com/?apikey=4c9cae68&t=${newTitle}`)
   .then(resp=>resp.json())
   .then(post=>{
     console.log(post)
-    newItems =[{
+    newItems ={
                         title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
@@ -31,9 +31,10 @@ if(newTitle){
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
 
-    }]
+    }
+    
   })    
- 
+  
   renderHTML()
 }
 } 
@@ -44,18 +45,16 @@ btn.addEventListener('click', renderHTML)
 
 async function renderHTML() {
   try{     
-title=[inputText.value]
+title=inputText.value
 inputText.value = '' 
-
-
-
-
-const response = await fetch(`https://www.omdbapi.com/?apikey=285370f9&t=${title}`)
+const response = await fetch(`https://www.omdbapi.com/?apikey=4c9cae68&t=${title}`)
 const post = await response.json()
 if(!response.ok){
 throw Error("Something went wrong", response.status)
 }
-             firstItems=[{ title: post.Title,
+
+             firstItems=[{ 
+                        title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
                         genre: post.Genre,
@@ -69,9 +68,6 @@ throw Error("Something went wrong", response.status)
 console.error(`try again:`,err)
 movies.innerHTML = `Opss, try again`
 }finally{ 
-          
- 
-  
 
 for(let i of firstItems){
   n = `<li>
@@ -97,29 +93,26 @@ for(let i of firstItems){
       <span  >${i.poster}</span> 
       </div>
       </div> </li>`    
-    
-      
-
-
 }  
 
  movies.innerHTML = n 
 
- 
 
 let clicked=''  
 document.getElementById('btn-1').addEventListener('click', function(e){
 clicked = e.target.span
-if(firstItems){
-firstItems.push(newItems)
+
 localStorage.setItem('mobieCard', JSON.stringify(firstItems))
 
+if(firstItems){
+ firstItems=[...firstItems, newItems]
 }
 
  })
 }
+}
 
- }
+
  
 
  
