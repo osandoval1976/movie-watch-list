@@ -7,7 +7,8 @@ let n=''
 let firstItems=[]
 let newlocalStorage=JSON.parse(localStorage.getItem('mobieCard'));
 if(!newlocalStorage){
-firstItems =newlocalStorage
+firstItems = newlocalStorage
+
 console.log(firstItems)
 renderHTML()
 }
