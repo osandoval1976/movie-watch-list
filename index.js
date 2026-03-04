@@ -4,15 +4,11 @@ let inputText = document.getElementById('search-site');
 let inputValue=[]
 let title=[]
 let n=''
-let newItems=[]
-let newTitle=[]
 let firstItems=[]
-let p =[] 
-let r=[]
-p=JSON.parse(localStorage.getItem('mobieCard'));
-if(p !== firstItems){
-firstItems =p
-console.log(firstItems,p)
+let newlocalStorage=JSON.parse(localStorage.getItem('mobieCard'));
+if(!newlocalStorage){
+firstItems =newlocalStorage
+console.log(firstItems)
 renderHTML()
 }
 
@@ -77,6 +73,7 @@ for(let i of firstItems){
 let clicked=''  
 document.getElementById('btn-1').addEventListener('click', function(e){
 clicked = e.target.span
+
 localStorage.setItem('mobieCard', JSON.stringify(firstItems))
 })
 }
