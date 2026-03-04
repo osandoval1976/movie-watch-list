@@ -35,9 +35,15 @@ if (p) { // Check if the string is not empty or null
                                           </li>`]
                                             
 };
-
   document.querySelector('#html').innerHTML =items  
-            
+let removeItems=''  
+document.getElementById('btn-3').addEventListener('click', function(e){
+removeItems = e.target.span
+if(items){
+localStorage.removeItem('mobieCard')
+}
+})
+
 }
 
  
