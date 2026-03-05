@@ -5,17 +5,15 @@ let inputValue=[]
 let title=[]
 let n=''
 let firstItems=[]
+ let clicked= ''
 let newlocalStorage=JSON.parse(localStorage.getItem('mobieCard'));
-if(!newlocalStorage){
+if(newlocalStorage){
 firstItems = newlocalStorage
-
-console.log(firstItems)
 renderHTML()
+console.log(firstItems)
 }
-
-btn.addEventListener('click', renderHTML)
-
-async function renderHTML() {
+function renderHTML(){
+btn.addEventListener('click', async ()=> {
   try{     
 title=inputText.value
 inputText.value = '' 
@@ -67,20 +65,16 @@ for(let i of firstItems){
       </div>
       </div> </li>`    
 }  
-
  movies.innerHTML = n 
-
-
-let clicked=''  
-document.getElementById('btn-1').addEventListener('click', function(e){
+document.getElementById('btn-1').addEventListener('click', function (e){
 clicked = e.target.span
-
+if(firstItems){
 localStorage.setItem('mobieCard', JSON.stringify(firstItems))
+}
 })
 }
+})
 }
-
-
  
 
  
