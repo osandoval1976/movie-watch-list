@@ -1,22 +1,30 @@
 const movies = document.getElementById('ulHTML');
 const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
-let inputValue=[]
 let title=[]
 let n=''
 let firstItems=[]
  let clicked= ''
+ let pushItems=[]
 let newlocalStorage=JSON.parse(localStorage.getItem('mobieCard'));
 if(newlocalStorage){
-firstItems = newlocalStorage
-renderHTML()
-console.log(firstItems)
+  for(let i of newlocalStorage){
+    let newTitle = i.title
+    if(newTitle){
+      title = newTitle
+      console.log(title)
+    }
+    renderHTML()
+  }
+}if(newlocalStorage){
+  firstItems = newlocalStorage
 }
 function renderHTML(){
 btn.addEventListener('click', async ()=> {
-  try{     
+  try{        
 title=inputText.value
-inputText.value = '' 
+inputText
+.value=''
 
 const response = await fetch(`https://www.omdbapi.com/?apikey=285370f9&t=${title}`)
 const post = await response.json()
@@ -24,7 +32,7 @@ if(!response.ok){
 throw Error("Something went wrong", response.status)
 }
 
-             firstItems=[{ 
+             pushItems=[{ 
                         title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
@@ -34,20 +42,24 @@ throw Error("Something went wrong", response.status)
                         plot: post.Plot,
                         poster: `<img class="poster" src=${post.Poster}>`
                   }]
-                  
+
+          
+            
+          
+                 
   }catch(err){
 console.error(`try again:`,err)
 movies.innerHTML = `Opss, try again`
 }finally{ 
-
-for(let i of firstItems){
+firstItems.unshift(pushItems)
+console.log(firstItems)
+for(let i of pushItems){
   n = `<li>
   <div class='container-1'>
       <div class='text-1'>
       <h3 class='title'>${i.title}</h3>
       <span class='start' style="color: #e4bd0f">&#9733</span>
       <span class='rating'>${i.rating}</span>
-      
       </div>
       <div  class='text-2'>
       <span class='time'>${i.time}</span>
