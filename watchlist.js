@@ -9,8 +9,8 @@ p = JSON.parse(localStorage.getItem('mobieCard'));
 if (p) { // Check if the string is not empty or null
   
     for(let i of p) {
- 
-                                    items =[`<li class='ulList'>
+     if(i){
+                                    items =[{`<li class='ulList'>
                                       <div class='container-2'>
                                       <div class='text-1'>
                                       <span   class='title'>${i.title}</span >
@@ -32,12 +32,15 @@ if (p) { // Check if the string is not empty or null
                                         <span>${i.poster}</span> 
                                           </div>   
                                           </div>  
-                                          </li>`]
+                                          </li>`}]
+     }if(items){
       newItems.unshift(items)
-                                            
+         
+      }
+      document.querySelector('#html').innerHTML = newItems
 };
   
-  document.querySelector('#html').innerHTML = newItems 
+  
 let removeItems=''  
 document.getElementById('btn-3').addEventListener('click', function(e){
 removeItems = e.target.span
