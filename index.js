@@ -8,16 +8,8 @@ let firstItems=[]
  let pushItems=[]
 let newlocalStorage=JSON.parse(localStorage.getItem('mobieCard'));
 if(newlocalStorage){
-  for(let i of newlocalStorage){
-    let newTitle = i.title
-    if(newTitle){
-      title = newTitle
-      console.log(title)
-    }
-    renderHTML()
-  }
-}if(newlocalStorage){
   firstItems = newlocalStorage
+ renderHTML()
 }
 function renderHTML(){
 btn.addEventListener('click', async ()=> {
