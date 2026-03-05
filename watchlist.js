@@ -10,7 +10,7 @@ if (p) { // Check if the string is not empty or null
   
     for(let i of p) {
  
-                                    items +=[`<li class='ulList'>
+                                    items +=`<li class='ulList'>
                                       <div class='container-2'>
                                       <div class='text-1'>
                                       <span   class='title'>${i.title}</span >
@@ -32,7 +32,7 @@ if (p) { // Check if the string is not empty or null
                                         <span>${i.poster}</span> 
                                           </div>   
                                           </div>  
-                                          </li>`]
+                                          </li>`
                                             
 };
   document.querySelector('#html').innerHTML =items  
