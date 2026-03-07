@@ -15,7 +15,7 @@ if(newlocalStorage){
 
 function renderHTML(){
 btn.addEventListener('click', async ()=> {
-  try{        
+  try{      
 title=inputText.value
 inputText.value=''
 
