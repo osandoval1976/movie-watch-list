@@ -7,7 +7,7 @@ let items =''
     
 for(let i of m){
 
-                              items +=`
+                              items =`
                                       <li class="ulList">
                                       <div class="container-2">
                                       <div class="text-1">
@@ -38,7 +38,7 @@ for(let i of m){
   
 
  console.log(items)
-    document.querySelector('#html').innerHTML = items
+    document.querySelector('#html').innerHTML += items
 /*let removeItems=''  
 document.getElementById('btn-3').addEventListener('click', function(e){
 removeItems = e.target.span
