@@ -39,8 +39,8 @@ throw Error("Something went wrong", response.status)
                         poster: `<img class="poster" src=${post.Poster}>`
                   }]
 
-          
-                        
+ 
+ 
           
                  
   }catch(err){

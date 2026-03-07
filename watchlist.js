@@ -1,13 +1,13 @@
 
 let newItems =[]
-let newStorage=''
-let p = localStorage.getItem('mobieCard');
-let m = JSON.parse(p)
 let items =[] 
-    
-for(let i of m){
 
-                              items +=`
+const m = localStorage.getItem('mobieCard')
+const n = JSON.parse(m) 
+if(n){
+for(let i of n){
+ 
+                              items += `
                                       <li class="ulList">
                                       <div class="container-2">
                                       <div class="text-1">
@@ -33,12 +33,14 @@ for(let i of m){
                                           </li>`
     
     
-        
+}
+ 
+document.querySelector('#html').innerHTML = items      
+}else{
+  items = 'Nothing found!'
 };
-  
+ 
 
- console.log(items)
-    document.querySelector('#html').innerHTML = items
 /*let removeItems=''  
 document.getElementById('btn-3').addEventListener('click', function(e){
 removeItems = e.target.span
