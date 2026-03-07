@@ -4,10 +4,11 @@ let newStorage=''
 let p = localStorage.getItem('mobieCard');
 let m = JSON.parse(p)
 let items =''
+if(m){
     
 for(let i of m){
 
-                              items =`
+                 items =`
                                       <li class="ulList">
                                       <div class="container-2">
                                       <div class="text-1">
@@ -33,12 +34,13 @@ for(let i of m){
                                           </li>`
     
     
-        
+ newItems.push(items)       
 };
   
-newItems.push(items)
- console.log(items)
+
+ console.log(items, newItems)
     document.querySelector('#html').innerHTML = newItems
+}
 /*let removeItems=''  
 document.getElementById('btn-3').addEventListener('click', function(e){
 removeItems = e.target.span
