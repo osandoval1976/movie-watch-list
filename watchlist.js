@@ -8,7 +8,7 @@ if(m){
 for(let i of m){
 console.log(i[0].title)
                               items +=`
-                                      <li class="ulList">
+                                      <li id='remove' class="ulList">
                                       <div class="container-2">
                                       <div class="text-1">
                                       <span   class="title">${i[0].title}</span >
@@ -20,7 +20,7 @@ console.log(i[0].title)
                                         <span class='genre'>${i[0].genre}</span >
                                         </div>
                                         <div class='text-3'>
-                                        <span id="btn-3" class='btn-1'>${i[0].image} </span >
+                                        <span id="btn-3" class='btn-3'>${i[0].image} </span >
                                         <span class='wlist'>remove  </span>
                                        </div>
                                        <div class='text-4'>
@@ -39,18 +39,25 @@ console.log(i[0].title)
 
  
     document.querySelector('#html').innerHTML = items
-  }
-let removeItems=''  
+  
+function removeHTML(){
+const element = document.getElementById('remove')
+
+
 document.getElementById('btn-3').addEventListener('click', function(e){
+  let removeItems=''  
+if(e){
 removeItems = e.target.span
-if(items){
-localStorage.removeItem('mobieCard')
+element.remove()
+}else{
+  localStorage.removeItem('mobieCard')
 }
-})
+
     
-
-
- 
+})
+}
+removeHTML()
+}
   
 
  
