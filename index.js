@@ -1,30 +1,30 @@
 const movies = document.getElementById('ulHTML');
 const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
-let title=[]
+let title=''
 let n=''
 let firstItems=[]
  let clicked= ''
  let pushItems=[]
+
 let newlocalStorage=JSON.parse(localStorage.getItem('mobieCard'));
 if(newlocalStorage){
   firstItems = newlocalStorage
  renderHTML()
 }
+
 function renderHTML(){
 btn.addEventListener('click', async ()=> {
   try{        
 title=inputText.value
-inputText
-.value=''
+inputText.value=''
 
 const response = await fetch(`https://www.omdbapi.com/?apikey=285370f9&t=${title}`)
 const post = await response.json()
 if(!response.ok){
 throw Error("Something went wrong", response.status)
 }
-
-             pushItems=[{ 
+        pushItems=[{ 
                         title: post.Title,
                         rating: post.imdbRating,
                         time: post.Runtime,
