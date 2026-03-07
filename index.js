@@ -1,7 +1,7 @@
 const movies = document.getElementById('ulHTML');
 const btn = document.getElementById('btn');
 let inputText = document.getElementById('search-site');
-let title=''
+let title=[]
 let n=''
 let firstItems=[]
  let clicked= ''
@@ -13,10 +13,14 @@ if(newlocalStorage){
  renderHTML()
 }
 
-function renderHTML(){
-btn.addEventListener('click', async ()=> {
+
+btn.addEventListener('click', renderHTML)
+  
+  
+  async function renderHTML () {
+  
   try{      
-title=inputText.value
+title=[inputText.value]
 inputText.value=''
 
 const response = await fetch(`https://www.omdbapi.com/?apikey=285370f9&t=${title}`)
@@ -36,13 +40,14 @@ throw Error("Something went wrong", response.status)
                   }]
 
           
-            
+                        
           
                  
   }catch(err){
 console.error(`try again:`,err)
 movies.innerHTML = `Opss, try again`
 }finally{ 
+  
 firstItems.unshift(pushItems)
 console.log(firstItems)
 for(let i of pushItems){
@@ -70,6 +75,7 @@ for(let i of pushItems){
       </div> </li>`    
 }  
  movies.innerHTML = n 
+
 document.getElementById('btn-1').addEventListener('click', function (e){
 clicked = e.target.span
 if(firstItems){
@@ -77,8 +83,9 @@ localStorage.setItem('mobieCard', JSON.stringify(firstItems))
 }
 })
 }
-})
 }
+
+
  
 
  

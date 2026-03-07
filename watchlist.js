@@ -1,20 +1,16 @@
-let items =[]
+
 let newItems =[]
 let newStorage=''
-let m = []
-let p={}
-
-p = JSON.parse(localStorage.getItem('mobieCard'));
-
-if (p) { // Check if the string is not empty or null
-  
-    for(let i of p) {
-     if(i){
-                                    items =
-                                      `<li class='ulList'>
-                                      <div class='container-2'>
-                                      <div class='text-1'>
-                                      <span   class='title'>${i.title}</span >
+let p = localStorage.getItem('mobieCard');
+let m = JSON.parse(p)
+let items =[] 
+    for(let i of m) {
+      console.log(i)
+                        items =`
+                                      <li class="ulList">
+                                      <div class="container-2">
+                                      <div class="text-1">
+                                      <span   class="title">${i.title}</span >
                                         <span class='start' style="color: #f7cb06;">&#9733</span >
                                         <span class='rating'>${i.rating}</span >
                                         </div>
@@ -34,24 +30,23 @@ if (p) { // Check if the string is not empty or null
                                           </div>   
                                           </div>  
                                           </li>`
-                                        
-     }if(items){
-      newItems.unshift(items)
-         
-      }
-      document.querySelector('#html').innerHTML = newItems
+    
+    
+        
 };
   
-  
-let removeItems=''  
+
+ console.log(items)
+    document.querySelector('#html').innerHTML = items
+/*let removeItems=''  
 document.getElementById('btn-3').addEventListener('click', function(e){
 removeItems = e.target.span
 if(items){
 localStorage.removeItem('mobieCard')
 }
-})
+})*/
+    
 
-}
 
  
   
