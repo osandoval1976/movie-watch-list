@@ -5,8 +5,8 @@ let p = localStorage.getItem('mobieCard');
 let m = JSON.parse(p)
 let items =[] 
     for(let i of m) {
-      console.log(i)
-                        items =`
+      console.log(Object.values(i))
+                        items +=`
                                       <li class="ulList">
                                       <div class="container-2">
                                       <div class="text-1">
