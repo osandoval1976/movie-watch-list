@@ -36,9 +36,9 @@ for(let i of m){
         
 };
   
-
+newItems.push(items)
  console.log(items)
-    document.querySelector('#html').innerHTML += items
+    document.querySelector('#html').innerHTML = newItems
 /*let removeItems=''  
 document.getElementById('btn-3').addEventListener('click', function(e){
 removeItems = e.target.span
