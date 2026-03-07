@@ -3,7 +3,7 @@ let newItems =[]
 let newStorage=''
 let p = localStorage.getItem('mobieCard');
 let m = JSON.parse(p)
-let items =[] 
+let items =''
     
 for(let i of m){
 
