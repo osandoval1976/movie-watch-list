@@ -8,7 +8,7 @@ if(m){
     
 for(let i of m){
 
-                 items ={`
+                 items +=
                                       <li class="ulList">
                                       <div class="container-2">
                                       <div class="text-1">
@@ -31,14 +31,14 @@ for(let i of m){
                                         <span>${i.poster}</span> 
                                           </div>   
                                           </div>  
-                                          </li>`}
+                                          </li>`
     
     
- newItems.push(items)       
+       
 };
   
-
- console.log(items, newItems)
+newItems.push(items) 
+ console.log(newItems)
     document.querySelector('#html').innerHTML = newItems
 }
 /*let removeItems=''  
