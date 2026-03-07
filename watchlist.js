@@ -37,9 +37,8 @@ for(let i of m){
        
 };
   
-newItems.push(items) 
- console.log(newItems)
-    document.querySelector('#html').innerHTML = newItems
+document.querySelector('#html').innerHTML = items
+    
 }
 /*let removeItems=''  
 document.getElementById('btn-3').addEventListener('click', function(e){
