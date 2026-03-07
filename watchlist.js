@@ -42,14 +42,11 @@ console.log(i[0].title)
   
 function removeHTML(){
 const element = document.getElementById('remove')
-
-
 document.getElementById('btn-3').addEventListener('click', function(e){
-  let removeItems=''  
-if(e){
-removeItems = e.target.span
-element.remove()
-}else{
+ let removeItems=''  
+  removeItems = e.target.span
+  element.remove()
+if(typeof (localStorage)){
   localStorage.removeItem('mobieCard')
 }
 
