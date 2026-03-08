@@ -7,7 +7,7 @@ let items =[]
 if(m){
   console.log(m.length)
 for(let i of m){
-                              items +=`
+                              items +=[`
                                       <li id='remove' class="ulList">
                                       <div class="container-2">
                                       <div class="text-1">
@@ -30,7 +30,7 @@ for(let i of m){
                                         <span>${i[0].poster}</span> 
                                           </div>   
                                           </div>  
-                                          </li>`
+                                          </li>`]
     
 
     
