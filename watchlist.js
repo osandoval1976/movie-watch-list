@@ -5,6 +5,7 @@ let p = localStorage.getItem('mobieCard');
 let m = JSON.parse(p)
 let items =[] 
 if(m){
+  console.log(m.length)
 for(let i of m){
                               items +=`
                                       <li id='remove' class="ulList">
@@ -32,7 +33,7 @@ for(let i of m){
                                           </li>`
     
 
-        
+    
 };
   
 
@@ -41,22 +42,26 @@ for(let i of m){
   
 
 const element = document.getElementById('remove')
-document.getElementById('btn-3').addEventListener('click', removeHTML)
+const removeElement=''
+let arrayLength=''
+
+document.getElementById('btn-3').addEventListener('click', function(e){
+ for(let i=0; i< m.length;i++){
+ arrayLength = m[i]
+ console.log(arrayLength)
+   if(e.target.span === arrayLength){
+  removeElement = e.target.span
   
-  
-function removeHTML(e){
-  
- if(e.target.span === 0){
-  return e.target.span
-  
- }if(element.length === 0){
+ }if(removeElement === arrayLength){
+  localStorage.removeItem('mobieCard') 
+}if(element.length === arrayLength){
   element.remove()
- }if(m.length ===0){
-  localStorage.removeItem('mobieCard')
+ }
 }
+})
 
     
-}
+
 
 }
   
