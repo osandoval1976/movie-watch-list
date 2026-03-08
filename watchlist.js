@@ -6,7 +6,6 @@ let m = JSON.parse(p)
 let items =[] 
 if(m){
 for(let i of m){
-console.log(i[0].title)
                               items +=`
                                       <li id='remove' class="ulList">
                                       <div class="container-2">
@@ -32,7 +31,7 @@ console.log(i[0].title)
                                           </div>  
                                           </li>`
     
-    
+
         
 };
   
@@ -40,20 +39,25 @@ console.log(i[0].title)
  
     document.querySelector('#html').innerHTML = items
   
-function removeHTML(){
+
 const element = document.getElementById('remove')
-document.getElementById('btn-3').addEventListener('click', function(e){
- let removeItems=''  
-  removeItems = e.target.span
+document.getElementById('btn-3').addEventListener('click', removeHTML)
+  
+  
+function removeHTML(e){
+  
+ if(e.target.span === 0){
+  return e.target.span
+  
+ }if(element.length === 0){
   element.remove()
-if(typeof (localStorage)){
+ }if(m.length ===0){
   localStorage.removeItem('mobieCard')
 }
 
     
-})
 }
-removeHTML()
+
 }
   
 
