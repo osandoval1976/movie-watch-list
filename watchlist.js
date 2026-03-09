@@ -7,14 +7,14 @@ let items =[]
 if(m){
 
 for(let i=0; i < m.length;i++){
-  console.log(m[i])
+  console.log([i])
 
 /*loop the object for render html on the web*/  
 for(let x of m){
                           
                                
-                                 items +=[`
-                                      <li id='remove' class="ulList" data-id="${i}">
+                                 items +=`
+                                      <li id='remove' class="ulList" data-id="${[i]}">
                                       <div class="container-2">
                                       <div class="text-1">
                                       <span   class="title">${x[i].title}</span >
@@ -36,7 +36,7 @@ for(let x of m){
                                         <span>${x[i].poster}</span> 
                                           </div>   
                                           </div>  
-                                          </li>`]
+                                          </li>`
                                          
                                           
     
@@ -50,7 +50,7 @@ const removeElement =  document.getElementById('remove')
 let element = document.querySelector('li')
 let id = element.dataset.id
 console.log(id)
-if(e){
+if(e.target=== id){
 
 
   if(id == m[i]){
