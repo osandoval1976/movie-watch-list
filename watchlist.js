@@ -43,12 +43,12 @@ newItems.push(items)
 
 document.getElementById('html').innerHTML = newItems
 
-
+/*const remove = document.querySelector('#btn-3')
+let element= remove.dataset.btn
+console.log(element)*/
 
 document.getElementById('btn-3').addEventListener('click', function(e){
-const remove = document.querySelector('#btn-3')
-let element= remove.dataset.btn
-console.log(element)
+
 if(e){
   console.log(e)
   return e.target.button
