@@ -7,15 +7,11 @@ let items =[]
 function newHTML(x){
 let itemsLength = x.length;
 for(let i=0; i < itemsLength;i++){
-
-const itemsLoops = m[i][0]
-
 /*loop the object for render html on the web*/  
-
-                          
+                    
                                
                                  items=[`
-                                      <li id='remove' class="ulList" data-id="${[i][0]}">
+                                      <li id='remove' class="ulList" data-id="${[i]}">
                                       <div class="container-2">
                                       <div class="text-1">
                                       <span   class="title">${m[i][0].title}</span >
@@ -27,7 +23,7 @@ const itemsLoops = m[i][0]
                                         <span class='genre'>${m[i][0].genre}</span >
                                         </div>
                                         <div class='text-3'>
-                                        <button id="btn-3" class='btn-3' data-btn="${[i][0]}">${m[i][0].image}</button >
+                                        <button id="btn-3" class='btn-3' data-btn="${[i]}">${m[i][0].image}</button>
                                         <span class='wlist'>remove  </span>"
                                        </div>
                                        <div class='text-4'>
@@ -44,15 +40,15 @@ const itemsLoops = m[i][0]
 
     
 newItems.push(items)
-}
+
 document.getElementById('html').innerHTML = newItems
 
 
 
 document.getElementById('btn-3').addEventListener('click', function(e){
-/*const remove = document.querySelector('#remove')
-let element= remove.dataset.id
-console.log(element)*/
+const remove = document.querySelector('#btn-3')
+let element= remove.dataset.btn
+console.log(element)
 if(e){
   console.log(e)
   return e.target.button
@@ -61,7 +57,7 @@ if(e){
 })
 }
 
-
+}
 function removeItems(id){
 /*console.log(id)*/
 }
