@@ -75,7 +75,7 @@ for(let i of pushItems){
       </div> </li>`    
 }  
  movies.innerHTML = n 
-
+ 
 document.getElementById('btn-1').addEventListener('click', function (e){
 clicked = e.target.span
 if(firstItems){

@@ -4,65 +4,70 @@ let newStorage=''
 let p = localStorage.getItem('mobieCard');
 let m = JSON.parse(p)
 let items =[] 
-if(m){
+function newHTML(x){
+let itemsLength = x.length;
+for(let i=0; i < itemsLength;i++){
 
-for(let i=0; i < m.length;i++){
-  console.log([i])
+const itemsLoops = m[i][0]
 
 /*loop the object for render html on the web*/  
-for(let x of m){
+
                           
                                
-                                 items +=`
-                                      <li id='remove' class="ulList" data-id="${[i]}">
+                                 items=[`
+                                      <li id='remove' class="ulList" data-id="${[i][0]}">
                                       <div class="container-2">
                                       <div class="text-1">
-                                      <span   class="title">${x[i].title}</span >
+                                      <span   class="title">${m[i][0].title}</span >
                                         <span class='start' style="color: #f7cb06;">&#9733</span >
-                                        <span class='rating'>${x[i].rating}</span >
+                                        <span class='rating'>${m[i][0].rating}</span >
                                         </div>
                                         <div  class='text-2'>
-                                        <span class='time'>${x[i].time}</span> 
-                                        <span class='genre'>${x[i].genre}</span >
+                                        <span class='time'>${m[i][0].time}</span> 
+                                        <span class='genre'>${m[i][0].genre}</span >
                                         </div>
                                         <div class='text-3'>
-                                        <span id="btn-3" class='btn-3'>${x[i].image} </span >
-                                        <span class='wlist'>remove  </span>
+                                        <button id="btn-3" class='btn-3' data-btn="${[i][0]}">${m[i][0].image}</button >
+                                        <span class='wlist'>remove  </span>"
                                        </div>
                                        <div class='text-4'>
-                                        <span>${x[i].plot}</span> 
+                                        <span>${m[i][0].plot}</span> 
                                         </div>
                                           <div class='text-5'>
-                                        <span>${x[i].poster}</span> 
+                                        <span>${m[i][0].poster}</span> 
                                           </div>   
                                           </div>  
-                                          </li>`
+                                          </li>`]
                                          
                                           
     
 
     
-};
-  
-document.querySelector('#html').innerHTML = items
+newItems.push(items)
+}
+document.getElementById('html').innerHTML = newItems
+
+
+
 document.getElementById('btn-3').addEventListener('click', function(e){
-const removeElement =  document.getElementById('remove')
-let element = document.querySelector('li')
-let id = element.dataset.id
-console.log(id)
-if(e.target=== id){
-
-
-  if(id == m[i]){
-    removeElement.remove()
-  }if(m[i]){
-  localStorage.removeItem('mobieCard') 
+/*const remove = document.querySelector('#remove')
+let element= remove.dataset.id
+console.log(element)*/
+if(e){
+  console.log(e)
+  return e.target.button
 }
-}
+ removeItems(e.target.button)
 })
 }
-} 
 
+
+function removeItems(id){
+/*console.log(id)*/
+}
+
+
+newHTML(m)
  
 
 
